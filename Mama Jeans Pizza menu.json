@@ -1,0 +1,1772 @@
+{
+    "id": 9292,
+    "name": "Mama Jeans Pizza",
+    "description": "",
+    "itemCategories": [
+        {
+            "id": "5ce2cb64-63e5-43ad-b442-b50b6f496677",
+            "name": "Pizza",
+            "description": "",
+            "buttonImageUrl": null,
+            "headerImageUrl": null,
+            "iikoGroupId": "cea7ef27-27ba-4461-9971-d321035dab79",
+            "items": [
+                {
+                    "sku": "1200000307",
+                    "name": "All the meats",
+                    "description": "A masterpiece of high-quality meats including pepperoni, sizzling Italian beef and smoked turkey. A new favourite?",
+                    "allergenGroups": [],
+                    "tags": [],
+                    "labels": [],
+                    "itemSizes": [
+                        {
+                            "sku": "1200000307",
+                            "sizeCode": null,
+                            "sizeName": null,
+                            "isDefault": true,
+                            "portionWeightGrams": 0,
+                            "itemModifierGroups": [],
+                            "sizeId": null,
+                            "nutritionPerHundredGrams": {
+                                "fats": 0,
+                                "proteins": 0,
+                                "carbs": 0,
+                                "energy": 0,
+                                "organizations": [
+                                    "988ad887-2099-4f87-bc3c-bde099417235"
+                                ]
+                            },
+                            "prices": [
+                                {
+                                    "organizationId": "988ad887-2099-4f87-bc3c-bde099417235",
+                                    "price": 46
+                                }
+                            ],
+                            "nutritions": [
+                                {
+                                    "fats": 0,
+                                    "proteins": 0,
+                                    "carbs": 0,
+                                    "energy": 0,
+                                    "organizations": [
+                                        "988ad887-2099-4f87-bc3c-bde099417235"
+                                    ]
+                                }
+                            ],
+                            "buttonImageUrl": "https://102922.selcdn.ru/ecomm/middleeast-impl-demolab3/34357/9292/images/items/8c39783c2dc82ec2f73ad05710910a87.JPEG",
+                            "buttonImageCroppedUrl": {
+                                "475x250": {
+                                    "url": "https://102922.selcdn.ru/ecomm/middleeast-impl-demolab3/34357/9292/images/items/18649da41aa2073a5291604005650126.jpeg",
+                                    "hash": "04920abef6ff84f69c87c82c11acd415a20d8b0c",
+                                    "cropped": null
+                                },
+                                "475x250-webp": {
+                                    "url": "https://102922.selcdn.ru/ecomm/middleeast-impl-demolab3/34357/9292/images/items/b0a04b7c412e2e53362155965fe4ddd1.webp",
+                                    "hash": "a1bfd7c164f93a53061128818e3c9c1a693982a6",
+                                    "cropped": null
+                                }
+                            }
+                        }
+                    ],
+                    "itemId": "93a68bd9-2128-4274-97a3-0c343e168c18",
+                    "modifierSchemaId": null,
+                    "taxCategory": {
+                        "id": "2da86f54-5e3a-4e49-92cc-c53626f1c9f5",
+                        "name": "Tax 5%",
+                        "percentage": 5.999
+                    },
+                    "modifierSchemaName": null,
+                    "canBeDivided": false,
+                    "canSetOpenPrice": false,
+                    "useBalanceForSell": false,
+                    "measureUnit": "serv",
+                    "orderItemType": "Product"
+                },
+                {
+                    "sku": "1200000299",
+                    "name": "Chicken BBQ",
+                    "description": "Weve roped in authentic barbeque flavor with this pizza covered in tangy barbeque sauce and piled high with grilled all-white chicken, fresh mushrooms and fresh-sliced onions.",
+                    "allergenGroups": [],
+                    "tags": [],
+                    "labels": [],
+                    "itemSizes": [
+                        {
+                            "sku": "1200000299",
+                            "sizeCode": null,
+                            "sizeName": null,
+                            "isDefault": true,
+                            "portionWeightGrams": 0,
+                            "itemModifierGroups": [],
+                            "sizeId": null,
+                            "nutritionPerHundredGrams": {
+                                "fats": 0,
+                                "proteins": 0,
+                                "carbs": 0,
+                                "energy": 0,
+                                "organizations": [
+                                    "988ad887-2099-4f87-bc3c-bde099417235"
+                                ]
+                            },
+                            "prices": [
+                                {
+                                    "organizationId": "988ad887-2099-4f87-bc3c-bde099417235",
+                                    "price": 46
+                                }
+                            ],
+                            "nutritions": [
+                                {
+                                    "fats": 0,
+                                    "proteins": 0,
+                                    "carbs": 0,
+                                    "energy": 0,
+                                    "organizations": [
+                                        "988ad887-2099-4f87-bc3c-bde099417235"
+                                    ]
+                                }
+                            ],
+                            "buttonImageUrl": "https://102922.selcdn.ru/ecomm/middleeast-impl-demolab3/34357/9292/images/items/715941a244cd498dae0dd75888e61fd0.JPEG",
+                            "buttonImageCroppedUrl": {
+                                "475x250": {
+                                    "url": "https://102922.selcdn.ru/ecomm/middleeast-impl-demolab3/34357/9292/images/items/6daca05888e216b543e3ea7f18dea1db.jpeg",
+                                    "hash": "2a12060e7c99b8f63597c5a2c280481aecf2f9bc",
+                                    "cropped": null
+                                },
+                                "475x250-webp": {
+                                    "url": "https://102922.selcdn.ru/ecomm/middleeast-impl-demolab3/34357/9292/images/items/ff8539652e7803d5994f5217ab07d2cf.webp",
+                                    "hash": "c0c5748c8383c113aa67c3f576e7002cd8166abe",
+                                    "cropped": null
+                                }
+                            }
+                        }
+                    ],
+                    "itemId": "2fb2c177-72b1-47f3-83c8-4073d5028204",
+                    "modifierSchemaId": null,
+                    "taxCategory": {
+                        "id": "2da86f54-5e3a-4e49-92cc-c53626f1c9f5",
+                        "name": "Tax 5%",
+                        "percentage": 5.999
+                    },
+                    "modifierSchemaName": null,
+                    "canBeDivided": false,
+                    "canSetOpenPrice": false,
+                    "useBalanceForSell": false,
+                    "measureUnit": "serv",
+                    "orderItemType": "Product"
+                },
+                {
+                    "sku": "1200000300",
+                    "name": "Chicken Super Mama's",
+                    "description": "Living up to its name with a supreme feast of grilled chicken, chicken sausage, mushrooms, onions, green peppers and black olives…Simply Superb!",
+                    "allergenGroups": [],
+                    "tags": [],
+                    "labels": [],
+                    "itemSizes": [
+                        {
+                            "sku": "1200000300",
+                            "sizeCode": null,
+                            "sizeName": null,
+                            "isDefault": true,
+                            "portionWeightGrams": 0,
+                            "itemModifierGroups": [],
+                            "sizeId": null,
+                            "nutritionPerHundredGrams": {
+                                "fats": 0,
+                                "proteins": 0,
+                                "carbs": 0,
+                                "energy": 0,
+                                "organizations": [
+                                    "988ad887-2099-4f87-bc3c-bde099417235"
+                                ]
+                            },
+                            "prices": [
+                                {
+                                    "organizationId": "988ad887-2099-4f87-bc3c-bde099417235",
+                                    "price": 46
+                                }
+                            ],
+                            "nutritions": [
+                                {
+                                    "fats": 0,
+                                    "proteins": 0,
+                                    "carbs": 0,
+                                    "energy": 0,
+                                    "organizations": [
+                                        "988ad887-2099-4f87-bc3c-bde099417235"
+                                    ]
+                                }
+                            ],
+                            "buttonImageUrl": "https://102922.selcdn.ru/ecomm/middleeast-impl-demolab3/34357/9292/images/items/915f169d0663416c993993e694521d7f.JPEG",
+                            "buttonImageCroppedUrl": {
+                                "475x250": {
+                                    "url": "https://102922.selcdn.ru/ecomm/middleeast-impl-demolab3/34357/9292/images/items/4cc2bc8465a2d0540ee869a1b87043ec.jpeg",
+                                    "hash": "4d4438c02294871f9e18bd7d2f6422f05f34b723",
+                                    "cropped": null
+                                },
+                                "475x250-webp": {
+                                    "url": "https://102922.selcdn.ru/ecomm/middleeast-impl-demolab3/34357/9292/images/items/ae9868dd5017477509b23053d749bd87.webp",
+                                    "hash": "422ecb68e49ee77ce05b797a19e4721276f047bf",
+                                    "cropped": null
+                                }
+                            }
+                        }
+                    ],
+                    "itemId": "d67b8c59-c141-4416-9610-1277728cdee3",
+                    "modifierSchemaId": null,
+                    "taxCategory": {
+                        "id": "2da86f54-5e3a-4e49-92cc-c53626f1c9f5",
+                        "name": "Tax 5%",
+                        "percentage": 5.999
+                    },
+                    "modifierSchemaName": null,
+                    "canBeDivided": false,
+                    "canSetOpenPrice": false,
+                    "useBalanceForSell": false,
+                    "measureUnit": "serv",
+                    "orderItemType": "Product"
+                },
+                {
+                    "sku": "1200000301",
+                    "name": "Garden Special",
+                    "description": "Fresh tomatoes, mushrooms, black olives, green peppers and onions.",
+                    "allergenGroups": [],
+                    "tags": [],
+                    "labels": [],
+                    "itemSizes": [
+                        {
+                            "sku": "1200000301",
+                            "sizeCode": null,
+                            "sizeName": null,
+                            "isDefault": true,
+                            "portionWeightGrams": 0,
+                            "itemModifierGroups": [],
+                            "sizeId": null,
+                            "nutritionPerHundredGrams": {
+                                "fats": 0,
+                                "proteins": 0,
+                                "carbs": 0,
+                                "energy": 0,
+                                "organizations": [
+                                    "988ad887-2099-4f87-bc3c-bde099417235"
+                                ]
+                            },
+                            "prices": [
+                                {
+                                    "organizationId": "988ad887-2099-4f87-bc3c-bde099417235",
+                                    "price": 46
+                                }
+                            ],
+                            "nutritions": [
+                                {
+                                    "fats": 0,
+                                    "proteins": 0,
+                                    "carbs": 0,
+                                    "energy": 0,
+                                    "organizations": [
+                                        "988ad887-2099-4f87-bc3c-bde099417235"
+                                    ]
+                                }
+                            ],
+                            "buttonImageUrl": "https://102922.selcdn.ru/ecomm/middleeast-impl-demolab3/34357/9292/images/items/6ad0bdb3bf97c33bfb9e136975e15b5a.JPEG",
+                            "buttonImageCroppedUrl": {
+                                "475x250": {
+                                    "url": "https://102922.selcdn.ru/ecomm/middleeast-impl-demolab3/34357/9292/images/items/359b3dde2620409bdc86045bd141f948.jpeg",
+                                    "hash": "b0149a99cee449642f1dfdf01598e14f84a58d4e",
+                                    "cropped": null
+                                },
+                                "475x250-webp": {
+                                    "url": "https://102922.selcdn.ru/ecomm/middleeast-impl-demolab3/34357/9292/images/items/a2cb124a0831f44d4ebab01c227af6d7.webp",
+                                    "hash": "e6a73cf1e2324dbb56249329a22bfda74bb2f641",
+                                    "cropped": null
+                                }
+                            }
+                        }
+                    ],
+                    "itemId": "0e1e2b03-fa8e-4abf-9e61-4cb4464be803",
+                    "modifierSchemaId": null,
+                    "taxCategory": {
+                        "id": "2da86f54-5e3a-4e49-92cc-c53626f1c9f5",
+                        "name": "Tax 5%",
+                        "percentage": 5.999
+                    },
+                    "modifierSchemaName": null,
+                    "canBeDivided": false,
+                    "canSetOpenPrice": false,
+                    "useBalanceForSell": false,
+                    "measureUnit": "serv",
+                    "orderItemType": "Product"
+                },
+                {
+                    "sku": "1200000302",
+                    "name": "Hawaiian",
+                    "description": "Smoked turkey and pineapple.",
+                    "allergenGroups": [],
+                    "tags": [],
+                    "labels": [],
+                    "itemSizes": [
+                        {
+                            "sku": "1200000302",
+                            "sizeCode": null,
+                            "sizeName": null,
+                            "isDefault": true,
+                            "portionWeightGrams": 0,
+                            "itemModifierGroups": [],
+                            "sizeId": null,
+                            "nutritionPerHundredGrams": {
+                                "fats": 0,
+                                "proteins": 0,
+                                "carbs": 0,
+                                "energy": 0,
+                                "organizations": [
+                                    "988ad887-2099-4f87-bc3c-bde099417235"
+                                ]
+                            },
+                            "prices": [
+                                {
+                                    "organizationId": "988ad887-2099-4f87-bc3c-bde099417235",
+                                    "price": 46
+                                }
+                            ],
+                            "nutritions": [
+                                {
+                                    "fats": 0,
+                                    "proteins": 0,
+                                    "carbs": 0,
+                                    "energy": 0,
+                                    "organizations": [
+                                        "988ad887-2099-4f87-bc3c-bde099417235"
+                                    ]
+                                }
+                            ],
+                            "buttonImageUrl": "https://102922.selcdn.ru/ecomm/middleeast-impl-demolab3/34357/9292/images/items/09f250d9c82dc033c41ae7fbe0974a87.JPEG",
+                            "buttonImageCroppedUrl": {
+                                "475x250": {
+                                    "url": "https://102922.selcdn.ru/ecomm/middleeast-impl-demolab3/34357/9292/images/items/a2cb41f9412931fa431abd5d10232cc2.jpeg",
+                                    "hash": "a228901e552c9c1dff90776059f605a0795012f2",
+                                    "cropped": null
+                                },
+                                "475x250-webp": {
+                                    "url": "https://102922.selcdn.ru/ecomm/middleeast-impl-demolab3/34357/9292/images/items/674c94baf584d9e7b0cba74f590dbe8e.webp",
+                                    "hash": "a4740a9861183ddb385c59554385512509abab1f",
+                                    "cropped": null
+                                }
+                            }
+                        }
+                    ],
+                    "itemId": "8261c254-3bbe-4e42-b36b-e4b2ae30c722",
+                    "modifierSchemaId": null,
+                    "taxCategory": {
+                        "id": "2da86f54-5e3a-4e49-92cc-c53626f1c9f5",
+                        "name": "Tax 5%",
+                        "percentage": 5.999
+                    },
+                    "modifierSchemaName": null,
+                    "canBeDivided": false,
+                    "canSetOpenPrice": false,
+                    "useBalanceForSell": false,
+                    "measureUnit": "serv",
+                    "orderItemType": "Product"
+                },
+                {
+                    "sku": "1200000306",
+                    "name": "Little Italy",
+                    "description": "Pepperoni, Italian beef, fresh mushrooms, black olives and oregano.",
+                    "allergenGroups": [],
+                    "tags": [],
+                    "labels": [],
+                    "itemSizes": [
+                        {
+                            "sku": "1200000306",
+                            "sizeCode": null,
+                            "sizeName": null,
+                            "isDefault": true,
+                            "portionWeightGrams": 0,
+                            "itemModifierGroups": [],
+                            "sizeId": null,
+                            "nutritionPerHundredGrams": {
+                                "fats": 0,
+                                "proteins": 0,
+                                "carbs": 0,
+                                "energy": 0,
+                                "organizations": [
+                                    "988ad887-2099-4f87-bc3c-bde099417235"
+                                ]
+                            },
+                            "prices": [
+                                {
+                                    "organizationId": "988ad887-2099-4f87-bc3c-bde099417235",
+                                    "price": 46
+                                }
+                            ],
+                            "nutritions": [
+                                {
+                                    "fats": 0,
+                                    "proteins": 0,
+                                    "carbs": 0,
+                                    "energy": 0,
+                                    "organizations": [
+                                        "988ad887-2099-4f87-bc3c-bde099417235"
+                                    ]
+                                }
+                            ],
+                            "buttonImageUrl": "https://102922.selcdn.ru/ecomm/middleeast-impl-demolab3/34357/9292/images/items/9e26896085f607e4842914ea4f063871.JPEG",
+                            "buttonImageCroppedUrl": {
+                                "475x250": {
+                                    "url": "https://102922.selcdn.ru/ecomm/middleeast-impl-demolab3/34357/9292/images/items/afe0726166d40ced062e0effa81457d8.jpeg",
+                                    "hash": "50ea7bc83d1a085e7d526aa58eef378cb3c6ec1f",
+                                    "cropped": null
+                                },
+                                "475x250-webp": {
+                                    "url": "https://102922.selcdn.ru/ecomm/middleeast-impl-demolab3/34357/9292/images/items/205191c1ff2641460648c19a3bf7795b.webp",
+                                    "hash": "a7bbcc015e9f6b38b252eb82c8a27c86ddaf6345",
+                                    "cropped": null
+                                }
+                            }
+                        }
+                    ],
+                    "itemId": "546cdc9a-7720-420a-99ba-3993c046bb33",
+                    "modifierSchemaId": null,
+                    "taxCategory": {
+                        "id": "2da86f54-5e3a-4e49-92cc-c53626f1c9f5",
+                        "name": "Tax 5%",
+                        "percentage": 5.999
+                    },
+                    "modifierSchemaName": null,
+                    "canBeDivided": false,
+                    "canSetOpenPrice": false,
+                    "useBalanceForSell": false,
+                    "measureUnit": "serv",
+                    "orderItemType": "Product"
+                },
+                {
+                    "sku": "1200000303",
+                    "name": "Margarita",
+                    "description": "Our zesty, traditional tomato sauce with mounds of cheese made from 100% mozzarella, all piled on our fresh dough crust and baked to perfection.",
+                    "allergenGroups": [],
+                    "tags": [],
+                    "labels": [],
+                    "itemSizes": [
+                        {
+                            "sku": "1200000303",
+                            "sizeCode": null,
+                            "sizeName": null,
+                            "isDefault": true,
+                            "portionWeightGrams": 0,
+                            "itemModifierGroups": [],
+                            "sizeId": null,
+                            "nutritionPerHundredGrams": {
+                                "fats": 0,
+                                "proteins": 0,
+                                "carbs": 0,
+                                "energy": 0,
+                                "organizations": [
+                                    "988ad887-2099-4f87-bc3c-bde099417235"
+                                ]
+                            },
+                            "prices": [
+                                {
+                                    "organizationId": "988ad887-2099-4f87-bc3c-bde099417235",
+                                    "price": 46
+                                }
+                            ],
+                            "nutritions": [
+                                {
+                                    "fats": 0,
+                                    "proteins": 0,
+                                    "carbs": 0,
+                                    "energy": 0,
+                                    "organizations": [
+                                        "988ad887-2099-4f87-bc3c-bde099417235"
+                                    ]
+                                }
+                            ],
+                            "buttonImageUrl": "https://102922.selcdn.ru/ecomm/middleeast-impl-demolab3/34357/9292/images/items/1d49be0efbc5ddf7c81309720db1c326.JPEG",
+                            "buttonImageCroppedUrl": {
+                                "475x250": {
+                                    "url": "https://102922.selcdn.ru/ecomm/middleeast-impl-demolab3/34357/9292/images/items/9f7cfa44b6f21f587835ea7733ec8f70.jpeg",
+                                    "hash": "b2f97ebfa836266d2b9d755c04e324bf71e34064",
+                                    "cropped": null
+                                },
+                                "475x250-webp": {
+                                    "url": "https://102922.selcdn.ru/ecomm/middleeast-impl-demolab3/34357/9292/images/items/3af9e928fd5325d2b8bc80993b52a718.webp",
+                                    "hash": "33d2b9fc74caddd9f9d583279f9fd3e523adddcf",
+                                    "cropped": null
+                                }
+                            }
+                        }
+                    ],
+                    "itemId": "4a0c328a-cf20-466e-87cf-2dae51fac927",
+                    "modifierSchemaId": null,
+                    "taxCategory": {
+                        "id": "2da86f54-5e3a-4e49-92cc-c53626f1c9f5",
+                        "name": "Tax 5%",
+                        "percentage": 5.999
+                    },
+                    "modifierSchemaName": null,
+                    "canBeDivided": false,
+                    "canSetOpenPrice": false,
+                    "useBalanceForSell": false,
+                    "measureUnit": "serv",
+                    "orderItemType": "Product"
+                },
+                {
+                    "sku": "1200000304",
+                    "name": "Pepperoni",
+                    "description": "Loaded with pepperoni and extra mozzarella cheese.",
+                    "allergenGroups": [],
+                    "tags": [],
+                    "labels": [],
+                    "itemSizes": [
+                        {
+                            "sku": "1200000304",
+                            "sizeCode": null,
+                            "sizeName": null,
+                            "isDefault": true,
+                            "portionWeightGrams": 0,
+                            "itemModifierGroups": [],
+                            "sizeId": null,
+                            "nutritionPerHundredGrams": {
+                                "fats": 0,
+                                "proteins": 0,
+                                "carbs": 0,
+                                "energy": 0,
+                                "organizations": [
+                                    "988ad887-2099-4f87-bc3c-bde099417235"
+                                ]
+                            },
+                            "prices": [
+                                {
+                                    "organizationId": "988ad887-2099-4f87-bc3c-bde099417235",
+                                    "price": 46
+                                }
+                            ],
+                            "nutritions": [
+                                {
+                                    "fats": 0,
+                                    "proteins": 0,
+                                    "carbs": 0,
+                                    "energy": 0,
+                                    "organizations": [
+                                        "988ad887-2099-4f87-bc3c-bde099417235"
+                                    ]
+                                }
+                            ],
+                            "buttonImageUrl": "https://102922.selcdn.ru/ecomm/middleeast-impl-demolab3/34357/9292/images/items/e94aed28b57062fac3890a57e1090632.JPEG",
+                            "buttonImageCroppedUrl": {
+                                "475x250": {
+                                    "url": "https://102922.selcdn.ru/ecomm/middleeast-impl-demolab3/34357/9292/images/items/38079d91ea42508e91b8e1fea695d797.jpeg",
+                                    "hash": "db912445d4a9f221765477e790309733c3539f92",
+                                    "cropped": null
+                                },
+                                "475x250-webp": {
+                                    "url": "https://102922.selcdn.ru/ecomm/middleeast-impl-demolab3/34357/9292/images/items/6aec25d7be85ae36bb0a3d83d894ebb9.webp",
+                                    "hash": "76cd4eb41762230aba6512aa060a876751860a59",
+                                    "cropped": null
+                                }
+                            }
+                        }
+                    ],
+                    "itemId": "d36239b7-1306-40b4-8fed-6a2e2a3aeefd",
+                    "modifierSchemaId": null,
+                    "taxCategory": {
+                        "id": "2da86f54-5e3a-4e49-92cc-c53626f1c9f5",
+                        "name": "Tax 5%",
+                        "percentage": 5.999
+                    },
+                    "modifierSchemaName": null,
+                    "canBeDivided": false,
+                    "canSetOpenPrice": false,
+                    "useBalanceForSell": false,
+                    "measureUnit": "serv",
+                    "orderItemType": "Product"
+                },
+                {
+                    "sku": "1200000305",
+                    "name": "Super Mamas",
+                    "description": "Pepperoni, Italian beef, smoked turkey, fresh mushrooms, onions, green peppers and black olives.",
+                    "allergenGroups": [],
+                    "tags": [],
+                    "labels": [],
+                    "itemSizes": [
+                        {
+                            "sku": "1200000305",
+                            "sizeCode": null,
+                            "sizeName": null,
+                            "isDefault": true,
+                            "portionWeightGrams": 0,
+                            "itemModifierGroups": [],
+                            "sizeId": null,
+                            "nutritionPerHundredGrams": {
+                                "fats": 0,
+                                "proteins": 0,
+                                "carbs": 0,
+                                "energy": 0,
+                                "organizations": [
+                                    "988ad887-2099-4f87-bc3c-bde099417235"
+                                ]
+                            },
+                            "prices": [
+                                {
+                                    "organizationId": "988ad887-2099-4f87-bc3c-bde099417235",
+                                    "price": 46
+                                }
+                            ],
+                            "nutritions": [
+                                {
+                                    "fats": 0,
+                                    "proteins": 0,
+                                    "carbs": 0,
+                                    "energy": 0,
+                                    "organizations": [
+                                        "988ad887-2099-4f87-bc3c-bde099417235"
+                                    ]
+                                }
+                            ],
+                            "buttonImageUrl": "https://102922.selcdn.ru/ecomm/middleeast-impl-demolab3/34357/9292/images/items/6da05be3d34805118763790f4cb7a959.JPEG",
+                            "buttonImageCroppedUrl": {
+                                "475x250": {
+                                    "url": "https://102922.selcdn.ru/ecomm/middleeast-impl-demolab3/34357/9292/images/items/5896eb775c09f7200a6b2cac27bed3c7.jpeg",
+                                    "hash": "20dfbb9025850ecfe28e76160888131edb756f63",
+                                    "cropped": null
+                                },
+                                "475x250-webp": {
+                                    "url": "https://102922.selcdn.ru/ecomm/middleeast-impl-demolab3/34357/9292/images/items/51ab9f8ae297bc38b5ed9cd6cef8c2bd.webp",
+                                    "hash": "b3299c8806c855a92b1b806f5ffabe704128fc59",
+                                    "cropped": null
+                                }
+                            }
+                        }
+                    ],
+                    "itemId": "a351e32a-3c92-4052-9f6a-f29331018f05",
+                    "modifierSchemaId": null,
+                    "taxCategory": {
+                        "id": "2da86f54-5e3a-4e49-92cc-c53626f1c9f5",
+                        "name": "Tax 5%",
+                        "percentage": 5.999
+                    },
+                    "modifierSchemaName": null,
+                    "canBeDivided": false,
+                    "canSetOpenPrice": false,
+                    "useBalanceForSell": false,
+                    "measureUnit": "serv",
+                    "orderItemType": "Product"
+                }
+            ]
+        },
+        {
+            "id": "4f1dc8c7-5838-4da4-80cb-f7e0d7ba44ea",
+            "name": "Starters",
+            "description": "",
+            "buttonImageUrl": null,
+            "headerImageUrl": null,
+            "iikoGroupId": "ea2d382d-2968-4645-92f1-6c0088335b29",
+            "items": [
+                {
+                    "sku": "1200000289",
+                    "name": "Breadsticks",
+                    "description": "6 delicious oven baked sticks served with Pizza sauce and Special Garlic sauc.",
+                    "allergenGroups": [],
+                    "tags": [],
+                    "labels": [],
+                    "itemSizes": [
+                        {
+                            "sku": "1200000289",
+                            "sizeCode": null,
+                            "sizeName": null,
+                            "isDefault": true,
+                            "portionWeightGrams": 0,
+                            "itemModifierGroups": [],
+                            "sizeId": null,
+                            "nutritionPerHundredGrams": {
+                                "fats": 0,
+                                "proteins": 0,
+                                "carbs": 0,
+                                "energy": 0,
+                                "organizations": [
+                                    "988ad887-2099-4f87-bc3c-bde099417235"
+                                ]
+                            },
+                            "prices": [
+                                {
+                                    "organizationId": "988ad887-2099-4f87-bc3c-bde099417235",
+                                    "price": 10
+                                }
+                            ],
+                            "nutritions": [
+                                {
+                                    "fats": 0,
+                                    "proteins": 0,
+                                    "carbs": 0,
+                                    "energy": 0,
+                                    "organizations": [
+                                        "988ad887-2099-4f87-bc3c-bde099417235"
+                                    ]
+                                }
+                            ],
+                            "buttonImageUrl": "https://102922.selcdn.ru/ecomm/middleeast-impl-demolab3/34357/9292/images/items/db05273af97b176190d612b9e142944f.JPEG",
+                            "buttonImageCroppedUrl": {
+                                "475x250": {
+                                    "url": "https://102922.selcdn.ru/ecomm/middleeast-impl-demolab3/34357/9292/images/items/ef3e938f7eee9d2788b371d753e63b61.jpeg",
+                                    "hash": "b43d2d930a09826af22dd9d89b274809211b71a9",
+                                    "cropped": null
+                                },
+                                "475x250-webp": {
+                                    "url": "https://102922.selcdn.ru/ecomm/middleeast-impl-demolab3/34357/9292/images/items/f9f7ee7c6b24fcd6c39a1915b3ae55da.webp",
+                                    "hash": "30253646571309058ff82de07cdbc720a2ce1bfc",
+                                    "cropped": null
+                                }
+                            }
+                        }
+                    ],
+                    "itemId": "72197764-877b-4c77-9922-bb78666f5583",
+                    "modifierSchemaId": null,
+                    "taxCategory": {
+                        "id": "2da86f54-5e3a-4e49-92cc-c53626f1c9f5",
+                        "name": "Tax 5%",
+                        "percentage": 5.999
+                    },
+                    "modifierSchemaName": null,
+                    "canBeDivided": false,
+                    "canSetOpenPrice": false,
+                    "useBalanceForSell": false,
+                    "measureUnit": "serv",
+                    "orderItemType": "Product"
+                },
+                {
+                    "sku": "1200000288",
+                    "name": "Jalapeno Poppers",
+                    "description": "The Jalapeño Popper Rolls feature the flavor of jalapeño mellowed by Mozzarella Cheese and are available in an order of eight, served with one garlic sauce.",
+                    "allergenGroups": [],
+                    "tags": [],
+                    "labels": [],
+                    "itemSizes": [
+                        {
+                            "sku": "1200000288",
+                            "sizeCode": null,
+                            "sizeName": null,
+                            "isDefault": true,
+                            "portionWeightGrams": 0,
+                            "itemModifierGroups": [],
+                            "sizeId": null,
+                            "nutritionPerHundredGrams": {
+                                "fats": 0,
+                                "proteins": 0,
+                                "carbs": 0,
+                                "energy": 0,
+                                "organizations": [
+                                    "988ad887-2099-4f87-bc3c-bde099417235"
+                                ]
+                            },
+                            "prices": [
+                                {
+                                    "organizationId": "988ad887-2099-4f87-bc3c-bde099417235",
+                                    "price": 20
+                                }
+                            ],
+                            "nutritions": [
+                                {
+                                    "fats": 0,
+                                    "proteins": 0,
+                                    "carbs": 0,
+                                    "energy": 0,
+                                    "organizations": [
+                                        "988ad887-2099-4f87-bc3c-bde099417235"
+                                    ]
+                                }
+                            ],
+                            "buttonImageUrl": "https://102922.selcdn.ru/ecomm/middleeast-impl-demolab3/34357/9292/images/items/b6ead7b3e38e7d8edc74236fcab8439c.JPEG",
+                            "buttonImageCroppedUrl": {
+                                "475x250": {
+                                    "url": "https://102922.selcdn.ru/ecomm/middleeast-impl-demolab3/34357/9292/images/items/e2cc5e7f5d9f98ae518c6c0d8e228ad9.jpeg",
+                                    "hash": "d617cb952cd79cb090e1dd0ee9f3153ffec63e86",
+                                    "cropped": null
+                                },
+                                "475x250-webp": {
+                                    "url": "https://102922.selcdn.ru/ecomm/middleeast-impl-demolab3/34357/9292/images/items/83f11510ce0b0a5940afbbe1e4d5e5e1.webp",
+                                    "hash": "88ab982b2b72562ed1b124c88c8638b32fe9c623",
+                                    "cropped": null
+                                }
+                            }
+                        }
+                    ],
+                    "itemId": "cfaae746-ade4-4a4e-a147-fab5d95b6ad0",
+                    "modifierSchemaId": null,
+                    "taxCategory": {
+                        "id": "2da86f54-5e3a-4e49-92cc-c53626f1c9f5",
+                        "name": "Tax 5%",
+                        "percentage": 5.999
+                    },
+                    "modifierSchemaName": null,
+                    "canBeDivided": false,
+                    "canSetOpenPrice": false,
+                    "useBalanceForSell": false,
+                    "measureUnit": "serv",
+                    "orderItemType": "Product"
+                },
+                {
+                    "sku": "1200000287",
+                    "name": "Potato Wedges",
+                    "description": "Seasoned Potato Wedges baked to a golden crisp. Served with your choice of Dipping Sauce.",
+                    "allergenGroups": [],
+                    "tags": [],
+                    "labels": [],
+                    "itemSizes": [
+                        {
+                            "sku": "1200000287",
+                            "sizeCode": null,
+                            "sizeName": null,
+                            "isDefault": true,
+                            "portionWeightGrams": 0,
+                            "itemModifierGroups": [],
+                            "sizeId": null,
+                            "nutritionPerHundredGrams": {
+                                "fats": 0,
+                                "proteins": 0,
+                                "carbs": 0,
+                                "energy": 0,
+                                "organizations": [
+                                    "988ad887-2099-4f87-bc3c-bde099417235"
+                                ]
+                            },
+                            "prices": [
+                                {
+                                    "organizationId": "988ad887-2099-4f87-bc3c-bde099417235",
+                                    "price": 12
+                                }
+                            ],
+                            "nutritions": [
+                                {
+                                    "fats": 0,
+                                    "proteins": 0,
+                                    "carbs": 0,
+                                    "energy": 0,
+                                    "organizations": [
+                                        "988ad887-2099-4f87-bc3c-bde099417235"
+                                    ]
+                                }
+                            ],
+                            "buttonImageUrl": "https://102922.selcdn.ru/ecomm/middleeast-impl-demolab3/34357/9292/images/items/647a92ab34694139fe5feeb6f4643a1e.JPEG",
+                            "buttonImageCroppedUrl": {
+                                "475x250": {
+                                    "url": "https://102922.selcdn.ru/ecomm/middleeast-impl-demolab3/34357/9292/images/items/c1c6321d6369c65ba59aef87589611dc.jpeg",
+                                    "hash": "a9e64bf97692bf6971be32d3eee83daee7b773ed",
+                                    "cropped": null
+                                },
+                                "475x250-webp": {
+                                    "url": "https://102922.selcdn.ru/ecomm/middleeast-impl-demolab3/34357/9292/images/items/9b4f841b3c5f222c11e95e7f553400b0.webp",
+                                    "hash": "a81b7862720110c350325ce5432e90c262d321a9",
+                                    "cropped": null
+                                }
+                            }
+                        }
+                    ],
+                    "itemId": "8fd98087-febf-4462-896f-e68f6f4c8fd5",
+                    "modifierSchemaId": null,
+                    "taxCategory": {
+                        "id": "2da86f54-5e3a-4e49-92cc-c53626f1c9f5",
+                        "name": "Tax 5%",
+                        "percentage": 5.999
+                    },
+                    "modifierSchemaName": null,
+                    "canBeDivided": false,
+                    "canSetOpenPrice": false,
+                    "useBalanceForSell": false,
+                    "measureUnit": "serv",
+                    "orderItemType": "Product"
+                }
+            ]
+        },
+        {
+            "id": "e1e7858b-47ee-41a8-b064-c31e93abd111",
+            "name": "Beverages",
+            "description": "",
+            "buttonImageUrl": "",
+            "headerImageUrl": null,
+            "iikoGroupId": "feff7e9e-fe96-4e23-8a05-6e0bf0e1b7a3",
+            "items": [
+                {
+                    "sku": "1200000294",
+                    "name": "Arwa Water PET 500 ml",
+                    "description": "",
+                    "allergenGroups": [],
+                    "tags": [],
+                    "labels": [],
+                    "itemSizes": [
+                        {
+                            "sku": "1200000294",
+                            "sizeCode": null,
+                            "sizeName": null,
+                            "isDefault": true,
+                            "portionWeightGrams": 0,
+                            "itemModifierGroups": [],
+                            "sizeId": null,
+                            "nutritionPerHundredGrams": {
+                                "fats": 0,
+                                "proteins": 0,
+                                "carbs": 0,
+                                "energy": 0,
+                                "organizations": [
+                                    "988ad887-2099-4f87-bc3c-bde099417235"
+                                ]
+                            },
+                            "prices": [
+                                {
+                                    "organizationId": "988ad887-2099-4f87-bc3c-bde099417235",
+                                    "price": 5
+                                }
+                            ],
+                            "nutritions": [
+                                {
+                                    "fats": 0,
+                                    "proteins": 0,
+                                    "carbs": 0,
+                                    "energy": 0,
+                                    "organizations": [
+                                        "988ad887-2099-4f87-bc3c-bde099417235"
+                                    ]
+                                }
+                            ],
+                            "buttonImageUrl": "https://102922.selcdn.ru/ecomm/middleeast-impl-demolab3/34357/9292/images/items/0b1c88ebb386471a8e3b6e3092661b68.JPEG",
+                            "buttonImageCroppedUrl": {
+                                "475x250": {
+                                    "url": "https://102922.selcdn.ru/ecomm/middleeast-impl-demolab3/34357/9292/images/items/3442c0689364b0e48a4ffe008d0c38f0.jpeg",
+                                    "hash": "821cb6a04931409f6f8dda90a5c3f25d4d64a1a2",
+                                    "cropped": null
+                                },
+                                "475x250-webp": {
+                                    "url": "https://102922.selcdn.ru/ecomm/middleeast-impl-demolab3/34357/9292/images/items/94af63ce3b636607c6eb35b5146a9734.webp",
+                                    "hash": "b283e3b3282f3caeba8d3f3b9d1867498aa11f81",
+                                    "cropped": null
+                                }
+                            }
+                        }
+                    ],
+                    "itemId": "5ecd9aa0-4afe-4934-8c93-0f9d45c3447f",
+                    "modifierSchemaId": null,
+                    "taxCategory": {
+                        "id": "2da86f54-5e3a-4e49-92cc-c53626f1c9f5",
+                        "name": "Tax 5%",
+                        "percentage": 5.999
+                    },
+                    "modifierSchemaName": null,
+                    "canBeDivided": false,
+                    "canSetOpenPrice": false,
+                    "useBalanceForSell": false,
+                    "measureUnit": "serv",
+                    "orderItemType": "Product"
+                },
+                {
+                    "sku": "1200000297",
+                    "name": "Coca-Cola Can 300ml",
+                    "description": "",
+                    "allergenGroups": [],
+                    "tags": [],
+                    "labels": [],
+                    "itemSizes": [
+                        {
+                            "sku": "1200000297",
+                            "sizeCode": null,
+                            "sizeName": null,
+                            "isDefault": true,
+                            "portionWeightGrams": 0,
+                            "itemModifierGroups": [],
+                            "sizeId": null,
+                            "nutritionPerHundredGrams": {
+                                "fats": 0,
+                                "proteins": 0,
+                                "carbs": 0,
+                                "energy": 0,
+                                "organizations": [
+                                    "988ad887-2099-4f87-bc3c-bde099417235"
+                                ]
+                            },
+                            "prices": [
+                                {
+                                    "organizationId": "988ad887-2099-4f87-bc3c-bde099417235",
+                                    "price": 6
+                                }
+                            ],
+                            "nutritions": [
+                                {
+                                    "fats": 0,
+                                    "proteins": 0,
+                                    "carbs": 0,
+                                    "energy": 0,
+                                    "organizations": [
+                                        "988ad887-2099-4f87-bc3c-bde099417235"
+                                    ]
+                                }
+                            ],
+                            "buttonImageUrl": "https://102922.selcdn.ru/ecomm/middleeast-impl-demolab3/34357/9292/images/items/738427a079fc87f2b7590c1cbd2b55b2.JPEG",
+                            "buttonImageCroppedUrl": {
+                                "475x250": {
+                                    "url": "https://102922.selcdn.ru/ecomm/middleeast-impl-demolab3/34357/9292/images/items/1ead2b683d28290de402be6a533f12de.jpeg",
+                                    "hash": "2ff1437d4b9868f0b538521587745d1d60be2088",
+                                    "cropped": null
+                                },
+                                "475x250-webp": {
+                                    "url": "https://102922.selcdn.ru/ecomm/middleeast-impl-demolab3/34357/9292/images/items/9f2af7951c0e60e062ea8a5a75115ab3.webp",
+                                    "hash": "262650c3ac8f2a8ad78a341a3d88e3da0bfbc93b",
+                                    "cropped": null
+                                }
+                            }
+                        }
+                    ],
+                    "itemId": "f321efe1-a4c5-462f-9fd4-5c503b74acfc",
+                    "modifierSchemaId": null,
+                    "taxCategory": {
+                        "id": "2da86f54-5e3a-4e49-92cc-c53626f1c9f5",
+                        "name": "Tax 5%",
+                        "percentage": 5.999
+                    },
+                    "modifierSchemaName": null,
+                    "canBeDivided": false,
+                    "canSetOpenPrice": false,
+                    "useBalanceForSell": false,
+                    "measureUnit": "serv",
+                    "orderItemType": "Product"
+                },
+                {
+                    "sku": "1200000298",
+                    "name": "Fanta Can 300ml",
+                    "description": "",
+                    "allergenGroups": [],
+                    "tags": [],
+                    "labels": [],
+                    "itemSizes": [
+                        {
+                            "sku": "1200000298",
+                            "sizeCode": null,
+                            "sizeName": null,
+                            "isDefault": true,
+                            "portionWeightGrams": 0,
+                            "itemModifierGroups": [],
+                            "sizeId": null,
+                            "nutritionPerHundredGrams": {
+                                "fats": 0,
+                                "proteins": 0,
+                                "carbs": 0,
+                                "energy": 0,
+                                "organizations": [
+                                    "988ad887-2099-4f87-bc3c-bde099417235"
+                                ]
+                            },
+                            "prices": [
+                                {
+                                    "organizationId": "988ad887-2099-4f87-bc3c-bde099417235",
+                                    "price": 6
+                                }
+                            ],
+                            "nutritions": [
+                                {
+                                    "fats": 0,
+                                    "proteins": 0,
+                                    "carbs": 0,
+                                    "energy": 0,
+                                    "organizations": [
+                                        "988ad887-2099-4f87-bc3c-bde099417235"
+                                    ]
+                                }
+                            ],
+                            "buttonImageUrl": "https://102922.selcdn.ru/ecomm/middleeast-impl-demolab3/34357/9292/images/items/06d04e808c117d21adf128c1e579981c.JPEG",
+                            "buttonImageCroppedUrl": {
+                                "475x250": {
+                                    "url": "https://102922.selcdn.ru/ecomm/middleeast-impl-demolab3/34357/9292/images/items/7aedd06e480e0f320bcffb51bed268b2.jpeg",
+                                    "hash": "379fc2e7d562bc25ebd63d84421ee69fab075fd5",
+                                    "cropped": null
+                                },
+                                "475x250-webp": {
+                                    "url": "https://102922.selcdn.ru/ecomm/middleeast-impl-demolab3/34357/9292/images/items/25206fa413ed70db247accb4fec1641b.webp",
+                                    "hash": "e20402bf5d82a080c7251b59bf68ef0dd9bed346",
+                                    "cropped": null
+                                }
+                            }
+                        }
+                    ],
+                    "itemId": "18cf03cc-798e-4a2f-b6e4-2ad564c4cb44",
+                    "modifierSchemaId": null,
+                    "taxCategory": {
+                        "id": "2da86f54-5e3a-4e49-92cc-c53626f1c9f5",
+                        "name": "Tax 5%",
+                        "percentage": 5.999
+                    },
+                    "modifierSchemaName": null,
+                    "canBeDivided": false,
+                    "canSetOpenPrice": false,
+                    "useBalanceForSell": false,
+                    "measureUnit": "serv",
+                    "orderItemType": "Product"
+                },
+                {
+                    "sku": "1200000296",
+                    "name": "Sprite Can 300ml",
+                    "description": "",
+                    "allergenGroups": [],
+                    "tags": [],
+                    "labels": [],
+                    "itemSizes": [
+                        {
+                            "sku": "1200000296",
+                            "sizeCode": null,
+                            "sizeName": null,
+                            "isDefault": true,
+                            "portionWeightGrams": 0,
+                            "itemModifierGroups": [],
+                            "sizeId": null,
+                            "nutritionPerHundredGrams": {
+                                "fats": 0,
+                                "proteins": 0,
+                                "carbs": 0,
+                                "energy": 0,
+                                "organizations": [
+                                    "988ad887-2099-4f87-bc3c-bde099417235"
+                                ]
+                            },
+                            "prices": [
+                                {
+                                    "organizationId": "988ad887-2099-4f87-bc3c-bde099417235",
+                                    "price": 6
+                                }
+                            ],
+                            "nutritions": [
+                                {
+                                    "fats": 0,
+                                    "proteins": 0,
+                                    "carbs": 0,
+                                    "energy": 0,
+                                    "organizations": [
+                                        "988ad887-2099-4f87-bc3c-bde099417235"
+                                    ]
+                                }
+                            ],
+                            "buttonImageUrl": "https://102922.selcdn.ru/ecomm/middleeast-impl-demolab3/34357/9292/images/items/ac5aaf39757f27b424ac3c8d4854ec3d.JPEG",
+                            "buttonImageCroppedUrl": {
+                                "475x250": {
+                                    "url": "https://102922.selcdn.ru/ecomm/middleeast-impl-demolab3/34357/9292/images/items/aa94c4bf5cd8abe7649facaf474e7d12.jpeg",
+                                    "hash": "5e8ce34adf2cafcd1657344db14a523dacb0e1d9",
+                                    "cropped": null
+                                },
+                                "475x250-webp": {
+                                    "url": "https://102922.selcdn.ru/ecomm/middleeast-impl-demolab3/34357/9292/images/items/5d4e5081cfbb837c81e621952110cdd5.webp",
+                                    "hash": "c2e68c307ce5321febb1abbfa8ddb69f700363bf",
+                                    "cropped": null
+                                }
+                            }
+                        }
+                    ],
+                    "itemId": "45e4c0b9-369b-40e1-a60f-63e3080f499a",
+                    "modifierSchemaId": null,
+                    "taxCategory": {
+                        "id": "2da86f54-5e3a-4e49-92cc-c53626f1c9f5",
+                        "name": "Tax 5%",
+                        "percentage": 5.999
+                    },
+                    "modifierSchemaName": null,
+                    "canBeDivided": false,
+                    "canSetOpenPrice": false,
+                    "useBalanceForSell": false,
+                    "measureUnit": "serv",
+                    "orderItemType": "Product"
+                },
+                {
+                    "sku": "1200000295",
+                    "name": "Sprite Zero Can 330ml",
+                    "description": "",
+                    "allergenGroups": [],
+                    "tags": [],
+                    "labels": [],
+                    "itemSizes": [
+                        {
+                            "sku": "1200000295",
+                            "sizeCode": null,
+                            "sizeName": null,
+                            "isDefault": true,
+                            "portionWeightGrams": 0,
+                            "itemModifierGroups": [],
+                            "sizeId": null,
+                            "nutritionPerHundredGrams": {
+                                "fats": 0,
+                                "proteins": 0,
+                                "carbs": 0,
+                                "energy": 0,
+                                "organizations": [
+                                    "988ad887-2099-4f87-bc3c-bde099417235"
+                                ]
+                            },
+                            "prices": [
+                                {
+                                    "organizationId": "988ad887-2099-4f87-bc3c-bde099417235",
+                                    "price": 6
+                                }
+                            ],
+                            "nutritions": [
+                                {
+                                    "fats": 0,
+                                    "proteins": 0,
+                                    "carbs": 0,
+                                    "energy": 0,
+                                    "organizations": [
+                                        "988ad887-2099-4f87-bc3c-bde099417235"
+                                    ]
+                                }
+                            ],
+                            "buttonImageUrl": "https://102922.selcdn.ru/ecomm/middleeast-impl-demolab3/34357/9292/images/items/a4f02009bda254a82a5391d7f22c62d6.JPEG",
+                            "buttonImageCroppedUrl": {
+                                "475x250": {
+                                    "url": "https://102922.selcdn.ru/ecomm/middleeast-impl-demolab3/34357/9292/images/items/3bb0449d82c1bb3ed113737c15629d76.jpeg",
+                                    "hash": "34ad8c0607074ae73ea1f34029cf5c6d0b8269ea",
+                                    "cropped": null
+                                },
+                                "475x250-webp": {
+                                    "url": "https://102922.selcdn.ru/ecomm/middleeast-impl-demolab3/34357/9292/images/items/57c1a97d3914cc4f53e383c62927236e.webp",
+                                    "hash": "1a892fcd63a64e98601bf4239d8190616c3d11e4",
+                                    "cropped": null
+                                }
+                            }
+                        }
+                    ],
+                    "itemId": "f2a5eaff-7f9e-422d-90c7-8ba65d87dd28",
+                    "modifierSchemaId": null,
+                    "taxCategory": {
+                        "id": "2da86f54-5e3a-4e49-92cc-c53626f1c9f5",
+                        "name": "Tax 5%",
+                        "percentage": 5.999
+                    },
+                    "modifierSchemaName": null,
+                    "canBeDivided": false,
+                    "canSetOpenPrice": false,
+                    "useBalanceForSell": false,
+                    "measureUnit": "serv",
+                    "orderItemType": "Product"
+                }
+            ]
+        },
+        {
+            "id": "cee6de51-644c-419b-a2be-96b70b7f28af",
+            "name": "Pastas",
+            "description": "",
+            "buttonImageUrl": null,
+            "headerImageUrl": null,
+            "iikoGroupId": "714c35e0-96e4-44a3-a0a0-673d328bf5cf",
+            "items": [
+                {
+                    "sku": "1200000290",
+                    "name": "Papas House Pasta",
+                    "description": "Your choice of pasta with grilled chicken, pepperoni, turkey ham, fresh green peppers and onions with our special tomato sauce, mozzarella cheese and parmesan cheese.",
+                    "allergenGroups": [],
+                    "tags": [],
+                    "labels": [],
+                    "itemSizes": [
+                        {
+                            "sku": "1200000290",
+                            "sizeCode": null,
+                            "sizeName": null,
+                            "isDefault": true,
+                            "portionWeightGrams": 0,
+                            "itemModifierGroups": [],
+                            "sizeId": null,
+                            "nutritionPerHundredGrams": {
+                                "fats": 0,
+                                "proteins": 0,
+                                "carbs": 0,
+                                "energy": 0,
+                                "organizations": [
+                                    "988ad887-2099-4f87-bc3c-bde099417235"
+                                ]
+                            },
+                            "prices": [
+                                {
+                                    "organizationId": "988ad887-2099-4f87-bc3c-bde099417235",
+                                    "price": 25
+                                }
+                            ],
+                            "nutritions": [
+                                {
+                                    "fats": 0,
+                                    "proteins": 0,
+                                    "carbs": 0,
+                                    "energy": 0,
+                                    "organizations": [
+                                        "988ad887-2099-4f87-bc3c-bde099417235"
+                                    ]
+                                }
+                            ],
+                            "buttonImageUrl": "https://102922.selcdn.ru/ecomm/middleeast-impl-demolab3/34357/9292/images/items/38dc40eefb3c70814a2e5313cddfa2e7.JPEG",
+                            "buttonImageCroppedUrl": {
+                                "475x250": {
+                                    "url": "https://102922.selcdn.ru/ecomm/middleeast-impl-demolab3/34357/9292/images/items/85f0687d5123d15cc1b9e3b79d921265.jpeg",
+                                    "hash": "740640b1bebad39c6991b6fcbfa4a660b24245a7",
+                                    "cropped": null
+                                },
+                                "475x250-webp": {
+                                    "url": "https://102922.selcdn.ru/ecomm/middleeast-impl-demolab3/34357/9292/images/items/8463744bf840e8018fa3df7104a519e3.webp",
+                                    "hash": "7be686f9877d54cfc3ae2f6dbfc972d76f03f678",
+                                    "cropped": null
+                                }
+                            }
+                        }
+                    ],
+                    "itemId": "1c673a22-c330-425d-a082-15420d32ecd7",
+                    "modifierSchemaId": null,
+                    "taxCategory": {
+                        "id": "2da86f54-5e3a-4e49-92cc-c53626f1c9f5",
+                        "name": "Tax 5%",
+                        "percentage": 5.999
+                    },
+                    "modifierSchemaName": null,
+                    "canBeDivided": false,
+                    "canSetOpenPrice": false,
+                    "useBalanceForSell": false,
+                    "measureUnit": "serv",
+                    "orderItemType": "Product"
+                },
+                {
+                    "sku": "1200000291",
+                    "name": "Pasta Chicken Florentine",
+                    "description": "Your choice of pasta served with grilled chicken, fresh tomatoes, mushrooms, onions & olives tossed with creamy spinach alfredo sauce, mozzarella cheese and parmesan cheese.",
+                    "allergenGroups": [],
+                    "tags": [],
+                    "labels": [],
+                    "itemSizes": [
+                        {
+                            "sku": "1200000291",
+                            "sizeCode": null,
+                            "sizeName": null,
+                            "isDefault": true,
+                            "portionWeightGrams": 0,
+                            "itemModifierGroups": [],
+                            "sizeId": null,
+                            "nutritionPerHundredGrams": {
+                                "fats": 0,
+                                "proteins": 0,
+                                "carbs": 0,
+                                "energy": 0,
+                                "organizations": [
+                                    "988ad887-2099-4f87-bc3c-bde099417235"
+                                ]
+                            },
+                            "prices": [
+                                {
+                                    "organizationId": "988ad887-2099-4f87-bc3c-bde099417235",
+                                    "price": 25
+                                }
+                            ],
+                            "nutritions": [
+                                {
+                                    "fats": 0,
+                                    "proteins": 0,
+                                    "carbs": 0,
+                                    "energy": 0,
+                                    "organizations": [
+                                        "988ad887-2099-4f87-bc3c-bde099417235"
+                                    ]
+                                }
+                            ],
+                            "buttonImageUrl": "https://102922.selcdn.ru/ecomm/middleeast-impl-demolab3/34357/9292/images/items/2db33a7213888cf05c83792d47f529ba.JPEG",
+                            "buttonImageCroppedUrl": {
+                                "475x250": {
+                                    "url": "https://102922.selcdn.ru/ecomm/middleeast-impl-demolab3/34357/9292/images/items/49c576c14eb10b946b2d7e15e6977773.jpeg",
+                                    "hash": "ac4fc5450add7ffe66b191ae855c50f60a47dbcb",
+                                    "cropped": null
+                                },
+                                "475x250-webp": {
+                                    "url": "https://102922.selcdn.ru/ecomm/middleeast-impl-demolab3/34357/9292/images/items/b645c69dfc98f8c48aec4a2e6d7fbd87.webp",
+                                    "hash": "514b709de373485022c19edaefc637654946c7e8",
+                                    "cropped": null
+                                }
+                            }
+                        }
+                    ],
+                    "itemId": "2c6b0455-8596-4d34-b7bd-73110c584581",
+                    "modifierSchemaId": null,
+                    "taxCategory": {
+                        "id": "2da86f54-5e3a-4e49-92cc-c53626f1c9f5",
+                        "name": "Tax 5%",
+                        "percentage": 5.999
+                    },
+                    "modifierSchemaName": null,
+                    "canBeDivided": false,
+                    "canSetOpenPrice": false,
+                    "useBalanceForSell": false,
+                    "measureUnit": "serv",
+                    "orderItemType": "Product"
+                }
+            ]
+        },
+        {
+            "id": "98a6df16-a4db-4086-97cd-940a0f7284dc",
+            "name": "Salads",
+            "description": "",
+            "buttonImageUrl": null,
+            "headerImageUrl": null,
+            "iikoGroupId": "38a83248-a35c-4130-9fa8-c545c8a8ede7",
+            "items": [
+                {
+                    "sku": "1200000284",
+                    "name": "Chicken Tender Salad",
+                    "description": "Tender chunks of breaded chicken, fresh tomatoes, black olives, sliced cucumbers served over a blend of fresh lettuce with shredded carrots and red cabbage.",
+                    "allergenGroups": [],
+                    "tags": [],
+                    "labels": [],
+                    "itemSizes": [
+                        {
+                            "sku": "1200000284",
+                            "sizeCode": null,
+                            "sizeName": null,
+                            "isDefault": true,
+                            "portionWeightGrams": 0,
+                            "itemModifierGroups": [],
+                            "sizeId": null,
+                            "nutritionPerHundredGrams": {
+                                "fats": 0,
+                                "proteins": 0,
+                                "carbs": 0,
+                                "energy": 0,
+                                "organizations": [
+                                    "988ad887-2099-4f87-bc3c-bde099417235"
+                                ]
+                            },
+                            "prices": [
+                                {
+                                    "organizationId": "988ad887-2099-4f87-bc3c-bde099417235",
+                                    "price": 25
+                                }
+                            ],
+                            "nutritions": [
+                                {
+                                    "fats": 0,
+                                    "proteins": 0,
+                                    "carbs": 0,
+                                    "energy": 0,
+                                    "organizations": [
+                                        "988ad887-2099-4f87-bc3c-bde099417235"
+                                    ]
+                                }
+                            ],
+                            "buttonImageUrl": "https://102922.selcdn.ru/ecomm/middleeast-impl-demolab3/34357/9292/images/items/2b5d859ca4c15e22f8e4f9a88e3e76a5.JPEG",
+                            "buttonImageCroppedUrl": {
+                                "475x250": {
+                                    "url": "https://102922.selcdn.ru/ecomm/middleeast-impl-demolab3/34357/9292/images/items/d9a56fdf7f3e529d328d2d9366c9b57a.jpeg",
+                                    "hash": "725566a905cac3efa5df6cb1318a585884bc1989",
+                                    "cropped": null
+                                },
+                                "475x250-webp": {
+                                    "url": "https://102922.selcdn.ru/ecomm/middleeast-impl-demolab3/34357/9292/images/items/f1e445ba6788a176d701d9128d5a8ae2.webp",
+                                    "hash": "f46ee751150f589e736dc7200ed18b1c5b7aba07",
+                                    "cropped": null
+                                }
+                            }
+                        }
+                    ],
+                    "itemId": "016a7fe0-a21f-4d26-8cfc-f8ac17540f7d",
+                    "modifierSchemaId": null,
+                    "taxCategory": {
+                        "id": "2da86f54-5e3a-4e49-92cc-c53626f1c9f5",
+                        "name": "Tax 5%",
+                        "percentage": 5.999
+                    },
+                    "modifierSchemaName": null,
+                    "canBeDivided": false,
+                    "canSetOpenPrice": false,
+                    "useBalanceForSell": false,
+                    "measureUnit": "serv",
+                    "orderItemType": "Product"
+                },
+                {
+                    "sku": "1200000285",
+                    "name": "Garden Salad",
+                    "description": "Fresh tomatoes, onions, black olives, green peppers, sliced cucumbers served over a blend of fresh lettuce with shredded carrots and red cabbage.",
+                    "allergenGroups": [],
+                    "tags": [],
+                    "labels": [],
+                    "itemSizes": [
+                        {
+                            "sku": "1200000285",
+                            "sizeCode": null,
+                            "sizeName": null,
+                            "isDefault": true,
+                            "portionWeightGrams": 0,
+                            "itemModifierGroups": [],
+                            "sizeId": null,
+                            "nutritionPerHundredGrams": {
+                                "fats": 0,
+                                "proteins": 0,
+                                "carbs": 0,
+                                "energy": 0,
+                                "organizations": [
+                                    "988ad887-2099-4f87-bc3c-bde099417235"
+                                ]
+                            },
+                            "prices": [
+                                {
+                                    "organizationId": "988ad887-2099-4f87-bc3c-bde099417235",
+                                    "price": 22
+                                }
+                            ],
+                            "nutritions": [
+                                {
+                                    "fats": 0,
+                                    "proteins": 0,
+                                    "carbs": 0,
+                                    "energy": 0,
+                                    "organizations": [
+                                        "988ad887-2099-4f87-bc3c-bde099417235"
+                                    ]
+                                }
+                            ],
+                            "buttonImageUrl": "https://102922.selcdn.ru/ecomm/middleeast-impl-demolab3/34357/9292/images/items/17189db47267ad7c432414a067b63b05.JPEG",
+                            "buttonImageCroppedUrl": {
+                                "475x250": {
+                                    "url": "https://102922.selcdn.ru/ecomm/middleeast-impl-demolab3/34357/9292/images/items/15c29a3a60f2466124f469f42cd1470d.jpeg",
+                                    "hash": "d52418a63ff668332ce618f879aff4979e403f7e",
+                                    "cropped": null
+                                },
+                                "475x250-webp": {
+                                    "url": "https://102922.selcdn.ru/ecomm/middleeast-impl-demolab3/34357/9292/images/items/500a8cc97a32d73a659c978fd3ceebe1.webp",
+                                    "hash": "0f8c82da360acdd030c27153f88a13fefd1e2500",
+                                    "cropped": null
+                                }
+                            }
+                        }
+                    ],
+                    "itemId": "6828bd62-de65-4acf-b090-90f317bd88da",
+                    "modifierSchemaId": null,
+                    "taxCategory": {
+                        "id": "2da86f54-5e3a-4e49-92cc-c53626f1c9f5",
+                        "name": "Tax 5%",
+                        "percentage": 5.999
+                    },
+                    "modifierSchemaName": null,
+                    "canBeDivided": false,
+                    "canSetOpenPrice": false,
+                    "useBalanceForSell": false,
+                    "measureUnit": "serv",
+                    "orderItemType": "Product"
+                },
+                {
+                    "sku": "1200000286",
+                    "name": "Papas Club Salad",
+                    "description": "Grilled chicken, turkey ham, black olives, fresh tomatoes, onions, mozzarella cheese & pepperoncinis served over a blend of fresh lettuce with shredded carrots & red cabbage.",
+                    "allergenGroups": [],
+                    "tags": [],
+                    "labels": [],
+                    "itemSizes": [
+                        {
+                            "sku": "1200000286",
+                            "sizeCode": null,
+                            "sizeName": null,
+                            "isDefault": true,
+                            "portionWeightGrams": 0,
+                            "itemModifierGroups": [],
+                            "sizeId": null,
+                            "nutritionPerHundredGrams": {
+                                "fats": 0,
+                                "proteins": 0,
+                                "carbs": 0,
+                                "energy": 0,
+                                "organizations": [
+                                    "988ad887-2099-4f87-bc3c-bde099417235"
+                                ]
+                            },
+                            "prices": [
+                                {
+                                    "organizationId": "988ad887-2099-4f87-bc3c-bde099417235",
+                                    "price": 25
+                                }
+                            ],
+                            "nutritions": [
+                                {
+                                    "fats": 0,
+                                    "proteins": 0,
+                                    "carbs": 0,
+                                    "energy": 0,
+                                    "organizations": [
+                                        "988ad887-2099-4f87-bc3c-bde099417235"
+                                    ]
+                                }
+                            ],
+                            "buttonImageUrl": "https://102922.selcdn.ru/ecomm/middleeast-impl-demolab3/34357/9292/images/items/fd59b2e7d4acabbb55b17a68283cb606.JPEG",
+                            "buttonImageCroppedUrl": {
+                                "475x250": {
+                                    "url": "https://102922.selcdn.ru/ecomm/middleeast-impl-demolab3/34357/9292/images/items/db079084f5c455ee85a0441ee569326c.jpeg",
+                                    "hash": "64c588102c723a6e01835dd32a6dfe96084246c7",
+                                    "cropped": null
+                                },
+                                "475x250-webp": {
+                                    "url": "https://102922.selcdn.ru/ecomm/middleeast-impl-demolab3/34357/9292/images/items/13afd2829f0e3445d544a23764506aa9.webp",
+                                    "hash": "faf8d8638c2e58fa06fb7ff1632595e80e8f9e70",
+                                    "cropped": null
+                                }
+                            }
+                        }
+                    ],
+                    "itemId": "fe3636c4-1b55-4518-a879-ee4c23de34c0",
+                    "modifierSchemaId": null,
+                    "taxCategory": {
+                        "id": "2da86f54-5e3a-4e49-92cc-c53626f1c9f5",
+                        "name": "Tax 5%",
+                        "percentage": 5.999
+                    },
+                    "modifierSchemaName": null,
+                    "canBeDivided": false,
+                    "canSetOpenPrice": false,
+                    "useBalanceForSell": false,
+                    "measureUnit": "serv",
+                    "orderItemType": "Product"
+                }
+            ]
+        },
+        {
+            "id": "0a7333c4-0d35-48c8-a59b-88e053b740a0",
+            "name": "Desserts",
+            "description": "",
+            "buttonImageUrl": "",
+            "headerImageUrl": null,
+            "iikoGroupId": "fe731e99-ac76-4c54-abe0-63e1aada0c06",
+            "items": [
+                {
+                    "sku": "1200000293",
+                    "name": "Apple Pie Scrolls",
+                    "description": "",
+                    "allergenGroups": [],
+                    "tags": [],
+                    "labels": [],
+                    "itemSizes": [
+                        {
+                            "sku": "1200000293",
+                            "sizeCode": null,
+                            "sizeName": null,
+                            "isDefault": true,
+                            "portionWeightGrams": 0,
+                            "itemModifierGroups": [],
+                            "sizeId": null,
+                            "nutritionPerHundredGrams": {
+                                "fats": 0,
+                                "proteins": 0,
+                                "carbs": 0,
+                                "energy": 0,
+                                "organizations": [
+                                    "988ad887-2099-4f87-bc3c-bde099417235"
+                                ]
+                            },
+                            "prices": [
+                                {
+                                    "organizationId": "988ad887-2099-4f87-bc3c-bde099417235",
+                                    "price": 15
+                                }
+                            ],
+                            "nutritions": [
+                                {
+                                    "fats": 0,
+                                    "proteins": 0,
+                                    "carbs": 0,
+                                    "energy": 0,
+                                    "organizations": [
+                                        "988ad887-2099-4f87-bc3c-bde099417235"
+                                    ]
+                                }
+                            ],
+                            "buttonImageUrl": "https://102922.selcdn.ru/ecomm/middleeast-impl-demolab3/34357/9292/images/items/8902d42dadc24aa0c28d36f58774d0fa.JPEG",
+                            "buttonImageCroppedUrl": {
+                                "475x250": {
+                                    "url": "https://102922.selcdn.ru/ecomm/middleeast-impl-demolab3/34357/9292/images/items/77cd1b6db299cdfb5c55d7a39007b810.jpeg",
+                                    "hash": "2152afdac270d0a98d789d283e8c59ce2f18a782",
+                                    "cropped": null
+                                },
+                                "475x250-webp": {
+                                    "url": "https://102922.selcdn.ru/ecomm/middleeast-impl-demolab3/34357/9292/images/items/4de13ada48743d8103c063ce390dfbdd.webp",
+                                    "hash": "ec0e003d32a4b1dcf4d7a63f5ef6899a472390a6",
+                                    "cropped": null
+                                }
+                            }
+                        }
+                    ],
+                    "itemId": "2fe3ac0b-ecc8-4744-82dc-1b3887b19093",
+                    "modifierSchemaId": null,
+                    "taxCategory": {
+                        "id": "2da86f54-5e3a-4e49-92cc-c53626f1c9f5",
+                        "name": "Tax 5%",
+                        "percentage": 5.999
+                    },
+                    "modifierSchemaName": null,
+                    "canBeDivided": false,
+                    "canSetOpenPrice": false,
+                    "useBalanceForSell": false,
+                    "measureUnit": "serv",
+                    "orderItemType": "Product"
+                },
+                {
+                    "sku": "1200000292",
+                    "name": "Chocolate Scrolls",
+                    "description": "",
+                    "allergenGroups": [],
+                    "tags": [],
+                    "labels": [],
+                    "itemSizes": [
+                        {
+                            "sku": "1200000292",
+                            "sizeCode": null,
+                            "sizeName": null,
+                            "isDefault": true,
+                            "portionWeightGrams": 0,
+                            "itemModifierGroups": [],
+                            "sizeId": null,
+                            "nutritionPerHundredGrams": {
+                                "fats": 0,
+                                "proteins": 0,
+                                "carbs": 0,
+                                "energy": 0,
+                                "organizations": [
+                                    "988ad887-2099-4f87-bc3c-bde099417235"
+                                ]
+                            },
+                            "prices": [
+                                {
+                                    "organizationId": "988ad887-2099-4f87-bc3c-bde099417235",
+                                    "price": 15
+                                }
+                            ],
+                            "nutritions": [
+                                {
+                                    "fats": 0,
+                                    "proteins": 0,
+                                    "carbs": 0,
+                                    "energy": 0,
+                                    "organizations": [
+                                        "988ad887-2099-4f87-bc3c-bde099417235"
+                                    ]
+                                }
+                            ],
+                            "buttonImageUrl": "https://102922.selcdn.ru/ecomm/middleeast-impl-demolab3/34357/9292/images/items/275faab10629a881b8e50b2fb3b31ed8.PNG",
+                            "buttonImageCroppedUrl": {
+                                "475x250": {
+                                    "url": "https://102922.selcdn.ru/ecomm/middleeast-impl-demolab3/34357/9292/images/items/5f74995bb4c0fe8df47d14ac93f69490.jpeg",
+                                    "hash": "389447ccd4b53046e6f088528e415de7a24bd28b",
+                                    "cropped": null
+                                },
+                                "475x250-webp": {
+                                    "url": "https://102922.selcdn.ru/ecomm/middleeast-impl-demolab3/34357/9292/images/items/37ce4cdef777604a77c7379a6ed91d87.webp",
+                                    "hash": "43c97916371652417b82ccf53d6208cd4a451b89",
+                                    "cropped": null
+                                }
+                            }
+                        }
+                    ],
+                    "itemId": "3a9db6c6-5e69-4265-a735-d4755cc282cf",
+                    "modifierSchemaId": null,
+                    "taxCategory": {
+                        "id": "2da86f54-5e3a-4e49-92cc-c53626f1c9f5",
+                        "name": "Tax 5%",
+                        "percentage": 5.999
+                    },
+                    "modifierSchemaName": null,
+                    "canBeDivided": false,
+                    "canSetOpenPrice": false,
+                    "useBalanceForSell": false,
+                    "measureUnit": "serv",
+                    "orderItemType": "Product"
+                }
+            ]
+        }
+    ],
+    "comboCategories": []
+}
