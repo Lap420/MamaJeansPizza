@@ -55,11 +55,15 @@ class HomePageViewController: UIViewController {
         }
     }
 
+    // MARK: - Navigation
+    
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 //        guard let destinationVC = segue.destination as? ChooseAStoreTableViewController else { return }
 //
 //
 //    }
+    
+    // MARK: - Buttons
     
     @IBAction func orderNowButtonTapped(_ sender: UIButton) {
         performSegue(withIdentifier: "FromHomePageToStoreChoosing", sender: nil)
@@ -78,6 +82,8 @@ class HomePageViewController: UIViewController {
         }
     }
 }
+
+// MARK: - Alert extension
 
 extension HomePageViewController {
     private func showAlert(title: String, message: String) {
