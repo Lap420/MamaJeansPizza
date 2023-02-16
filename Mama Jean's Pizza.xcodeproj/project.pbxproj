@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		049A1000299D53B400F2BCBF /* DealsCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049A0FFF299D53B400F2BCBF /* DealsCollection.swift */; };
+		049A1002299D550800F2BCBF /* MenuCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049A1001299D550800F2BCBF /* MenuCollectionViewController.swift */; };
+		049A1005299D59B200F2BCBF /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049A1004299D59B200F2BCBF /* MenuCell.swift */; };
 		04AD8DB4299A873D00C25FF7 /* GlobalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD8DB3299A873D00C25FF7 /* GlobalData.swift */; };
 		04AD8DB6299AB14300C25FF7 /* ChooseAStoreTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD8DB5299AB14300C25FF7 /* ChooseAStoreTableViewController.swift */; };
 		04B295B9299953820076984A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B295B8299953820076984A /* AppDelegate.swift */; };
@@ -20,6 +23,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		049A0FFF299D53B400F2BCBF /* DealsCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealsCollection.swift; sourceTree = "<group>"; };
+		049A1001299D550800F2BCBF /* MenuCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCollectionViewController.swift; sourceTree = "<group>"; };
+		049A1004299D59B200F2BCBF /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
 		04AD8DB3299A873D00C25FF7 /* GlobalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalData.swift; sourceTree = "<group>"; };
 		04AD8DB5299AB14300C25FF7 /* ChooseAStoreTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseAStoreTableViewController.swift; sourceTree = "<group>"; };
 		04B295B5299953820076984A /* Mama Jean's Pizza.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mama Jean's Pizza.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -45,6 +51,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		049A0FFE299D539100F2BCBF /* HomescreenCollections */ = {
+			isa = PBXGroup;
+			children = (
+				049A0FFF299D53B400F2BCBF /* DealsCollection.swift */,
+			);
+			path = HomescreenCollections;
+			sourceTree = "<group>";
+		};
+		049A1003299D599500F2BCBF /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				049A1001299D550800F2BCBF /* MenuCollectionViewController.swift */,
+				049A1004299D59B200F2BCBF /* MenuCell.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
 		04B295AC299953820076984A = {
 			isa = PBXGroup;
 			children = (
@@ -64,11 +87,13 @@
 		04B295B7299953820076984A /* Mama Jean's Pizza */ = {
 			isa = PBXGroup;
 			children = (
+				049A1003299D599500F2BCBF /* Menu */,
 				04B295B8299953820076984A /* AppDelegate.swift */,
 				04B295BA299953820076984A /* SceneDelegate.swift */,
 				04AD8DB3299A873D00C25FF7 /* GlobalData.swift */,
 				04B295BC299953820076984A /* HomePageViewController.swift */,
 				04B295D029997D0A0076984A /* IntroductionTips */,
+				049A0FFE299D539100F2BCBF /* HomescreenCollections */,
 				04AD8DB5299AB14300C25FF7 /* ChooseAStoreTableViewController.swift */,
 				04B295BE299953820076984A /* Main.storyboard */,
 				04B295C1299953840076984A /* Assets.xcassets */,
@@ -158,11 +183,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				049A1002299D550800F2BCBF /* MenuCollectionViewController.swift in Sources */,
 				04AD8DB6299AB14300C25FF7 /* ChooseAStoreTableViewController.swift in Sources */,
 				04AD8DB4299A873D00C25FF7 /* GlobalData.swift in Sources */,
 				04B295BD299953820076984A /* HomePageViewController.swift in Sources */,
 				04B295B9299953820076984A /* AppDelegate.swift in Sources */,
 				04B295CF2999789F0076984A /* IntroductionTipsViewController.swift in Sources */,
+				049A1005299D59B200F2BCBF /* MenuCell.swift in Sources */,
+				049A1000299D53B400F2BCBF /* DealsCollection.swift in Sources */,
 				04B295BB299953820076984A /* SceneDelegate.swift in Sources */,
 				04B295CD299978600076984A /* IntroductionTipsPageViewController.swift in Sources */,
 			);

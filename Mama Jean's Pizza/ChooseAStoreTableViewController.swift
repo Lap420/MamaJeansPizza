@@ -16,6 +16,7 @@ class ChooseAStoreTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // TODO: Изменить цвет кнопки Back
         // TODO: прописать разное время работы точек
         // TODO: Если точка сейчас не работает, то менять цвет на красный и писать Closed now
     }
