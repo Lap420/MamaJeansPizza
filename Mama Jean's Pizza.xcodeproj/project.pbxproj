@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0423BC8A299E968F00BE8BFC /* ItemsCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0423BC89299E968F00BE8BFC /* ItemsCollectionViewController.swift */; };
+		0423BC8C299E96B700BE8BFC /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0423BC8B299E96B700BE8BFC /* ItemCell.swift */; };
+		0423BC8F299EABD300BE8BFC /* ItemDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0423BC8E299EABD300BE8BFC /* ItemDetailsViewController.swift */; };
+		0423BC92299EBC4D00BE8BFC /* ChooseAStoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0423BC91299EBC4D00BE8BFC /* ChooseAStoreModel.swift */; };
 		049A1000299D53B400F2BCBF /* DealsCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049A0FFF299D53B400F2BCBF /* DealsCollection.swift */; };
 		049A1002299D550800F2BCBF /* MenuCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049A1001299D550800F2BCBF /* MenuCollectionViewController.swift */; };
 		049A1005299D59B200F2BCBF /* MenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 049A1004299D59B200F2BCBF /* MenuCell.swift */; };
@@ -20,9 +24,22 @@
 		04B295C5299953840076984A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04B295C3299953840076984A /* LaunchScreen.storyboard */; };
 		04B295CD299978600076984A /* IntroductionTipsPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B295CC299978600076984A /* IntroductionTipsPageViewController.swift */; };
 		04B295CF2999789F0076984A /* IntroductionTipsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B295CE2999789F0076984A /* IntroductionTipsViewController.swift */; };
+		04F12006299FE63D008DF518 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04F12005299FE63D008DF518 /* GoogleService-Info.plist */; };
+		04F12009299FE8CD008DF518 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 04F12008299FE8CD008DF518 /* FirebaseAnalytics */; };
+		04F1200B299FE8CD008DF518 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 04F1200A299FE8CD008DF518 /* FirebaseDatabase */; };
+		04F1200D299FE8CD008DF518 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 04F1200C299FE8CD008DF518 /* FirebaseFirestore */; };
+		04F1200F299FE8CD008DF518 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 04F1200E299FE8CD008DF518 /* FirebaseStorage */; };
+		04F12011299FEBDD008DF518 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F12010299FEBDD008DF518 /* FirebaseManager.swift */; };
+		04F12014299FED59008DF518 /* HomescreenCollectionStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F12013299FED59008DF518 /* HomescreenCollectionStructs.swift */; };
+		04F1201729A003F6008DF518 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 04F1201629A003F6008DF518 /* SnapKit */; };
+		04F1201929A00481008DF518 /* DealCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F1201829A00481008DF518 /* DealCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0423BC89299E968F00BE8BFC /* ItemsCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsCollectionViewController.swift; sourceTree = "<group>"; };
+		0423BC8B299E96B700BE8BFC /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
+		0423BC8E299EABD300BE8BFC /* ItemDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsViewController.swift; sourceTree = "<group>"; };
+		0423BC91299EBC4D00BE8BFC /* ChooseAStoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseAStoreModel.swift; sourceTree = "<group>"; };
 		049A0FFF299D53B400F2BCBF /* DealsCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealsCollection.swift; sourceTree = "<group>"; };
 		049A1001299D550800F2BCBF /* MenuCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCollectionViewController.swift; sourceTree = "<group>"; };
 		049A1004299D59B200F2BCBF /* MenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuCell.swift; sourceTree = "<group>"; };
@@ -38,6 +55,10 @@
 		04B295C6299953840076984A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04B295CC299978600076984A /* IntroductionTipsPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionTipsPageViewController.swift; sourceTree = "<group>"; };
 		04B295CE2999789F0076984A /* IntroductionTipsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionTipsViewController.swift; sourceTree = "<group>"; };
+		04F12005299FE63D008DF518 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		04F12010299FEBDD008DF518 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
+		04F12013299FED59008DF518 /* HomescreenCollectionStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomescreenCollectionStructs.swift; sourceTree = "<group>"; };
+		04F1201829A00481008DF518 /* DealCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,18 +66,44 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04F1200B299FE8CD008DF518 /* FirebaseDatabase in Frameworks */,
+				04F1200F299FE8CD008DF518 /* FirebaseStorage in Frameworks */,
+				04F12009299FE8CD008DF518 /* FirebaseAnalytics in Frameworks */,
+				04F1200D299FE8CD008DF518 /* FirebaseFirestore in Frameworks */,
+				04F1201729A003F6008DF518 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		049A0FFE299D539100F2BCBF /* HomescreenCollections */ = {
+		0423BC8D299E96C800BE8BFC /* Items */ = {
 			isa = PBXGroup;
 			children = (
-				049A0FFF299D53B400F2BCBF /* DealsCollection.swift */,
+				0423BC89299E968F00BE8BFC /* ItemsCollectionViewController.swift */,
+				0423BC8B299E96B700BE8BFC /* ItemCell.swift */,
 			);
-			path = HomescreenCollections;
+			path = Items;
+			sourceTree = "<group>";
+		};
+		0423BC90299EBC2600BE8BFC /* ChooseAStore */ = {
+			isa = PBXGroup;
+			children = (
+				04AD8DB5299AB14300C25FF7 /* ChooseAStoreTableViewController.swift */,
+				0423BC91299EBC4D00BE8BFC /* ChooseAStoreModel.swift */,
+			);
+			path = ChooseAStore;
+			sourceTree = "<group>";
+		};
+		049A0FFE299D539100F2BCBF /* Homescreen */ = {
+			isa = PBXGroup;
+			children = (
+				04B295BC299953820076984A /* HomePageViewController.swift */,
+				049A0FFF299D53B400F2BCBF /* DealsCollection.swift */,
+				04F12013299FED59008DF518 /* HomescreenCollectionStructs.swift */,
+				04F1201829A00481008DF518 /* DealCell.swift */,
+			);
+			path = Homescreen;
 			sourceTree = "<group>";
 		};
 		049A1003299D599500F2BCBF /* Menu */ = {
@@ -87,18 +134,20 @@
 		04B295B7299953820076984A /* Mama Jean's Pizza */ = {
 			isa = PBXGroup;
 			children = (
-				049A1003299D599500F2BCBF /* Menu */,
-				04B295B8299953820076984A /* AppDelegate.swift */,
-				04B295BA299953820076984A /* SceneDelegate.swift */,
 				04AD8DB3299A873D00C25FF7 /* GlobalData.swift */,
-				04B295BC299953820076984A /* HomePageViewController.swift */,
+				04F12012299FED06008DF518 /* Application */,
 				04B295D029997D0A0076984A /* IntroductionTips */,
-				049A0FFE299D539100F2BCBF /* HomescreenCollections */,
-				04AD8DB5299AB14300C25FF7 /* ChooseAStoreTableViewController.swift */,
+				049A0FFE299D539100F2BCBF /* Homescreen */,
+				0423BC90299EBC2600BE8BFC /* ChooseAStore */,
+				049A1003299D599500F2BCBF /* Menu */,
+				0423BC8D299E96C800BE8BFC /* Items */,
+				0423BC8E299EABD300BE8BFC /* ItemDetailsViewController.swift */,
+				04F12010299FEBDD008DF518 /* FirebaseManager.swift */,
 				04B295BE299953820076984A /* Main.storyboard */,
 				04B295C1299953840076984A /* Assets.xcassets */,
 				04B295C3299953840076984A /* LaunchScreen.storyboard */,
 				04B295C6299953840076984A /* Info.plist */,
+				04F12005299FE63D008DF518 /* GoogleService-Info.plist */,
 			);
 			path = "Mama Jean's Pizza";
 			sourceTree = "<group>";
@@ -110,6 +159,15 @@
 				04B295CE2999789F0076984A /* IntroductionTipsViewController.swift */,
 			);
 			path = IntroductionTips;
+			sourceTree = "<group>";
+		};
+		04F12012299FED06008DF518 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				04B295B8299953820076984A /* AppDelegate.swift */,
+				04B295BA299953820076984A /* SceneDelegate.swift */,
+			);
+			path = Application;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -128,6 +186,13 @@
 			dependencies = (
 			);
 			name = "Mama Jean's Pizza";
+			packageProductDependencies = (
+				04F12008299FE8CD008DF518 /* FirebaseAnalytics */,
+				04F1200A299FE8CD008DF518 /* FirebaseDatabase */,
+				04F1200C299FE8CD008DF518 /* FirebaseFirestore */,
+				04F1200E299FE8CD008DF518 /* FirebaseStorage */,
+				04F1201629A003F6008DF518 /* SnapKit */,
+			);
 			productName = "Mama Jean's Pizza";
 			productReference = 04B295B5299953820076984A /* Mama Jean's Pizza.app */;
 			productType = "com.apple.product-type.application";
@@ -156,6 +221,10 @@
 				Base,
 			);
 			mainGroup = 04B295AC299953820076984A;
+			packageReferences = (
+				04F12007299FE8CD008DF518 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				04F1201529A003F6008DF518 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 04B295B6299953820076984A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -171,6 +240,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				04B295C5299953840076984A /* LaunchScreen.storyboard in Resources */,
+				04F12006299FE63D008DF518 /* GoogleService-Info.plist in Resources */,
 				04B295C2299953840076984A /* Assets.xcassets in Resources */,
 				04B295C0299953820076984A /* Main.storyboard in Resources */,
 			);
@@ -185,12 +255,19 @@
 			files = (
 				049A1002299D550800F2BCBF /* MenuCollectionViewController.swift in Sources */,
 				04AD8DB6299AB14300C25FF7 /* ChooseAStoreTableViewController.swift in Sources */,
+				0423BC92299EBC4D00BE8BFC /* ChooseAStoreModel.swift in Sources */,
 				04AD8DB4299A873D00C25FF7 /* GlobalData.swift in Sources */,
 				04B295BD299953820076984A /* HomePageViewController.swift in Sources */,
 				04B295B9299953820076984A /* AppDelegate.swift in Sources */,
 				04B295CF2999789F0076984A /* IntroductionTipsViewController.swift in Sources */,
+				04F1201929A00481008DF518 /* DealCell.swift in Sources */,
+				0423BC8A299E968F00BE8BFC /* ItemsCollectionViewController.swift in Sources */,
 				049A1005299D59B200F2BCBF /* MenuCell.swift in Sources */,
+				0423BC8C299E96B700BE8BFC /* ItemCell.swift in Sources */,
+				0423BC8F299EABD300BE8BFC /* ItemDetailsViewController.swift in Sources */,
+				04F12014299FED59008DF518 /* HomescreenCollectionStructs.swift in Sources */,
 				049A1000299D53B400F2BCBF /* DealsCollection.swift in Sources */,
+				04F12011299FEBDD008DF518 /* FirebaseManager.swift in Sources */,
 				04B295BB299953820076984A /* SceneDelegate.swift in Sources */,
 				04B295CD299978600076984A /* IntroductionTipsPageViewController.swift in Sources */,
 			);
@@ -414,6 +491,53 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		04F12007299FE8CD008DF518 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+		04F1201529A003F6008DF518 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		04F12008299FE8CD008DF518 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 04F12007299FE8CD008DF518 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		04F1200A299FE8CD008DF518 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 04F12007299FE8CD008DF518 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		04F1200C299FE8CD008DF518 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 04F12007299FE8CD008DF518 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		04F1200E299FE8CD008DF518 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 04F12007299FE8CD008DF518 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+		04F1201629A003F6008DF518 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 04F1201529A003F6008DF518 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 04B295AD299953820076984A /* Project object */;
 }

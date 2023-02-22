@@ -9,18 +9,21 @@ import UIKit
 
 class HomePageViewController: UIViewController {
 
-    @IBOutlet weak var nnavigationItem: UINavigationItem!
     @IBOutlet weak var topGreenView: UIView!
     @IBOutlet weak var pointsLabel: UILabel!
     @IBOutlet weak var mamaJeansLabel: UILabel!
     @IBOutlet weak var orderNowButton: UIButton!
     @IBOutlet weak var repeatOrderButton: UIButton!
+    @IBOutlet weak var dealsCollectionView: UICollectionView!
     
+    private var deals: [Deal] = []
+
     //let userDefaults = UserDefaults.standard
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationController?.navigationBar.tintColor = .white
         
         topGreenView.backgroundColor = UIColor(hue: 159/359, saturation: 0.88, brightness: 0.47, alpha: 1)
         
@@ -42,6 +45,30 @@ class HomePageViewController: UIViewController {
         repeatOrderButton.clipsToBounds = true
         repeatOrderButton.contentMode = .scaleAspectFill
         repeatOrderButton.setImage(UIImage(named: "RepeatOrder"), for: .normal)
+        
+        dealsCollectionView.showsHorizontalScrollIndicator = false
+        dealsCollectionView.delegate = self
+        dealsCollectionView.dataSource = self
+
+        
+//        FirebaseManager.shared.getDeal(collection: "Deals", docName: "Family Feast") { deal in
+//            guard deal != nil else { return }
+//
+//            DispatchQueue.main.async {
+//                self.dealsCollectionView.reloadData()
+//            }
+//        }
+        
+        FirebaseManager.shared.getDeals(collection: "Deals") { deals in
+            guard deals.count > 0 else { return }
+            
+            self.deals = deals
+            DispatchQueue.main.async {
+                self.dealsCollectionView.reloadData()
+            }
+        }
+        
+        
         
         // TODO: Констрейнты через код
         
@@ -95,5 +122,24 @@ extension HomePageViewController {
 //        alert.addAction(deleteAction)
         alert.addAction(okAction)
         present(alert, animated: true)
+    }
+}
+
+
+// MARK: - Collections DataSource
+
+extension HomePageViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return deals.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Deal", for: indexPath) as! DealCell
+        
+        cell.name = deals[indexPath.row].name
+        cell.dealDescription = deals[indexPath.row].dealDescription
+        cell.imageView.image = deals[indexPath.row].image
+        
+        return cell
     }
 }
