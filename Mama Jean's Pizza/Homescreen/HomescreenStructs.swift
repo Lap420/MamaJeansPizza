@@ -13,3 +13,11 @@ struct Deal {
     let dealDescription: String
     let image: UIImage
 }
+
+struct Reward {
+    let image: UIImage
+}
+
+struct Point {
+    let image: UIImage
+}

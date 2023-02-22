@@ -36,7 +36,7 @@ class FirebaseManager {
             for doc in docs {
                 guard let docName = doc.get("name") as? String else { continue }
                 
-                self.getDealImage(path: collection, picName: docName) { image in
+                self.getImage(path: collection, picName: docName) { image in
                     let deal = Deal(name: docName,
                                     dealDescription: doc.get("description") as? String ?? "",
                                     image: image)
@@ -49,7 +49,7 @@ class FirebaseManager {
         }
     }
     
-    func getDealImage(path: String, picName: String, completion: @escaping (UIImage) -> Void) {
+    func getImage(path: String, picName: String, completion: @escaping (UIImage) -> Void) {
         let storage = Storage.storage()
         let reference = storage.reference()
         let pathRef = reference.child(path)
@@ -64,6 +64,7 @@ class FirebaseManager {
         }
     }
     
+    
 //    func getOneExactDeal(collection: String, docName: String, completion: @escaping (Deal?) -> Void) {
 //        let db = configureDB()
 //        db.collection(collection).document(docName).getDocument { deal, error in
@@ -76,4 +77,12 @@ class FirebaseManager {
 //            }
 //        }
 //    }
+    
+    //        FirebaseManager.shared.getDeal(collection: "Deals", docName: "Family Feast") { deal in
+    //            guard deal != nil else { return }
+    //
+    //            DispatchQueue.main.async {
+    //                self.dealsCollectionView.reloadData()
+    //            }
+    //        }
 }

@@ -15,8 +15,13 @@ class HomePageViewController: UIViewController {
     @IBOutlet weak var orderNowButton: UIButton!
     @IBOutlet weak var repeatOrderButton: UIButton!
     @IBOutlet weak var dealsCollectionView: UICollectionView!
+    @IBOutlet weak var rewardsCollectionView: UICollectionView!
+    @IBOutlet weak var pointsCollectionView: UICollectionView!
     
     private var deals: [Deal] = []
+    private var rewards: [Reward] = []
+    private var points: [Point] = []
+    
 
     //let userDefaults = UserDefaults.standard
     
@@ -49,15 +54,6 @@ class HomePageViewController: UIViewController {
         dealsCollectionView.showsHorizontalScrollIndicator = false
         dealsCollectionView.delegate = self
         dealsCollectionView.dataSource = self
-
-        
-//        FirebaseManager.shared.getDeal(collection: "Deals", docName: "Family Feast") { deal in
-//            guard deal != nil else { return }
-//
-//            DispatchQueue.main.async {
-//                self.dealsCollectionView.reloadData()
-//            }
-//        }
         
         FirebaseManager.shared.getDeals(collection: "Deals") { deals in
             guard deals.count > 0 else { return }
@@ -68,6 +64,22 @@ class HomePageViewController: UIViewController {
             }
         }
         
+        rewardsCollectionView.showsHorizontalScrollIndicator = false
+        rewardsCollectionView.delegate = self
+        rewardsCollectionView.dataSource = self
+        
+        FirebaseManager.shared.getImage(path: "Rewards", picName: "Earn Mama Points") { image1 in
+            let reward1 = Reward(image: image1)
+            self.rewards.append(reward1)
+            FirebaseManager.shared.getImage(path: "Rewards", picName: "Invite friends") { image2 in
+                let reward2 = Reward(image: image2)
+                self.rewards.append(reward2)
+                
+                DispatchQueue.main.async {
+                    self.rewardsCollectionView.reloadData()
+                }
+            }
+        }
         
         
         // TODO: Констрейнты через код
@@ -76,10 +88,10 @@ class HomePageViewController: UIViewController {
         //let userDefaults = UserDefaults.standard
         //let presentationWasViewed = userDefaults.bool(forKey: "PresentationWasViewed")
         //let presentationWasSkipped = userDefaults.bool(forKey: "PresentationWasSkipped")
-        let presentationWasViewed = false
-        if presentationWasViewed == false {
-            startIntroductionTips()
-        }
+//        let presentationWasViewed = false
+//        if presentationWasViewed == false {
+//            startIntroductionTips()
+//        }
     }
 
     // MARK: - Navigation
@@ -134,12 +146,29 @@ extension HomePageViewController: UICollectionViewDataSource, UICollectionViewDe
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Deal", for: indexPath) as! DealCell
         
-        cell.name = deals[indexPath.row].name
-        cell.dealDescription = deals[indexPath.row].dealDescription
-        cell.imageView.image = deals[indexPath.row].image
+        if collectionView == dealsCollectionView {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Deal", for: indexPath)
+                as! DealCell
+            
+            cell.name = deals[indexPath.row].name
+            cell.dealDescription = deals[indexPath.row].dealDescription
+            cell.imageView.image = deals[indexPath.row].image
+            return cell
+        }
         
+        if collectionView == rewardsCollectionView {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Reward", for: indexPath)
+                as! RewardsCell
+        
+            cell.imageView.image = rewards[indexPath.row].image
+            return cell
+        }
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Point", for: indexPath)
+            as! PointsCell
+        
+        cell.imageView.image = points[indexPath.row].image
         return cell
     }
 }
