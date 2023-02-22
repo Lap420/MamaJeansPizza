@@ -8,7 +8,6 @@
 import Foundation
 import UIKit
 import Firebase
-//import FirebaseDatabase
 import FirebaseStorage
 import CoreMedia
 
@@ -26,23 +25,23 @@ class FirebaseManager {
         return db
     }
     
-    func getDeals(collection: String, completion: @escaping ([Deal]) -> Void) {
+    func getHomepageData(collection: String, completion: @escaping ([HomepageData]) -> Void) {
         let db = configureDB()
-        db.collection(collection).getDocuments { deals, error in
+        db.collection(collection).getDocuments { homepageData, error in
             guard error == nil else { completion([]); return }
-            guard let docs = deals?.documents else { completion([]); return }
+            guard let docs = homepageData?.documents else { completion([]); return }
             
-            var dealsArray: [Deal] = []
+            var homepageDataArray: [HomepageData] = []
             for doc in docs {
                 guard let docName = doc.get("name") as? String else { continue }
                 
                 self.getImage(path: collection, picName: docName) { image in
-                    let deal = Deal(name: docName,
+                    let data = HomepageData(name: docName,
                                     dealDescription: doc.get("description") as? String ?? "",
                                     image: image)
-                    dealsArray.append(deal)
+                    homepageDataArray.append(data)
                     
-                    completion(dealsArray)
+                    completion(homepageDataArray)
                 }
             }
             
@@ -63,26 +62,4 @@ class FirebaseManager {
             completion(image!)
         }
     }
-    
-    
-//    func getOneExactDeal(collection: String, docName: String, completion: @escaping (Deal?) -> Void) {
-//        let db = configureDB()
-//        db.collection(collection).document(docName).getDocument { deal, error in
-//            guard error == nil else { completion(nil); return }
-//            self.getDealImage(path: collection, picName: docName) { image in
-//                let finalDeal = Deal(name: deal?.get("name") as! String,
-//                                     dealDescription: deal?.get("description") as! String,
-//                                     image: image)
-//                completion(finalDeal)
-//            }
-//        }
-//    }
-    
-    //        FirebaseManager.shared.getDeal(collection: "Deals", docName: "Family Feast") { deal in
-    //            guard deal != nil else { return }
-    //
-    //            DispatchQueue.main.async {
-    //                self.dealsCollectionView.reloadData()
-    //            }
-    //        }
 }

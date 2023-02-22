@@ -8,16 +8,8 @@
 import Foundation
 import UIKit
 
-struct Deal {
+struct HomepageData {
     let name: String
     let dealDescription: String
-    let image: UIImage
-}
-
-struct Reward {
-    let image: UIImage
-}
-
-struct Point {
     let image: UIImage
 }

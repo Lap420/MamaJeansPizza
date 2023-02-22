@@ -18,15 +18,18 @@ class HomePageViewController: UIViewController {
     @IBOutlet weak var rewardsCollectionView: UICollectionView!
     @IBOutlet weak var pointsCollectionView: UICollectionView!
     
-    private var deals: [Deal] = []
-    private var rewards: [Reward] = []
-    private var points: [Point] = []
-    
+    private var deals: [HomepageData] = []
+    private var rewards: [HomepageData] = []
+    private var points: [HomepageData] = []
 
     //let userDefaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let interitemSpacing: CGFloat = 10
+        let sectionSpacing: CGFloat = 20
+        
         
         self.navigationController?.navigationBar.tintColor = .white
         
@@ -54,8 +57,11 @@ class HomePageViewController: UIViewController {
         dealsCollectionView.showsHorizontalScrollIndicator = false
         dealsCollectionView.delegate = self
         dealsCollectionView.dataSource = self
+        guard let dealsLayout = dealsCollectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
+        dealsLayout.sectionInset = UIEdgeInsets(top: 0, left: sectionSpacing, bottom: 0, right: sectionSpacing)
+        dealsLayout.minimumInteritemSpacing = interitemSpacing
         
-        FirebaseManager.shared.getDeals(collection: "Deals") { deals in
+        FirebaseManager.shared.getHomepageData(collection: "Deals") { deals in
             guard deals.count > 0 else { return }
             
             self.deals = deals
@@ -67,20 +73,34 @@ class HomePageViewController: UIViewController {
         rewardsCollectionView.showsHorizontalScrollIndicator = false
         rewardsCollectionView.delegate = self
         rewardsCollectionView.dataSource = self
+        guard let rewardsLayout = rewardsCollectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
+        rewardsLayout.sectionInset = UIEdgeInsets(top: 0, left: sectionSpacing, bottom: 0, right: sectionSpacing)
+        rewardsLayout.minimumInteritemSpacing = interitemSpacing
         
-        FirebaseManager.shared.getImage(path: "Rewards", picName: "Earn Mama Points") { image1 in
-            let reward1 = Reward(image: image1)
-            self.rewards.append(reward1)
-            FirebaseManager.shared.getImage(path: "Rewards", picName: "Invite friends") { image2 in
-                let reward2 = Reward(image: image2)
-                self.rewards.append(reward2)
-                
-                DispatchQueue.main.async {
-                    self.rewardsCollectionView.reloadData()
-                }
+        FirebaseManager.shared.getHomepageData(collection: "Rewards") { rewards in
+            guard rewards.count > 0 else { return }
+            
+            self.rewards = rewards
+            DispatchQueue.main.async {
+                self.rewardsCollectionView.reloadData()
             }
         }
         
+        pointsCollectionView.showsHorizontalScrollIndicator = false
+        pointsCollectionView.delegate = self
+        pointsCollectionView.dataSource = self
+        guard let pointsLayout = pointsCollectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
+        pointsLayout.sectionInset = UIEdgeInsets(top: 0, left: sectionSpacing, bottom: 0, right: sectionSpacing)
+        pointsLayout.minimumInteritemSpacing = interitemSpacing
+        
+        FirebaseManager.shared.getHomepageData(collection: "Points") { points in
+            guard points.count > 0 else { return }
+            
+            self.points = points
+            DispatchQueue.main.async {
+                self.pointsCollectionView.reloadData()
+            }
+        }
         
         // TODO: Констрейнты через код
         
@@ -142,7 +162,16 @@ extension HomePageViewController {
 
 extension HomePageViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return deals.count
+        switch collectionView {
+        case dealsCollectionView:
+            return deals.count
+        case rewardsCollectionView:
+            return rewards.count
+        case pointsCollectionView:
+            return points.count
+        default:
+            return 0
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

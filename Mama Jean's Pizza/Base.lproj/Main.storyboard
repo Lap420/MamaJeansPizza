@@ -85,11 +85,11 @@
                                             <size key="itemSize" width="160" height="100"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                            <inset key="sectionInset" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Deal" id="JSO-Bx-JW4" customClass="DealCell" customModule="Mama_Jean_s_Pizza" customModuleProvider="target">
-                                                <rect key="frame" x="20" y="10" width="160" height="100"/>
+                                                <rect key="frame" x="0.0" y="10" width="160" height="100"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="CBl-bi-usL">
                                                     <rect key="frame" x="0.0" y="0.0" width="160" height="100"/>
@@ -138,11 +138,11 @@
                                             <size key="itemSize" width="140" height="117"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                            <inset key="sectionInset" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Reward" id="SyS-p8-5mh" customClass="RewardsCell" customModule="Mama_Jean_s_Pizza" customModuleProvider="target">
-                                                <rect key="frame" x="20" y="10" width="140" height="117"/>
+                                                <rect key="frame" x="0.0" y="10" width="140" height="117"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ZF1-y5-RtX">
                                                     <rect key="frame" x="0.0" y="0.0" width="140" height="117"/>
@@ -191,11 +191,11 @@
                                             <size key="itemSize" width="90" height="90"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                            <inset key="sectionInset" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
                                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Point" id="5th-dI-vM0" customClass="PointsCell" customModule="Mama_Jean_s_Pizza" customModuleProvider="target">
-                                                <rect key="frame" x="20" y="10" width="90" height="90"/>
+                                                <rect key="frame" x="0.0" y="10" width="90" height="90"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="OhR-zV-NY1">
                                                     <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
