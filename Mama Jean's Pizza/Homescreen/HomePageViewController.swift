@@ -6,13 +6,12 @@
 //
 
 // TODO: Constraints by code
-// TODO: Points earning from Introduction tips page
 // TODO: Do a segue from Deals Cell to the new page with Deals description
 // TODO: Develop "Repeat order" based on local DB with previous orders
 
 import UIKit
 
-class HomePageViewController: UIViewController {
+class HomePageViewController: UIViewController, IntroductionPointsDelegate {
     @IBOutlet weak var mamaJeansLabel: UILabel!
     @IBOutlet weak var pointsBalanceLabel: UILabel!
     @IBOutlet weak var topButtonsStackView: UIStackView!
@@ -35,10 +34,10 @@ class HomePageViewController: UIViewController {
     private var points: [HomepageData] = []
 
     let userDefaults = UserDefaults.standard
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        userDefaults.set(0, forKey: "Points")
     // MARK: VIEW
         
         let interitemSpacing: CGFloat = 10
@@ -59,7 +58,7 @@ class HomePageViewController: UIViewController {
         mamaJeansLabel.textColor = .white
         mamaJeansLabel.font = .systemFont(ofSize: 24, weight: .black)
         
-        pointsBalanceLabel.text = "🍕0"
+        pointsBalanceLabel.text = "🍕" + String(userDefaults.integer(forKey: "Points"))
         pointsBalanceLabel.textColor = .white
         pointsBalanceLabel.font = .systemFont(ofSize: 14)
         pointsBalanceLabel.textAlignment = .right
@@ -168,8 +167,10 @@ class HomePageViewController: UIViewController {
         
         //Show the Introduction only once for a user
         //let presentationWasSkipped = userDefaults.bool(forKey: "PresentationWasSkipped")
-        let presentationWasViewed = userDefaults.bool(forKey: "PresentationWasViewed")
+        var presentationWasViewed = userDefaults.bool(forKey: "PresentationWasViewed")
+        presentationWasViewed = false
         if presentationWasViewed == false {
+            userDefaults.set(0, forKey: "Points")
             startIntroductionTips()
         }
     }
@@ -185,7 +186,6 @@ class HomePageViewController: UIViewController {
     @IBAction func orderNowButtonTapped(_ sender: UIButton) { goToNewOrder() }
     
     @IBAction func repeatOrderButtonTapped(_ sender: UIButton) {
-        
         showAlert(title: "Oops...", message: "This feature is coming soon. Will keep you posted.")
     }
     
@@ -217,8 +217,13 @@ class HomePageViewController: UIViewController {
     func startIntroductionTips() {
         if let introductionTipsPageVC = storyboard?.instantiateViewController(withIdentifier: "introductionTipsPageVC") as? IntroductionTipsPageViewController {
             
+            introductionTipsPageVC.firstTipsDelegate = self
             present(introductionTipsPageVC, animated: true)
         }
+    }
+    
+    func updatePointsLabel() {
+        pointsBalanceLabel.text = "🍕" + String(userDefaults.integer(forKey: "Points"))
     }
 }
 
@@ -293,4 +298,8 @@ class TopView: UIView {
         UIColor(hue: 159/359, saturation: 0.88, brightness: 0.47, alpha: 1).setFill()
         path.fill()
     }
+}
+
+protocol IntroductionPointsDelegate {
+    func updatePointsLabel()
 }

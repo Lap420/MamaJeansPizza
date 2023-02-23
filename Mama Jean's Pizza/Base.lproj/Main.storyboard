@@ -656,7 +656,7 @@
                                 </state>
                                 <buttonConfiguration key="configuration" style="plain" title="Get my 100 points and let's get started!"/>
                                 <connections>
-                                    <action selector="closeIntroductionTipsButtonTapped:" destination="OUz-bs-wrq" eventType="touchUpInside" id="Qb4-cY-wqD"/>
+                                    <action selector="closeIntroductionTipsButtonTapped:" destination="OUz-bs-wrq" eventType="touchUpInside" id="SLD-4c-hxc"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Text" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zg0-hr-NGc">

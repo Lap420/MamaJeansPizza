@@ -139,8 +139,8 @@
 			children = (
 				04AD8DB3299A873D00C25FF7 /* GlobalData.swift */,
 				04F12012299FED06008DF518 /* Application */,
-				04B295D029997D0A0076984A /* IntroductionTips */,
 				049A0FFE299D539100F2BCBF /* Homescreen */,
+				04B295D029997D0A0076984A /* IntroductionTips */,
 				0423BC90299EBC2600BE8BFC /* ChooseAStore */,
 				049A1003299D599500F2BCBF /* Menu */,
 				0423BC8D299E96C800BE8BFC /* Items */,

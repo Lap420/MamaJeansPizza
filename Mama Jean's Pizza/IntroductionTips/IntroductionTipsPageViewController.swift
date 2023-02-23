@@ -8,7 +8,6 @@
 import UIKit
 
 class IntroductionTipsPageViewController: UIPageViewController {
-
     var introductionTextArray = ["Welcome to\nMama Jean`s Pizza!",
                                  "Repeat your order",
                                  "Delicious pizza!",
@@ -17,6 +16,8 @@ class IntroductionTipsPageViewController: UIPageViewController {
                                   "You can repeat any your previous order. For this please find \"Repeat order\" button on the main page",
                                   "We use only the highest quality ingredients in our pizzas, which are made especially for you.",
                                   "🍕🥤🍟"]
+    
+    var firstTipsDelegate: IntroductionPointsDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,13 +30,13 @@ class IntroductionTipsPageViewController: UIPageViewController {
     }
     
     func showViewControllerAtIndex(_ index: Int) -> IntroductionTipsViewController? {
-            
         guard index >= 0 else { return nil }
         guard index < introductionTextArray.count else { return nil }
         
         guard let introductionTipsVC = storyboard?.instantiateViewController(withIdentifier: "introductionTipsVC") as? IntroductionTipsViewController else { return nil }
             
         if index == 3 {
+            introductionTipsVC.firstTipsDelegate = firstTipsDelegate
             introductionTipsVC.isFinalPage = true
         } else {
             introductionTipsVC.isFinalPage = false

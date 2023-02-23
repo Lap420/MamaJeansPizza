@@ -8,7 +8,6 @@
 import UIKit
 
 class IntroductionTipsViewController: UIViewController {
-
     @IBOutlet weak var skipIntroductionTipsButton: UIButton!
     @IBOutlet weak var textLabel: UILabel!
     @IBOutlet weak var emojiLabel: UILabel!
@@ -20,6 +19,10 @@ class IntroductionTipsViewController: UIViewController {
     var numberOfPages = 0
     var currentPage = 0
     var isFinalPage = false
+    
+    let userDefaults = UserDefaults.standard
+    
+    var firstTipsDelegate: IntroductionPointsDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,18 +63,16 @@ class IntroductionTipsViewController: UIViewController {
     }
     
     @IBAction func skipIntroductionTipsButtonTapped(_ sender: UIButton) {
-        let userDefaults = UserDefaults.standard
         userDefaults.set(true, forKey: "PresentationWasSkipped")
-        
         dismiss(animated: true) {
             print("User skipped the intro and lost 100 points")
         }
     }
     
     @IBAction func closeIntroductionTipsButtonTapped(_ sender: UIButton) {
-        let userDefaults = UserDefaults.standard
         userDefaults.set(true, forKey: "PresentationWasViewed")
-        
+        userDefaults.set(100, forKey: "Points")
+        firstTipsDelegate?.updatePointsLabel()
         dismiss(animated: true) {
             print("100 points added!")
         }
