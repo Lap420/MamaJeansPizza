@@ -5,19 +5,27 @@
 //  Created by Lap on 12.02.2023.
 //
 
+// TODO: Constraints by code
+// TODO: Points earning from Introduction tips page
+// TODO: Do a segue from Deals Cell to the new page with Deals description
+// TODO: Develop "Repeat order" based on local DB with previous orders
+
 import UIKit
 
 class HomePageViewController: UIViewController {
-
-    @IBOutlet weak var topGreenView: UIView!
-    @IBOutlet weak var pointsLabel: UILabel!
     @IBOutlet weak var mamaJeansLabel: UILabel!
+    @IBOutlet weak var pointsBalanceLabel: UILabel!
+    @IBOutlet weak var topButtonsStackView: UIStackView!
     @IBOutlet weak var orderNowButton: UIButton!
     @IBOutlet weak var repeatOrderButton: UIButton!
+    @IBOutlet weak var dealsLabel: UILabel!
     @IBOutlet weak var dealsCollectionView: UICollectionView!
+    @IBOutlet weak var rewardsLabel: UILabel!
     @IBOutlet weak var rewardsCollectionView: UICollectionView!
+    @IBOutlet weak var useYourPointsLabel: UILabel!
     @IBOutlet weak var pointsCollectionView: UICollectionView!
     @IBOutlet weak var rateButton: UIButton!
+    @IBOutlet weak var bottomButtonsStackView: UIStackView!
     @IBOutlet weak var instagramButton: UIButton!
     @IBOutlet weak var facebookButton: UIButton!
     @IBOutlet weak var linkedinButton: UIButton!
@@ -26,16 +34,20 @@ class HomePageViewController: UIViewController {
     private var rewards: [HomepageData] = []
     private var points: [HomepageData] = []
 
-    //let userDefaults = UserDefaults.standard
+    let userDefaults = UserDefaults.standard
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+    // MARK: VIEW
+        
+        let interitemSpacing: CGFloat = 10
+        let sectionSpacing: CGFloat = 20
+        
+        self.navigationController?.navigationBar.tintColor = .white
+        
         view.backgroundColor = .white
-        topGreenView.backgroundColor = .clear
-        dealsCollectionView.backgroundColor = .clear
-        rewardsCollectionView.backgroundColor = .clear
-        pointsCollectionView.backgroundColor = .clear
+        view.contentMode = .scaleToFill
         
         let topView = TopView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
         topView.center = view.center
@@ -43,21 +55,21 @@ class HomePageViewController: UIViewController {
         view.addSubview(topView)
         view.sendSubviewToBack(topView)
         
-        let interitemSpacing: CGFloat = 10
-        let sectionSpacing: CGFloat = 20
-        
-        self.navigationController?.navigationBar.tintColor = .white
-        
-        //topGreenView.backgroundColor = UIColor(hue: 159/359, saturation: 0.88, brightness: 0.47, alpha: 1)
-        
         mamaJeansLabel.text = "MAMA JEANS"
         mamaJeansLabel.textColor = .white
         mamaJeansLabel.font = .systemFont(ofSize: 24, weight: .black)
         
-        pointsLabel.text = "🍕0"
-        pointsLabel.textColor = .white
-        pointsLabel.font = .systemFont(ofSize: 14)
-        pointsLabel.textAlignment = .right
+        pointsBalanceLabel.text = "🍕0"
+        pointsBalanceLabel.textColor = .white
+        pointsBalanceLabel.font = .systemFont(ofSize: 14)
+        pointsBalanceLabel.textAlignment = .right
+        
+        topButtonsStackView.distribution = .fillEqually
+        topButtonsStackView.spacing = 30
+        
+        dealsCollectionView.backgroundColor = .clear
+        rewardsCollectionView.backgroundColor = .clear
+        pointsCollectionView.backgroundColor = .clear
         
         orderNowButton.layer.cornerRadius = 10
         orderNowButton.clipsToBounds = true
@@ -69,81 +81,108 @@ class HomePageViewController: UIViewController {
         repeatOrderButton.contentMode = .scaleAspectFill
         repeatOrderButton.setImage(UIImage(named: "RepeatOrder"), for: .normal)
         
-//        dealsCollectionView.showsHorizontalScrollIndicator = false
-//        dealsCollectionView.delegate = self
-//        dealsCollectionView.dataSource = self
-//        guard let dealsLayout = dealsCollectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
-//        dealsLayout.sectionInset = UIEdgeInsets(top: 0, left: sectionSpacing, bottom: 0, right: sectionSpacing)
-//        dealsLayout.minimumInteritemSpacing = interitemSpacing
-//
-//        FirebaseManager.shared.getHomepageData(collection: "Deals") { deals in
-//            guard deals.count > 0 else { return }
-//
-//            self.deals = deals
-//            DispatchQueue.main.async {
-//                self.dealsCollectionView.reloadData()
-//            }
-//        }
-//
-//        rewardsCollectionView.showsHorizontalScrollIndicator = false
-//        rewardsCollectionView.delegate = self
-//        rewardsCollectionView.dataSource = self
-//        guard let rewardsLayout = rewardsCollectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
-//        rewardsLayout.sectionInset = UIEdgeInsets(top: 0, left: sectionSpacing, bottom: 0, right: sectionSpacing)
-//        rewardsLayout.minimumInteritemSpacing = interitemSpacing
-//
-//        FirebaseManager.shared.getHomepageData(collection: "Rewards") { rewards in
-//            guard rewards.count > 0 else { return }
-//
-//            self.rewards = rewards
-//            DispatchQueue.main.async {
-//                self.rewardsCollectionView.reloadData()
-//            }
-//        }
-//
-//        pointsCollectionView.showsHorizontalScrollIndicator = false
-//        pointsCollectionView.delegate = self
-//        pointsCollectionView.dataSource = self
-//        guard let pointsLayout = pointsCollectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
-//        pointsLayout.sectionInset = UIEdgeInsets(top: 0, left: sectionSpacing, bottom: 0, right: sectionSpacing)
-//        pointsLayout.minimumInteritemSpacing = interitemSpacing
-//
-//        FirebaseManager.shared.getHomepageData(collection: "Points") { points in
-//            guard points.count > 0 else { return }
-//
-//            self.points = points
-//            DispatchQueue.main.async {
-//                self.pointsCollectionView.reloadData()
-//            }
-//        }
+        dealsLabel.text = "DEALS"
+        dealsLabel.textColor = .black
+        dealsLabel.font = .systemFont(ofSize: 13, weight: .semibold)
+        
+        dealsCollectionView.showsHorizontalScrollIndicator = false
+        if let dealsLayout = dealsCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            dealsLayout.sectionInset = UIEdgeInsets(top: 0, left: sectionSpacing, bottom: 0, right: sectionSpacing)
+            dealsLayout.minimumInteritemSpacing = interitemSpacing
+        }
+  
+        rewardsLabel.text = "MAMA REWARDS"
+        rewardsLabel.textColor = .black
+        rewardsLabel.font = .systemFont(ofSize: 13, weight: .semibold)
+        
+        rewardsCollectionView.showsHorizontalScrollIndicator = false
+        if let rewardsLayout = rewardsCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            rewardsLayout.sectionInset = UIEdgeInsets(top: 0, left: sectionSpacing, bottom: 0, right: sectionSpacing)
+            rewardsLayout.minimumInteritemSpacing = interitemSpacing
+        }
+        
+        useYourPointsLabel.text = "USE YOUR MAMA POINTS"
+        useYourPointsLabel.textColor = .black
+        useYourPointsLabel.font = .systemFont(ofSize: 13, weight: .semibold)
+        
+        pointsCollectionView.showsHorizontalScrollIndicator = false
+        if let pointsLayout = pointsCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+            pointsLayout.sectionInset = UIEdgeInsets(top: 0, left: sectionSpacing, bottom: 0, right: sectionSpacing)
+            pointsLayout.minimumInteritemSpacing = interitemSpacing
+        }
         
         rateButton.layer.cornerRadius = 20
+        rateButton.clipsToBounds = true
+        rateButton.contentMode = .scaleAspectFill
+        rateButton.setImage(UIImage(named: "RateOurApp"), for: .normal)
         
-        // TODO: Констрейнты через код
+        bottomButtonsStackView.distribution = .fillEqually
         
-        // Show the Introduction only once for a user
-        //let userDefaults = UserDefaults.standard
-        //let presentationWasViewed = userDefaults.bool(forKey: "PresentationWasViewed")
+        instagramButton.setTitle("   Instagram", for: .normal)
+        instagramButton.setTitleColor(.white, for: .normal)
+        instagramButton.titleLabel?.font = .systemFont(ofSize: 15, weight: .regular)
+        
+        facebookButton.setTitle("Facebook", for: .normal)
+        facebookButton.setTitleColor(.white, for: .normal)
+        facebookButton.titleLabel?.font = .systemFont(ofSize: 15, weight: .regular)
+        
+        linkedinButton.setTitle("LinkedIn   ", for: .normal)
+        linkedinButton.setTitleColor(.white, for: .normal)
+        linkedinButton.titleLabel?.font = .systemFont(ofSize: 15, weight: .regular)
+        
+    // MARK: CONTROLLER
+        
+        func initCollectionDelegateAndSource(collectionView: UICollectionView!) {
+            collectionView.delegate = self
+            collectionView.dataSource = self
+        }
+        
+        initCollectionDelegateAndSource(collectionView: dealsCollectionView)
+        initCollectionDelegateAndSource(collectionView: rewardsCollectionView)
+        initCollectionDelegateAndSource(collectionView: pointsCollectionView)
+        
+        FirebaseManager.shared.getHomepageData(collection: "Deals") { deals in
+            guard deals.count > 0 else { return }
+
+            self.deals = deals
+            DispatchQueue.main.async {
+                self.dealsCollectionView.reloadData()
+            }
+        }
+        FirebaseManager.shared.getHomepageData(collection: "Rewards") { rewards in
+            guard rewards.count > 0 else { return }
+
+            self.rewards = rewards
+            DispatchQueue.main.async {
+                self.rewardsCollectionView.reloadData()
+            }
+        }
+        FirebaseManager.shared.getHomepageData(collection: "Points") { points in
+            guard points.count > 0 else { return }
+
+            self.points = points
+            DispatchQueue.main.async {
+                self.pointsCollectionView.reloadData()
+            }
+        }
+        
+        //Show the Introduction only once for a user
         //let presentationWasSkipped = userDefaults.bool(forKey: "PresentationWasSkipped")
-//        let presentationWasViewed = false
-//        if presentationWasViewed == false {
-//            startIntroductionTips()
-//        }
+        let presentationWasViewed = userDefaults.bool(forKey: "PresentationWasViewed")
+        if presentationWasViewed == false {
+            startIntroductionTips()
+        }
     }
 
     // MARK: - Navigation
     
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 //        guard let destinationVC = segue.destination as? ChooseAStoreTableViewController else { return }
-//
-//
 //    }
     
     // MARK: - Buttons
     
-    @IBAction func orderNowButtonTapped(_ sender: UIButton) {
-        performSegue(withIdentifier: "FromHomePageToStoreChoosing", sender: nil)
-    }
+    @IBAction func orderNowButtonTapped(_ sender: UIButton) { goToNewOrder() }
     
     @IBAction func repeatOrderButtonTapped(_ sender: UIButton) {
         
@@ -158,36 +197,30 @@ class HomePageViewController: UIViewController {
     
     @IBAction func linkedinButtonTapped(_ sender: Any) { openLapTelegram() }
     
+    func goToNewOrder() {
+        performSegue(withIdentifier: "FromHomePageToStoreChoosing", sender: nil)
+    }
+    
     func openLapTelegram() {
         if let url = URL(string: "https://t.me/lap42") {
         UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
     }
     
+    func showAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Okay", style: .default)
+        alert.addAction(okAction)
+        present(alert, animated: true)
+    }
+    
     func startIntroductionTips() {
-        
         if let introductionTipsPageVC = storyboard?.instantiateViewController(withIdentifier: "introductionTipsPageVC") as? IntroductionTipsPageViewController {
             
             present(introductionTipsPageVC, animated: true)
         }
     }
 }
-
-// MARK: - Alert extension
-
-extension HomePageViewController {
-    private func showAlert(title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let okAction = UIAlertAction(title: "Okay", style: .default)
-//        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
-//        let deleteAction = UIAlertAction(title: "Delete", style: .destructive)
-//        alert.addAction(cancelAction)
-//        alert.addAction(deleteAction)
-        alert.addAction(okAction)
-        present(alert, animated: true)
-    }
-}
-
 
 // MARK: - Collections DataSource
 
@@ -233,6 +266,19 @@ extension HomePageViewController: UICollectionViewDataSource, UICollectionViewDe
         cell.imageView.image = points[indexPath.row].image
         cell.imageView.contentMode = .scaleAspectFit
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch collectionView {
+        case dealsCollectionView:
+            return
+        case rewardsCollectionView:
+            goToNewOrder()
+        case pointsCollectionView:
+            goToNewOrder()
+        default:
+            return
+        }
     }
 }
 
