@@ -8,9 +8,5 @@
 import UIKit
 
 class DealCell: UICollectionViewCell {
-    
     @IBOutlet weak var imageView: UIImageView!
-    
-    var name = ""
-    var dealDescription = ""
 }

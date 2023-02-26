@@ -22,7 +22,7 @@ class IntroductionTipsViewController: UIViewController {
     
     let userDefaults = UserDefaults.standard
     
-    var firstTipsDelegate: IntroductionPointsDelegate?
+    var homePageDelegate: HomePageDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,7 +72,7 @@ class IntroductionTipsViewController: UIViewController {
     @IBAction func closeIntroductionTipsButtonTapped(_ sender: UIButton) {
         userDefaults.set(true, forKey: "PresentationWasViewed")
         userDefaults.set(100, forKey: "Points")
-        firstTipsDelegate?.updatePointsLabel()
+        homePageDelegate?.updatePointsLabel()
         dismiss(animated: true) {
             print("100 points added!")
         }

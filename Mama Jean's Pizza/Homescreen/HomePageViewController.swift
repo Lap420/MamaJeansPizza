@@ -6,12 +6,13 @@
 //
 
 // TODO: Constraints by code
-// TODO: Do a segue from Deals Cell to the new page with Deals description
+// TODO: Multi-threading for collections
 // TODO: Develop "Repeat order" based on local DB with previous orders
 
+import SnapKit
 import UIKit
 
-class HomePageViewController: UIViewController, IntroductionPointsDelegate {
+class HomePageViewController: UIViewController, HomePageDelegate {
     @IBOutlet weak var mamaJeansLabel: UILabel!
     @IBOutlet weak var pointsBalanceLabel: UILabel!
     @IBOutlet weak var topButtonsStackView: UIStackView!
@@ -174,12 +175,6 @@ class HomePageViewController: UIViewController, IntroductionPointsDelegate {
             startIntroductionTips()
         }
     }
-
-    // MARK: - Navigation
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        guard let destinationVC = segue.destination as? ChooseAStoreTableViewController else { return }
-//    }
     
     // MARK: - Buttons
     
@@ -217,7 +212,7 @@ class HomePageViewController: UIViewController, IntroductionPointsDelegate {
     func startIntroductionTips() {
         if let introductionTipsPageVC = storyboard?.instantiateViewController(withIdentifier: "introductionTipsPageVC") as? IntroductionTipsPageViewController {
             
-            introductionTipsPageVC.firstTipsDelegate = self
+            introductionTipsPageVC.homePageDelegate = self
             present(introductionTipsPageVC, animated: true)
         }
     }
@@ -249,8 +244,6 @@ extension HomePageViewController: UICollectionViewDataSource, UICollectionViewDe
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Deal", for: indexPath)
                 as! DealCell
             
-            cell.name = deals[indexPath.row].name
-            cell.dealDescription = deals[indexPath.row].dealDescription
             cell.imageView.image = deals[indexPath.row].image
             cell.imageView.contentMode = .scaleAspectFit
             return cell
@@ -276,7 +269,13 @@ extension HomePageViewController: UICollectionViewDataSource, UICollectionViewDe
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch collectionView {
         case dealsCollectionView:
-            return
+            if let dealVC = storyboard?.instantiateViewController(withIdentifier: "dealVC") as? DealViewController {
+                dealVC.homePageDelegate = self
+                dealVC.dealName = deals[indexPath.row].name
+                dealVC.dealDescription = deals[indexPath.row].dealDescription
+                dealVC.image = deals[indexPath.row].image
+                present(dealVC, animated: true)
+            }
         case rewardsCollectionView:
             goToNewOrder()
         case pointsCollectionView:
@@ -300,6 +299,7 @@ class TopView: UIView {
     }
 }
 
-protocol IntroductionPointsDelegate {
+protocol HomePageDelegate {
     func updatePointsLabel()
+    func goToNewOrder()
 }

@@ -17,7 +17,7 @@ class IntroductionTipsPageViewController: UIPageViewController {
                                   "We use only the highest quality ingredients in our pizzas, which are made especially for you.",
                                   "🍕🥤🍟"]
     
-    var firstTipsDelegate: IntroductionPointsDelegate?
+    var homePageDelegate: HomePageDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +36,7 @@ class IntroductionTipsPageViewController: UIPageViewController {
         guard let introductionTipsVC = storyboard?.instantiateViewController(withIdentifier: "introductionTipsVC") as? IntroductionTipsViewController else { return nil }
             
         if index == 3 {
-            introductionTipsVC.firstTipsDelegate = firstTipsDelegate
+            introductionTipsVC.homePageDelegate = homePageDelegate
             introductionTipsVC.isFinalPage = true
         } else {
             introductionTipsVC.isFinalPage = false
