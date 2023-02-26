@@ -6,7 +6,6 @@
 //
 
 // TODO: Constraints by code
-// TODO: Multi-threading for collections
 // TODO: Develop "Repeat order" based on local DB with previous orders
 
 import SnapKit
@@ -132,39 +131,7 @@ class HomePageViewController: UIViewController, HomePageDelegate {
         
     // MARK: CONTROLLER
         
-        func initCollectionDelegateAndSource(collectionView: UICollectionView!) {
-            collectionView.delegate = self
-            collectionView.dataSource = self
-        }
-        
-        initCollectionDelegateAndSource(collectionView: dealsCollectionView)
-        initCollectionDelegateAndSource(collectionView: rewardsCollectionView)
-        initCollectionDelegateAndSource(collectionView: pointsCollectionView)
-        
-        FirebaseManager.shared.getHomepageData(collection: "Deals") { deals in
-            guard deals.count > 0 else { return }
-
-            self.deals = deals
-            DispatchQueue.main.async {
-                self.dealsCollectionView.reloadData()
-            }
-        }
-        FirebaseManager.shared.getHomepageData(collection: "Rewards") { rewards in
-            guard rewards.count > 0 else { return }
-
-            self.rewards = rewards
-            DispatchQueue.main.async {
-                self.rewardsCollectionView.reloadData()
-            }
-        }
-        FirebaseManager.shared.getHomepageData(collection: "Points") { points in
-            guard points.count > 0 else { return }
-
-            self.points = points
-            DispatchQueue.main.async {
-                self.pointsCollectionView.reloadData()
-            }
-        }
+        initCollectionsData()
         
         //Show the Introduction only once for a user
         //let presentationWasSkipped = userDefaults.bool(forKey: "PresentationWasSkipped")
@@ -219,6 +186,46 @@ class HomePageViewController: UIViewController, HomePageDelegate {
     
     func updatePointsLabel() {
         pointsBalanceLabel.text = "🍕" + String(userDefaults.integer(forKey: "Points"))
+    }
+    
+    func initCollectionDelegateAndSource(collectionView: UICollectionView!) {
+        collectionView.delegate = self
+        collectionView.dataSource = self
+    }
+    
+    func initCollectionsData() {
+        initCollectionDelegateAndSource(collectionView: dealsCollectionView)
+        initCollectionDelegateAndSource(collectionView: rewardsCollectionView)
+        initCollectionDelegateAndSource(collectionView: pointsCollectionView)
+        
+        let group = DispatchGroup()
+        
+        group.enter()
+        FirebaseManager.shared.getHomepageData(collection: "Deals") { [weak self] deals in
+            guard deals.count > 0 else { return }
+            self?.deals = deals
+            group.leave()
+        }
+
+        group.enter()
+        FirebaseManager.shared.getHomepageData(collection: "Rewards") { [weak self] rewards in
+            guard rewards.count > 0 else { return }
+            self?.rewards = rewards
+            group.leave()
+        }
+
+        group.enter()
+        FirebaseManager.shared.getHomepageData(collection: "Points") { [weak self] points in
+            guard points.count > 0 else { return }
+            self?.points = points
+            group.leave()
+        }
+        
+        group.notify(queue: .main) {
+            self.dealsCollectionView.reloadData()
+            self.rewardsCollectionView.reloadData()
+            self.pointsCollectionView.reloadData()
+        }
     }
 }
 
