@@ -49,8 +49,10 @@ class MenuCollectionViewController: UICollectionViewController {
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let destinationVC = segue.destination as? ItemsCollectionViewController else { return }
-        guard let menu = sender as? MenuCell else { return }
-        destinationVC.menuFolder = menu.nameLabel.text ?? "Unknown"
+//        guard let menuGroup = sender as? MenuCell else { return }
+//        destinationVC.menuFolder = menuGroup.nameLabel.text ?? "Unknown"
+        guard let indexPath = collectionView.indexPathsForSelectedItems?.first else { return }
+        destinationVC.menuGroup = menu[indexPath.row].id
     }
 
     // MARK: UICollectionViewDataSource
