@@ -6,8 +6,9 @@
 //
 
 import Foundation
+import UIKit
 
-fileprivate enum ApiType {
+fileprivate enum SyrveApiType {
     case getToken
     case getMenu
     
@@ -64,13 +65,13 @@ fileprivate enum ApiType {
     }
 }
 
-class ApiManager {
-    static let shared = ApiManager()
+class SyrveApiManager {
+    static let shared = SyrveApiManager()
     
     private init() {}
     
     func getToken(completion: @escaping (String) -> Void) {
-        let request = ApiType.getToken.request
+        let request = SyrveApiType.getToken.request
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard error == nil else { completion("Token request returned some error!"); return }
             guard let httpResponse = response as? HTTPURLResponse else { completion("Cannot convert Token response to HTTPURLResponse!"); return }
@@ -96,7 +97,7 @@ class ApiManager {
             group.leave()
         }
         group.wait()
-        var request = ApiType.getMenu.request
+        var request = SyrveApiType.getMenu.request
         request.allHTTPHeaderFields!["Authorization"] = "bearer \(token)"
         let task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard error == nil else { completion(nil, "Menu request returned some error!"); return }
@@ -110,6 +111,17 @@ class ApiManager {
                 }
             } else {
                 completion(nil, "Menu response cannot be parsed")
+            }
+        }
+        task.resume()
+    }
+    
+    func getImage(url: String, completion: @escaping (UIImage?) -> Void) {
+        let task = URLSession.shared.dataTask(with: URLRequest(url: URL(string: url)!)) { data, response, error in
+            if let data = data, let image = UIImage(data: data) {
+                completion(image)
+            } else {
+                completion(nil)
             }
         }
         task.resume()

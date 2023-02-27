@@ -32,20 +32,13 @@ class HomePageViewController: UIViewController, HomePageDelegate {
     private var deals: [HomepageData] = []
     private var rewards: [HomepageData] = []
     private var points: [HomepageData] = []
-
     let userDefaults = UserDefaults.standard
 
     override func viewDidLoad() {
         super.viewDidLoad()
-    // TEMPORARY
-        userDefaults.set(0, forKey: "Points")
-//        ApiManager.shared.getToken { token in
-//            print(token)
-//        }
-        ApiManager.shared.getMenu { menu, error in
-            print(menu)
-            print(error)
-        }
+        
+    // MARK: TEMPORARY
+    //    userDefaults.set(0, forKey: "Points")
         
     // MARK: VIEW
         
@@ -144,8 +137,8 @@ class HomePageViewController: UIViewController, HomePageDelegate {
         
         //Show the Introduction only once for a user
         //let presentationWasSkipped = userDefaults.bool(forKey: "PresentationWasSkipped")
-        var presentationWasViewed = userDefaults.bool(forKey: "PresentationWasViewed")
-        presentationWasViewed = false
+        let presentationWasViewed = userDefaults.bool(forKey: "PresentationWasViewed")
+        //presentationWasViewed = false
         if presentationWasViewed == false {
             userDefaults.set(0, forKey: "Points")
             startIntroductionTips()
