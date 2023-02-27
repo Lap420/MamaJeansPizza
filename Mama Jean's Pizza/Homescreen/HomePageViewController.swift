@@ -37,7 +37,16 @@ class HomePageViewController: UIViewController, HomePageDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    // TEMPORARY
         userDefaults.set(0, forKey: "Points")
+//        ApiManager.shared.getToken { token in
+//            print(token)
+//        }
+        ApiManager.shared.getMenu { menu, error in
+            print(menu)
+            print(error)
+        }
+        
     // MARK: VIEW
         
         let interitemSpacing: CGFloat = 10
@@ -131,7 +140,7 @@ class HomePageViewController: UIViewController, HomePageDelegate {
         
     // MARK: CONTROLLER
         
-        initCollectionsData()
+        //initCollectionsData()
         
         //Show the Introduction only once for a user
         //let presentationWasSkipped = userDefaults.bool(forKey: "PresentationWasSkipped")
