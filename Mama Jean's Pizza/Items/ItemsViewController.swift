@@ -1,23 +1,29 @@
 //
-//  ItemsCollectionViewController.swift
+//  ItemsViewController.swift
 //  Mama Jean's Pizza
 //
-//  Created by Lap on 16.02.2023.
+//  Created by Lap on 28.02.2023.
 //
 
 import UIKit
 
-private let reuseIdentifier = "Item"
-
-class ItemsCollectionViewController: UICollectionViewController {
-
+class ItemsViewController: UIViewController {
+    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var basketButton: UIButton!
+    @IBOutlet weak var itemsAmountLabel: UILabel!
+    @IBOutlet weak var totalDueLabel: UILabel!
+    
     var items = [ItemData]()
     var choosenMenuGroup = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         prepareItems()
+        updateBasketButton()
+        
+        basketButton.layer.cornerRadius = 10
+        basketButton.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         
         guard let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout else { return }
 
@@ -36,8 +42,10 @@ class ItemsCollectionViewController: UICollectionViewController {
         
         collectionView.alwaysBounceVertical = true
         collectionView.showsVerticalScrollIndicator = false
+        collectionView.delegate = self
+        collectionView.dataSource = self
     }
-
+    
     func prepareItems() {
         MenuManager.shared.menu?.forEach { menuGroup in
             if menuGroup.id == self.choosenMenuGroup {
@@ -59,20 +67,21 @@ class ItemsCollectionViewController: UICollectionViewController {
         
         guard let indexPath = collectionView.indexPathsForSelectedItems?.first else { return }
         destinationVC.item = items[indexPath.row]
+        
+        destinationVC.itemsPageDelegate = self
     }
+}
 
-    // MARK: UICollectionViewDataSource
+extension ItemsViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+    func numberOfSections(in collectionView: UICollectionView) -> Int { return 1 }
 
-    override func numberOfSections(in collectionView: UICollectionView) -> Int { return 1 }
-
-
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 
         return items.count
     }
 
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! ItemCell
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Item", for: indexPath) as! ItemCell
     
         cell.imageView.contentMode = .scaleAspectFit
         cell.imageView.clipsToBounds = true
@@ -82,4 +91,21 @@ class ItemsCollectionViewController: UICollectionViewController {
     
         return cell
     }
+}
+
+extension ItemsViewController: ItemsPageDelegate {
+    func updateBasketButton() {
+        var itemsAmount = 0
+        var totalDue = 0.0
+        Basket.shared.items?.forEach({ item in
+            itemsAmount += item.amount
+            totalDue += Double(item.amount) * item.price
+        })
+        self.itemsAmountLabel.text = "\(itemsAmount)"
+        self.totalDueLabel.text = "\(String(format: "%.2f", totalDue)) AED"
+    }
+}
+
+protocol ItemsPageDelegate {
+    func updateBasketButton()
 }

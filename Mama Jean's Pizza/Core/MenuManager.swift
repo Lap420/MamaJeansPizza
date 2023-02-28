@@ -39,8 +39,8 @@ struct MenuManager {
         
         let group = DispatchGroup()
         menu?.forEach { menuGroup in
-            group.enter()
             if let imageUrl = menuGroup.buttonImageUrl {
+                group.enter()
                 SyrveApiManager.shared.getImage(url: imageUrl) { image in
                     if let image = image {
                         images[menuGroup.id] = image
@@ -52,6 +52,22 @@ struct MenuManager {
             } else {
                 images[menuGroup.id] = UIImage(named: "No_Image")!
             }
+            
+            menuGroup.items?.forEach({ item in
+                if let imageUrl = item.itemSizes.first?.buttonImageUrl {
+                    group.enter()
+                    SyrveApiManager.shared.getImage(url: imageUrl) { image in
+                        if let image = image {
+                            images[item.itemId] = image
+                        } else {
+                            images[item.itemId] = UIImage(named: "No_Image")!
+                        }
+                        group.leave()
+                    }
+                } else {
+                    images[item.itemId] = UIImage(named: "No_Image")!
+                }
+            })
         }
         
         group.wait()
