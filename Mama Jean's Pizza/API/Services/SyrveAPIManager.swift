@@ -88,7 +88,7 @@ class SyrveApiManager {
         task.resume()
     }
     
-    func getMenu(completion: @escaping (Menu, String) -> Void) {
+    func getMenu(completion: @escaping ([ItemCategory]?, String) -> Void) {
         var token = ""
         let group = DispatchGroup()
         group.enter()

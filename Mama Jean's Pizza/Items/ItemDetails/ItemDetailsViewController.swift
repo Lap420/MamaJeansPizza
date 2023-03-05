@@ -50,7 +50,8 @@ class ItemDetailsViewController: UIViewController {
     }
     
     @IBAction func addButtonTapped(_ sender: UIButton) {
-        Basket.shared.addItem(item: OrderItem(productId: item.id, amount: itemQty, price: item.price))
+        let item = BasketItem(productId: item.id, amount: itemQty, price: item.price)
+        Basket.shared.addItem(item: item)
         itemsPageDelegate?.updateBasketButton()
         dismiss(animated: true, completion: nil)
     }

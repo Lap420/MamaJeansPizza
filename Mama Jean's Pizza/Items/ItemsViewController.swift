@@ -50,12 +50,12 @@ class ItemsViewController: UIViewController {
         MenuManager.shared.menu?.forEach { menuGroup in
             if menuGroup.id == self.choosenMenuGroup {
                 let currentMenuGroup = menuGroup
-                currentMenuGroup.items?.forEach({ item in
+                currentMenuGroup.items?.forEach { item in
                     items.append(ItemData(id: item.itemId,
                                           name: item.name,
                                           description: item.description ?? "",
                                           price: item.itemSizes.first?.prices.first?.price ?? 0.00))
-                })
+                }
             }
         }
     }

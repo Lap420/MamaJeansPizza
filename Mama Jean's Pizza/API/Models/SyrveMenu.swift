@@ -48,4 +48,4 @@ struct Price: Codable {
     let price: Double
 }
 
-typealias Menu = [ItemCategory]?
+//typealias Menu = [ItemCategory]?

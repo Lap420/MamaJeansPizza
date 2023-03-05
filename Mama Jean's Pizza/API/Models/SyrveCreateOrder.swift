@@ -39,16 +39,12 @@ struct Street: Codable {
     var city: String = SyrveAPIConstants.city
 }
 
-struct OrderItem: Codable, Equatable {
+struct OrderItem: Codable {
     var type: String = SyrveAPIConstants.orderItemType
     let productId: String
     let amount: Int
     let price: Double
     var comment: String = ""
-    
-    static func == (lhs: OrderItem, rhs: OrderItem) -> Bool {
-        return lhs.productId == rhs.productId
-    }
 }
 
 struct Payment: Codable {

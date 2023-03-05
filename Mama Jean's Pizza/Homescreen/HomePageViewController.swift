@@ -145,6 +145,10 @@ class HomePageViewController: UIViewController, HomePageDelegate {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.navigationBar.backgroundColor = UIColor(hue: 159/359, saturation: 0.88, brightness: 0.47, alpha: 1)
+    }
+    
     // MARK: - Buttons
     
     @IBAction func orderNowButtonTapped(_ sender: UIButton) { goToNewOrder() }
