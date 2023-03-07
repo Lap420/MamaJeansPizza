@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		04141DCC29B538FB00C215DD /* HomepageStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04141DCB29B538FB00C215DD /* HomepageStructs.swift */; };
 		04220BE629B0DF8A005D53C4 /* BasketCellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04220BE529B0DF8A005D53C4 /* BasketCellType.swift */; };
 		04220BE829B0DFB6005D53C4 /* BasketCustomerInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04220BE729B0DFB6005D53C4 /* BasketCustomerInfoCell.swift */; };
 		04220BEA29B0EC89005D53C4 /* BasketCustomerInfoCellInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04220BE929B0EC89005D53C4 /* BasketCustomerInfoCellInfo.swift */; };
@@ -51,6 +52,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		04141DCB29B538FB00C215DD /* HomepageStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageStructs.swift; sourceTree = "<group>"; };
 		04220BE529B0DF8A005D53C4 /* BasketCellType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketCellType.swift; sourceTree = "<group>"; };
 		04220BE729B0DFB6005D53C4 /* BasketCustomerInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketCustomerInfoCell.swift; sourceTree = "<group>"; };
 		04220BE929B0EC89005D53C4 /* BasketCustomerInfoCellInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketCustomerInfoCellInfo.swift; sourceTree = "<group>"; };
@@ -282,6 +284,7 @@
 				045ABBFE29AE5D8700942686 /* Basket.swift */,
 				045ABBFC29AE4C7C00942686 /* ItemData.swift */,
 				04AD8DB3299A873D00C25FF7 /* MenuManager.swift */,
+				04141DCB29B538FB00C215DD /* HomepageStructs.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -397,6 +400,7 @@
 				04B295BD299953820076984A /* HomePageViewController.swift in Sources */,
 				04B295B9299953820076984A /* AppDelegate.swift in Sources */,
 				04B295CF2999789F0076984A /* IntroductionTipsViewController.swift in Sources */,
+				04141DCC29B538FB00C215DD /* HomepageStructs.swift in Sources */,
 				04220BEA29B0EC89005D53C4 /* BasketCustomerInfoCellInfo.swift in Sources */,
 				04F442A129ABE8280065D6F4 /* SyrveMenu.swift in Sources */,
 				04220BE629B0DF8A005D53C4 /* BasketCellType.swift in Sources */,

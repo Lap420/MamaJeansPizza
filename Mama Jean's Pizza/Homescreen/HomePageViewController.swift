@@ -134,6 +134,7 @@ class HomePageViewController: UIViewController, HomePageDelegate {
     // MARK: CONTROLLER
         
         //initCollectionsData()
+        DispatchQueue.global(qos: .utility).async { _ = MenuManager.shared  }
         
         //Show the Introduction only once for a user
         //let presentationWasSkipped = userDefaults.bool(forKey: "PresentationWasSkipped")
@@ -194,38 +195,41 @@ class HomePageViewController: UIViewController, HomePageDelegate {
         pointsBalanceLabel.text = "🍕" + String(userDefaults.integer(forKey: "Points"))
     }
     
-    func initCollectionDelegateAndSource(collectionView: UICollectionView!) {
-        collectionView.delegate = self
-        collectionView.dataSource = self
+    func initCollectionsDelegateAndSource() {
+        dealsCollectionView.delegate = self
+        dealsCollectionView.dataSource = self
+        rewardsCollectionView.delegate = self
+        rewardsCollectionView.dataSource = self
+        pointsCollectionView.delegate = self
+        pointsCollectionView.dataSource = self
+    }
+    
+    func getHomePageData(collectionType: HomepageCollectionType, group: DispatchGroup) {
+        group.enter()
+        DispatchQueue.global(qos: .userInitiated).async {
+            FirebaseManager.shared.getHomepageData(collection: collectionType.rawValue) { [weak self] data in
+                guard data.count > 0 else { group.leave(); return }
+                switch collectionType {
+                case .deals:
+                    self?.deals = data
+                case .rewards:
+                    self?.rewards = data
+                case .points:
+                    self?.points = data
+                }
+                group.leave()
+            }
+        }
     }
     
     func initCollectionsData() {
-        initCollectionDelegateAndSource(collectionView: dealsCollectionView)
-        initCollectionDelegateAndSource(collectionView: rewardsCollectionView)
-        initCollectionDelegateAndSource(collectionView: pointsCollectionView)
+        initCollectionsDelegateAndSource()
         
         let group = DispatchGroup()
         
-        group.enter()
-        FirebaseManager.shared.getHomepageData(collection: "Deals") { [weak self] deals in
-            guard deals.count > 0 else { return }
-            self?.deals = deals
-            group.leave()
-        }
-
-        group.enter()
-        FirebaseManager.shared.getHomepageData(collection: "Rewards") { [weak self] rewards in
-            guard rewards.count > 0 else { return }
-            self?.rewards = rewards
-            group.leave()
-        }
-
-        group.enter()
-        FirebaseManager.shared.getHomepageData(collection: "Points") { [weak self] points in
-            guard points.count > 0 else { return }
-            self?.points = points
-            group.leave()
-        }
+        getHomePageData(collectionType: .deals, group: group)
+        getHomePageData(collectionType: .rewards, group: group)
+        getHomePageData(collectionType: .points, group: group)
         
         group.notify(queue: .main) {
             self.dealsCollectionView.reloadData()
@@ -233,6 +237,8 @@ class HomePageViewController: UIViewController, HomePageDelegate {
             self.pointsCollectionView.reloadData()
         }
     }
+    
+    func downloadMenu() { _ = MenuManager.shared }
 }
 
 // MARK: - Collections DataSource
