@@ -11,7 +11,7 @@
 import SnapKit
 import UIKit
 
-class HomePageViewController: UIViewController, HomePageDelegate {
+class HomePageViewController2: UIViewController, HomePageDelegate {
     @IBOutlet weak var mamaJeansLabel: UILabel!
     @IBOutlet weak var pointsBalanceLabel: UILabel!
     @IBOutlet weak var topButtonsStackView: UIStackView!
@@ -243,7 +243,7 @@ class HomePageViewController: UIViewController, HomePageDelegate {
 
 // MARK: - Collections DataSource
 
-extension HomePageViewController: UICollectionViewDataSource, UICollectionViewDelegate {
+extension HomePageViewController2: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView {
         case dealsCollectionView:

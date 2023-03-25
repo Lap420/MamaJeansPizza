@@ -15,6 +15,7 @@
 		0423BC8C299E96B700BE8BFC /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0423BC8B299E96B700BE8BFC /* ItemCell.swift */; };
 		0423BC8F299EABD300BE8BFC /* ItemDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0423BC8E299EABD300BE8BFC /* ItemDetailsViewController.swift */; };
 		0423BC92299EBC4D00BE8BFC /* ChooseAStoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0423BC91299EBC4D00BE8BFC /* ChooseAStoreModel.swift */; };
+		0436295C29CCBA49001964E5 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0436295B29CCBA49001964E5 /* HomePageViewController.swift */; };
 		045ABBFD29AE4C7C00942686 /* ItemData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045ABBFC29AE4C7C00942686 /* ItemData.swift */; };
 		045ABBFF29AE5D8700942686 /* Basket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045ABBFE29AE5D8700942686 /* Basket.swift */; };
 		045ABC0229AE753100942686 /* SyrveCreateOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045ABC0129AE753100942686 /* SyrveCreateOrder.swift */; };
@@ -27,12 +28,14 @@
 		04B17F3629AFE0100010B76E /* BasketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B17F3529AFE0100010B76E /* BasketViewController.swift */; };
 		04B295B9299953820076984A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B295B8299953820076984A /* AppDelegate.swift */; };
 		04B295BB299953820076984A /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B295BA299953820076984A /* SceneDelegate.swift */; };
-		04B295BD299953820076984A /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B295BC299953820076984A /* HomePageViewController.swift */; };
+		04B295BD299953820076984A /* HomePageViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B295BC299953820076984A /* HomePageViewController2.swift */; };
 		04B295C0299953820076984A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04B295BE299953820076984A /* Main.storyboard */; };
 		04B295C2299953840076984A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04B295C1299953840076984A /* Assets.xcassets */; };
 		04B295C5299953840076984A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04B295C3299953840076984A /* LaunchScreen.storyboard */; };
 		04B295CD299978600076984A /* IntroductionTipsPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B295CC299978600076984A /* IntroductionTipsPageViewController.swift */; };
 		04B295CF2999789F0076984A /* IntroductionTipsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B295CE2999789F0076984A /* IntroductionTipsViewController.swift */; };
+		04B60D1429CCBD2F005E8B94 /* HomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B60D1329CCBD2F005E8B94 /* HomePageView.swift */; };
+		04B60D1929CCBF3E005E8B94 /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B60D1829CCBF3E005E8B94 /* UIConstants.swift */; };
 		04E08F6429A66F91007E4F09 /* RewardsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E08F6329A66F91007E4F09 /* RewardsCell.swift */; };
 		04E08F6629A67538007E4F09 /* PointsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E08F6529A67538007E4F09 /* PointsCell.swift */; };
 		04EDA86529A90CFD00A0DA23 /* DealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EDA86429A90CFD00A0DA23 /* DealViewController.swift */; };
@@ -60,6 +63,7 @@
 		0423BC8B299E96B700BE8BFC /* ItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		0423BC8E299EABD300BE8BFC /* ItemDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsViewController.swift; sourceTree = "<group>"; };
 		0423BC91299EBC4D00BE8BFC /* ChooseAStoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseAStoreModel.swift; sourceTree = "<group>"; };
+		0436295B29CCBA49001964E5 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		045ABBFC29AE4C7C00942686 /* ItemData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemData.swift; sourceTree = "<group>"; };
 		045ABBFE29AE5D8700942686 /* Basket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Basket.swift; sourceTree = "<group>"; };
 		045ABC0129AE753100942686 /* SyrveCreateOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyrveCreateOrder.swift; sourceTree = "<group>"; };
@@ -73,13 +77,15 @@
 		04B295B5299953820076984A /* Mama Jean's Pizza.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mama Jean's Pizza.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		04B295B8299953820076984A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04B295BA299953820076984A /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		04B295BC299953820076984A /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
+		04B295BC299953820076984A /* HomePageViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController2.swift; sourceTree = "<group>"; };
 		04B295BF299953820076984A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		04B295C1299953840076984A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04B295C4299953840076984A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		04B295C6299953840076984A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04B295CC299978600076984A /* IntroductionTipsPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionTipsPageViewController.swift; sourceTree = "<group>"; };
 		04B295CE2999789F0076984A /* IntroductionTipsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionTipsViewController.swift; sourceTree = "<group>"; };
+		04B60D1329CCBD2F005E8B94 /* HomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageView.swift; sourceTree = "<group>"; };
+		04B60D1829CCBF3E005E8B94 /* UIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
 		04E08F6329A66F91007E4F09 /* RewardsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardsCell.swift; sourceTree = "<group>"; };
 		04E08F6529A67538007E4F09 /* PointsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsCell.swift; sourceTree = "<group>"; };
 		04EDA86429A90CFD00A0DA23 /* DealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealViewController.swift; sourceTree = "<group>"; };
@@ -136,6 +142,15 @@
 			path = ChooseAStore;
 			sourceTree = "<group>";
 		};
+		0436295D29CCBA91001964E5 /* HomePage */ = {
+			isa = PBXGroup;
+			children = (
+				0436295B29CCBA49001964E5 /* HomePageViewController.swift */,
+				04B60D1329CCBD2F005E8B94 /* HomePageView.swift */,
+			);
+			path = HomePage;
+			sourceTree = "<group>";
+		};
 		045ABC0029AE636B00942686 /* ItemDetails */ = {
 			isa = PBXGroup;
 			children = (
@@ -165,7 +180,7 @@
 			children = (
 				04EDA86B29A91C2600A0DA23 /* DealDescription */,
 				04B295D029997D0A0076984A /* IntroductionTips */,
-				04B295BC299953820076984A /* HomePageViewController.swift */,
+				04B295BC299953820076984A /* HomePageViewController2.swift */,
 				04F12013299FED59008DF518 /* HomescreenStructs.swift */,
 				04F1201829A00481008DF518 /* DealCell.swift */,
 				04E08F6329A66F91007E4F09 /* RewardsCell.swift */,
@@ -214,15 +229,11 @@
 		04B295B7299953820076984A /* Mama Jean's Pizza */ = {
 			isa = PBXGroup;
 			children = (
+				04B60D1729CCBD8F005E8B94 /* Old content */,
+				04B60D1229CCBB05005E8B94 /* Content */,
 				04EDA86729A91B3800A0DA23 /* API */,
 				04F12012299FED06008DF518 /* Application */,
 				04EDA86A29A91B5D00A0DA23 /* Core */,
-				049A0FFE299D539100F2BCBF /* Homescreen */,
-				0423BC90299EBC2600BE8BFC /* ChooseAStore */,
-				049A1003299D599500F2BCBF /* Menu */,
-				0423BC8D299E96C800BE8BFC /* Items */,
-				04B17F3729AFE01C0010B76E /* Basket */,
-				04899C0E29B28989000BB5DD /* OrderPlaced */,
 				04B295BE299953820076984A /* Main.storyboard */,
 				04EDA86629A91B0C00A0DA23 /* Resources */,
 			);
@@ -238,6 +249,27 @@
 			path = IntroductionTips;
 			sourceTree = "<group>";
 		};
+		04B60D1229CCBB05005E8B94 /* Content */ = {
+			isa = PBXGroup;
+			children = (
+				0436295D29CCBA91001964E5 /* HomePage */,
+			);
+			path = Content;
+			sourceTree = "<group>";
+		};
+		04B60D1729CCBD8F005E8B94 /* Old content */ = {
+			isa = PBXGroup;
+			children = (
+				049A0FFE299D539100F2BCBF /* Homescreen */,
+				0423BC90299EBC2600BE8BFC /* ChooseAStore */,
+				049A1003299D599500F2BCBF /* Menu */,
+				0423BC8D299E96C800BE8BFC /* Items */,
+				04B17F3729AFE01C0010B76E /* Basket */,
+				04899C0E29B28989000BB5DD /* OrderPlaced */,
+			);
+			path = "Old content";
+			sourceTree = "<group>";
+		};
 		04EDA86629A91B0C00A0DA23 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -245,6 +277,7 @@
 				04B295C3299953840076984A /* LaunchScreen.storyboard */,
 				04B295C6299953840076984A /* Info.plist */,
 				04F12005299FE63D008DF518 /* GoogleService-Info.plist */,
+				04B60D1829CCBF3E005E8B94 /* UIConstants.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -397,9 +430,10 @@
 				04EDA86529A90CFD00A0DA23 /* DealViewController.swift in Sources */,
 				045ABC0429AE8FF500942686 /* ItemsViewController.swift in Sources */,
 				04AD8DB4299A873D00C25FF7 /* MenuManager.swift in Sources */,
-				04B295BD299953820076984A /* HomePageViewController.swift in Sources */,
+				04B295BD299953820076984A /* HomePageViewController2.swift in Sources */,
 				04B295B9299953820076984A /* AppDelegate.swift in Sources */,
 				04B295CF2999789F0076984A /* IntroductionTipsViewController.swift in Sources */,
+				04B60D1929CCBF3E005E8B94 /* UIConstants.swift in Sources */,
 				04141DCC29B538FB00C215DD /* HomepageStructs.swift in Sources */,
 				04220BEA29B0EC89005D53C4 /* BasketCustomerInfoCellInfo.swift in Sources */,
 				04F442A129ABE8280065D6F4 /* SyrveMenu.swift in Sources */,
@@ -408,7 +442,9 @@
 				04F1201929A00481008DF518 /* DealCell.swift in Sources */,
 				04E08F6429A66F91007E4F09 /* RewardsCell.swift in Sources */,
 				04F442A529AD043E0065D6F4 /* SyrveAPIConstants.swift in Sources */,
+				04B60D1429CCBD2F005E8B94 /* HomePageView.swift in Sources */,
 				04F442A329ABEAC80065D6F4 /* SyrveToken.swift in Sources */,
+				0436295C29CCBA49001964E5 /* HomePageViewController.swift in Sources */,
 				049A1005299D59B200F2BCBF /* MenuCell.swift in Sources */,
 				04F4429F29ABE7260065D6F4 /* SyrveAPIManager.swift in Sources */,
 				0423BC8C299E96B700BE8BFC /* ItemCell.swift in Sources */,

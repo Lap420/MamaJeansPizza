@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Home Page View Controller-->
+        <!--Home Page View Controller2-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="homePageVC" id="BYZ-38-t0r" customClass="HomePageViewController" customModule="Mama_Jean_s_Pizza" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="homePageVC" id="BYZ-38-t0r" customClass="HomePageViewController2" customModule="Mama_Jean_s_Pizza" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -45,7 +45,7 @@
                                                     <constraint firstAttribute="width" secondItem="Rgf-8t-7UP" secondAttribute="height" multiplier="21:9" id="0mJ-EK-h89"/>
                                                 </constraints>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" title="Order Now!"/>
+                                                <state key="normal" title="Order Now!" image="OrderNow"/>
                                                 <connections>
                                                     <action selector="orderNowButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bJj-6H-Lng"/>
                                                 </connections>
@@ -799,7 +799,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SAk-EZ-9R5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5021" y="-644"/>
+            <point key="canvasLocation" x="5019.375" y="-644.36619718309862"/>
         </scene>
         <!--Item Details View Controller-->
         <scene sceneID="ghv-sM-aWd">
@@ -1075,6 +1075,9 @@
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="DO2-6K-i8b">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Gt9-iu-Ygy"/>
                     </connections>
@@ -1085,6 +1088,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="OrderNow" width="857" height="392"/>
         <image name="cart" catalog="system" width="128" height="102"/>
         <image name="chevron.backward" catalog="system" width="96" height="128"/>
         <image name="minus.circle" catalog="system" width="128" height="121"/>
