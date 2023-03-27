@@ -34,6 +34,8 @@ class RewardsCell: UICollectionViewCell {
 //MARK: - Private methods
 private extension RewardsCell {
     func initialize() {
+        layer.cornerRadius = 10
+        layer.masksToBounds = true
         contentView.addSubview(imageView)
         imageView.snp.makeConstraints { make in
             make.edges.equalToSuperview()

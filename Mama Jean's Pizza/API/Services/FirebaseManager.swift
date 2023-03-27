@@ -23,7 +23,7 @@ class FirebaseManager {
         return db
     }
     
-    func getHomepageData(collection: String, completion: @escaping ([HomepageData]) -> Void) {
+    func getHomepageData(collection: String, completion: @escaping ([HomePageData]) -> Void) {
         let db = configureDB()
 
         db.collection(collection).getDocuments { homepageData, error in
@@ -31,7 +31,7 @@ class FirebaseManager {
                 guard error == nil else { completion([]); return }
                 guard let docs = homepageData?.documents else { completion([]); return }
  
-                var homepageDataArray: [HomepageData] = []
+                var homepageDataArray: [HomePageData] = []
                 let docsGroup = DispatchGroup()
             
                 for doc in docs {
@@ -39,7 +39,7 @@ class FirebaseManager {
                     guard let docName = doc.get("name") as? String else { continue }
                 
                     self.getImage(path: collection, picName: docName) { image in
-                        let data = HomepageData(name: docName,
+                        let data = HomePageData(name: docName,
                                                 dealDescription: doc.get("description") as? String ?? "",
                                                 image: image)
                         homepageDataArray.append(data)

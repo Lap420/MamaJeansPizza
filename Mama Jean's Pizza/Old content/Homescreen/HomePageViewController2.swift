@@ -29,9 +29,9 @@ class HomePageViewController2: UIViewController, HomePageDelegate {
     @IBOutlet weak var facebookButton: UIButton!
     @IBOutlet weak var linkedinButton: UIButton!
     
-    private var deals: [HomepageData] = []
-    private var rewards: [HomepageData] = []
-    private var points: [HomepageData] = []
+    private var deals: [HomePageData] = []
+    private var rewards: [HomePageData] = []
+    private var points: [HomePageData] = []
     let userDefaults = UserDefaults.standard
 
     override func viewDidLoad() {

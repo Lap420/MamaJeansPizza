@@ -34,6 +34,8 @@ class PointsCell: UICollectionViewCell {
 //MARK: - Private methods
 private extension PointsCell {
     func initialize() {
+        layer.cornerRadius = 10
+        layer.masksToBounds = true
         contentView.addSubview(imageView)
         imageView.snp.makeConstraints { make in
             make.edges.equalToSuperview()

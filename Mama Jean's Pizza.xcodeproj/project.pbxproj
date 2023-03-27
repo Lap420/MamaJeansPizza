@@ -54,6 +54,7 @@
 		04F1201729A003F6008DF518 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 04F1201629A003F6008DF518 /* SnapKit */; };
 		04F1201929A00481008DF518 /* DealCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F1201829A00481008DF518 /* DealCell2.swift */; };
 		04F21E5C29D1FCCD00D62C66 /* BalanceObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F21E5B29D1FCCD00D62C66 /* BalanceObserver.swift */; };
+		04F21E5E29D212E300D62C66 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F21E5D29D212E300D62C66 /* UserDefaultsManager.swift */; };
 		04F4429F29ABE7260065D6F4 /* SyrveAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F4429E29ABE7260065D6F4 /* SyrveAPIManager.swift */; };
 		04F442A129ABE8280065D6F4 /* SyrveMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F442A029ABE8280065D6F4 /* SyrveMenu.swift */; };
 		04F442A329ABEAC80065D6F4 /* SyrveToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F442A229ABEAC80065D6F4 /* SyrveToken.swift */; };
@@ -105,6 +106,7 @@
 		04F12013299FED59008DF518 /* HomescreenStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomescreenStructs.swift; sourceTree = "<group>"; };
 		04F1201829A00481008DF518 /* DealCell2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealCell2.swift; sourceTree = "<group>"; };
 		04F21E5B29D1FCCD00D62C66 /* BalanceObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceObserver.swift; sourceTree = "<group>"; };
+		04F21E5D29D212E300D62C66 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		04F4429E29ABE7260065D6F4 /* SyrveAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyrveAPIManager.swift; sourceTree = "<group>"; };
 		04F442A029ABE8280065D6F4 /* SyrveMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyrveMenu.swift; sourceTree = "<group>"; };
 		04F442A229ABEAC80065D6F4 /* SyrveToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyrveToken.swift; sourceTree = "<group>"; };
@@ -292,6 +294,7 @@
 			children = (
 				04B60D1B29D093D8005E8B94 /* AlertManager.swift */,
 				04F21E5B29D1FCCD00D62C66 /* BalanceObserver.swift */,
+				04F21E5D29D212E300D62C66 /* UserDefaultsManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -473,6 +476,7 @@
 				04E08F6429A66F91007E4F09 /* RewardsCell2.swift in Sources */,
 				04F442A529AD043E0065D6F4 /* SyrveAPIConstants.swift in Sources */,
 				04B60D1429CCBD2F005E8B94 /* HomePageView.swift in Sources */,
+				04F21E5E29D212E300D62C66 /* UserDefaultsManager.swift in Sources */,
 				04F442A329ABEAC80065D6F4 /* SyrveToken.swift in Sources */,
 				04B60D2429D0B065005E8B94 /* PointsCell.swift in Sources */,
 				04B60D1E29D09A78005E8B94 /* HomePageModel.swift in Sources */,

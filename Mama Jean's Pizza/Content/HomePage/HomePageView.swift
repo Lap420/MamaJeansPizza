@@ -219,7 +219,7 @@ class HomePageView: UIView {
         static let topButtonsRatio: CGFloat = 9.0 / 21.0
         static let rateButtonsRatio: CGFloat = 9.0 / 49.0
         static let bottomStackRatio: CGFloat = 1.0 / 7.0
-        static let bigScreenBottomInset: CGFloat = 80
+        static let bigScreenBottomInset: CGFloat = 69
     }
 }
 
@@ -256,7 +256,7 @@ private extension HomePageView {
             make.top.equalTo(dealsLabel.snp.bottom).offset(Constants.afterLabelCollectionInset)
             make.centerX.equalToSuperview()
             make.width.equalToSuperview()
-            make.height.equalTo(HomePageCollectionSizes.dealsSize.height)
+            make.height.equalTo(HomePageCollectionSizes.dealsSize.height + 1)
         }
         
         scrollView.addSubview(rewardsLabel)
@@ -271,7 +271,7 @@ private extension HomePageView {
             make.top.equalTo(rewardsLabel.snp.bottom).offset(Constants.afterLabelCollectionInset)
             make.centerX.equalToSuperview()
             make.width.equalToSuperview()
-            make.height.equalTo(HomePageCollectionSizes.rewardsSize.height)
+            make.height.equalTo(HomePageCollectionSizes.rewardsSize.height + 1)
         }
         
         scrollView.addSubview(useYourPointsLabel)
@@ -286,7 +286,7 @@ private extension HomePageView {
             make.top.equalTo(useYourPointsLabel.snp.bottom).offset(Constants.afterLabelCollectionInset)
             make.centerX.equalToSuperview()
             make.width.equalToSuperview()
-            make.height.equalTo(HomePageCollectionSizes.pointsSize.height)
+            make.height.equalTo(HomePageCollectionSizes.pointsSize.height + 1)
         }
         
         scrollView.addSubview(rateButton)
@@ -311,7 +311,8 @@ private extension HomePageView {
 }
 
 enum HomePageCollectionSizes {
-    static let dealsSize = CGSize(width: 160, height: 100)
-    static let rewardsSize = CGSize(width: 140, height: 117)
-    static let pointsSize = CGSize(width: 90, height: 90)
+    static let cellHeightCoef: CGFloat = 1 + (GlobalUIConstants.screenWidth - 320) / 480
+    static let dealsSize = CGSize(width: 160 * cellHeightCoef, height: 100 * cellHeightCoef)
+    static let rewardsSize = CGSize(width: 140 * cellHeightCoef, height: 117 * cellHeightCoef)
+    static let pointsSize = CGSize(width: 90 * cellHeightCoef, height: 90 * cellHeightCoef)
 }

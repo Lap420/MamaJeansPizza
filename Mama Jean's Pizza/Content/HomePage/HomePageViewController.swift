@@ -8,12 +8,9 @@
 // TODO: Make HomePageModel UI independent
 // TODO: Add new screen on Deal choosing
 // TODO: Add new screen for Introduction
+// TODO: Activate menu uploading
 
 // TODO: Move model to another file
-// TODO: Check Firebase connection for the model
-// TODO: Finish UICollectionViewDelegate
-// TODO: Finish checkIsFirstLaunch
-// TODO: Make collection sizes equals screen width
 
 import UIKit
 
@@ -31,38 +28,38 @@ class HomePageViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        mainPageView.updateConstraintsForBigScreens()
+        homePageView.updateConstraintsForBigScreens()
     }
     
     // MARK: - Private properties
-    private var mainPageView = HomePageView()
-    //private var mainPageModel = MainPageModel()
+    private var homePageView = HomePageView()
+    private var homePageModel = HomePageModel()
     private var bonusBalanceLabel = UILabel()
-    private var deals: [HomepageData] = [HomepageData(name: "1",
+    private var deals: [HomePageData] = [HomePageData(name: "1",
                                                       dealDescription: "2",
                                                       image: UIImage(named: "No_Image")!),
-                                         HomepageData(name: "1",
-                                                      dealDescription: "2",
-                                                      image: UIImage(named: "No_Image")!),
-                                         HomepageData(name: "1",
+                                         HomePageData(name: "1",
                                                       dealDescription: "2",
                                                       image: UIImage(named: "No_Image")!)]
-    private var rewards: [HomepageData] = [HomepageData(name: "1",
+    private var rewards: [HomePageData] = [HomePageData(name: "1",
                                                         dealDescription: "2",
                                                         image: UIImage(named: "No_Image")!),
-                                           HomepageData(name: "1",
+                                           HomePageData(name: "1",
                                                         dealDescription: "2",
                                                         image: UIImage(named: "No_Image")!),
-                                           HomepageData(name: "1",
+                                           HomePageData(name: "1",
                                                         dealDescription: "2",
                                                         image: UIImage(named: "No_Image")!)]
-    private var points: [HomepageData] = [HomepageData(name: "1",
+    private var points: [HomePageData] = [HomePageData(name: "1",
                                                        dealDescription: "2",
                                                        image: UIImage(named: "No_Image")!),
-                                          HomepageData(name: "1",
+                                          HomePageData(name: "1",
                                                        dealDescription: "2",
                                                        image: UIImage(named: "No_Image")!),
-                                          HomepageData(name: "1",
+                                          HomePageData(name: "1",
+                                                       dealDescription: "2",
+                                                       image: UIImage(named: "No_Image")!),
+                                          HomePageData(name: "1",
                                                        dealDescription: "2",
                                                        image: UIImage(named: "No_Image")!)]
 }
@@ -70,8 +67,8 @@ class HomePageViewController: UIViewController {
 // MARK: Private methods
 private extension HomePageViewController {
     func initialize() {
-        view = mainPageView
-        mainPageView.scrollView.delegate = self
+        view = homePageView
+        homePageView.scrollView.delegate = self
         configureNavigationBar()
         initCollections()
         initButtonTargets()
@@ -123,15 +120,15 @@ private extension HomePageViewController {
     }
     
     func initCollectionsDelegateAndSource() {
-        mainPageView.dealsCollectionView.register(DealCell.self, forCellWithReuseIdentifier: "cell")
-        mainPageView.dealsCollectionView.delegate = self
-        mainPageView.dealsCollectionView.dataSource = self
-        mainPageView.rewardsCollectionView.register(RewardsCell.self, forCellWithReuseIdentifier: "cell")
-        mainPageView.rewardsCollectionView.delegate = self
-        mainPageView.rewardsCollectionView.dataSource = self
-        mainPageView.pointsCollectionView.register(PointsCell.self, forCellWithReuseIdentifier: "cell")
-        mainPageView.pointsCollectionView.delegate = self
-        mainPageView.pointsCollectionView.dataSource = self
+        homePageView.dealsCollectionView.register(DealCell.self, forCellWithReuseIdentifier: "cell")
+        homePageView.dealsCollectionView.delegate = self
+        homePageView.dealsCollectionView.dataSource = self
+        homePageView.rewardsCollectionView.register(RewardsCell.self, forCellWithReuseIdentifier: "cell")
+        homePageView.rewardsCollectionView.delegate = self
+        homePageView.rewardsCollectionView.dataSource = self
+        homePageView.pointsCollectionView.register(PointsCell.self, forCellWithReuseIdentifier: "cell")
+        homePageView.pointsCollectionView.delegate = self
+        homePageView.pointsCollectionView.dataSource = self
     }
     
     func getHomePageData(collectionType: HomepageCollectionType, group: DispatchGroup) {
@@ -159,45 +156,49 @@ private extension HomePageViewController {
         getHomePageData(collectionType: .rewards, group: group)
         getHomePageData(collectionType: .points, group: group)
         group.notify(queue: .main) { [self] in
-            mainPageView.dealsCollectionView.reloadData()
-            mainPageView.rewardsCollectionView.reloadData()
-            mainPageView.pointsCollectionView.reloadData()
+            homePageView.dealsCollectionView.reloadData()
+            homePageView.rewardsCollectionView.reloadData()
+            homePageView.pointsCollectionView.reloadData()
         }
     }
     
     func initButtonTargets() {
-        mainPageView.orderNowButton.addTarget(
+        homePageView.orderNowButton.addTarget(
             self,
             action: #selector(orderNowButtonTapped),
             for: .touchUpInside)
-        mainPageView.repeatOrderButton.addTarget(
+        homePageView.repeatOrderButton.addTarget(
             self,
             action: #selector(repeatOrderButtonTapped),
             for: .touchUpInside)
-        mainPageView.rateButton.addTarget(
+        homePageView.rateButton.addTarget(
             self,
             action: #selector(openLapTelegram),
             for: .touchUpInside)
-        mainPageView.instagramButton.addTarget(
+        homePageView.instagramButton.addTarget(
             self,
             action: #selector(openLapTelegram),
             for: .touchUpInside)
-        mainPageView.facebookButton.addTarget(
+        homePageView.facebookButton.addTarget(
             self,
             action: #selector(openLapTelegram),
             for: .touchUpInside)
-        mainPageView.linkedinButton.addTarget(
+        homePageView.linkedinButton.addTarget(
             self,
             action: #selector(openLapTelegram),
             for: .touchUpInside)
     }
     
     func checkIsFirstLaunch() {
-//        let isFirstLaunch = UserDefaultsManager.loadIsFirstLaunch()
-//        if isFirstLaunch {
-//            UserDefaultsManager.saveIsFirstLaunch()
-//            UserDefaultsManager.saveSettingsPageRounding(2)
-//        }
+        let isFirstLaunch = UserDefaultsManager.loadIsFirstLaunch()
+//        isFirstLaunch = true
+        if isFirstLaunch {
+            UserDefaultsManager.saveIsFirstLaunch()
+            print("This is the first launch")
+//            let introductionTipsPageVC = IntroductionTipsPageViewController()
+//            introductionTipsPageVC.homePageDelegate = self
+//            present(introductionTipsPageVC, animated: true)
+        }
     }
     
     func createNewOrder() {
@@ -238,7 +239,7 @@ private extension HomePageViewController {
 // MARK: - UIScrollViewDelegate
 extension HomePageViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        guard scrollView == mainPageView.scrollView else { return }
+        guard scrollView == homePageView.scrollView else { return }
         guard let titleView = navigationItem.titleView else { return }
         let yOffset = scrollView.contentOffset.y
         let maxMovement: CGFloat = 20
@@ -254,11 +255,11 @@ extension HomePageViewController: UIScrollViewDelegate {
 extension HomePageViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView {
-        case mainPageView.dealsCollectionView:
+        case homePageView.dealsCollectionView:
             return deals.count
-        case mainPageView.rewardsCollectionView:
+        case homePageView.rewardsCollectionView:
             return rewards.count
-        case mainPageView.pointsCollectionView:
+        case homePageView.pointsCollectionView:
             return points.count
         default:
             return 0
@@ -267,17 +268,17 @@ extension HomePageViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         switch collectionView {
-        case mainPageView.dealsCollectionView:
+        case homePageView.dealsCollectionView:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell",
                                                           for: indexPath) as! DealCell
             cell.configure(image: deals[indexPath.row].image)
             return cell
-        case mainPageView.rewardsCollectionView:
+        case homePageView.rewardsCollectionView:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell",
                                                           for: indexPath) as! RewardsCell
             cell.configure(image: rewards[indexPath.row].image)
             return cell
-        case mainPageView.pointsCollectionView:
+        case homePageView.pointsCollectionView:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell",
                                                           for: indexPath) as! PointsCell
             cell.configure(image: points[indexPath.row].image)
@@ -291,35 +292,35 @@ extension HomePageViewController: UICollectionViewDataSource {
 
 // MARK: - UICollectionViewDelegate
 extension HomePageViewController: UICollectionViewDelegate {
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        switch collectionView {
-////        case mainPageView.dealsCollectionView:
-////            if let dealVC = storyboard?.instantiateViewController(withIdentifier: "dealVC") as? DealViewController {
-////                dealVC.homePageDelegate = self
-////                dealVC.dealName = deals[indexPath.row].name
-////                dealVC.dealDescription = deals[indexPath.row].dealDescription
-////                dealVC.image = deals[indexPath.row].image
-////                present(dealVC, animated: true)
-////            }
-//        case mainPageView.rewardsCollectionView:
-//            createNewOrder()
-//        case mainPageView.pointsCollectionView:
-//            createNewOrder()
-//        default:
-//            return
-//        }
-//    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch collectionView {
+        case homePageView.dealsCollectionView:
+            print("Some deal has been choosen")
+//            let dealVC = DealViewController()
+//            dealVC.homePageDelegate = self
+//            dealVC.dealName = deals[indexPath.row].name
+//            dealVC.dealDescription = deals[indexPath.row].dealDescription
+//            dealVC.image = deals[indexPath.row].image
+//            present(dealVC, animated: true)
+        case homePageView.rewardsCollectionView:
+            createNewOrder()
+        case homePageView.pointsCollectionView:
+            createNewOrder()
+        default:
+            return
+        }
+    }
 }
 
 // MARK: - UIScrollViewDelegate
 extension HomePageViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         switch collectionView {
-        case mainPageView.dealsCollectionView:
+        case homePageView.dealsCollectionView:
             return HomePageCollectionSizes.dealsSize
-        case mainPageView.rewardsCollectionView:
+        case homePageView.rewardsCollectionView:
             return HomePageCollectionSizes.rewardsSize
-        case mainPageView.pointsCollectionView:
+        case homePageView.pointsCollectionView:
             return HomePageCollectionSizes.pointsSize
         default:
             return CGSize(width: 100, height: 100)
