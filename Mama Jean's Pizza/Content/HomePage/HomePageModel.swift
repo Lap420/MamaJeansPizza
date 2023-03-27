@@ -9,39 +9,22 @@
 import UIKit
 
 struct HomePageModel {
-    private var deals: [HomePageData] = [HomePageData(name: "1",
-                                                      dealDescription: "2",
-                                                      image: UIImage(named: "No_Image")!),
-                                         HomePageData(name: "1",
-                                                      dealDescription: "2",
-                                                      image: UIImage(named: "No_Image")!)]
-    private var rewards: [HomePageData] = [HomePageData(name: "1",
-                                                        dealDescription: "2",
-                                                        image: UIImage(named: "No_Image")!),
-                                           HomePageData(name: "1",
-                                                        dealDescription: "2",
-                                                        image: UIImage(named: "No_Image")!),
-                                           HomePageData(name: "1",
-                                                        dealDescription: "2",
-                                                        image: UIImage(named: "No_Image")!)]
-    private var points: [HomePageData] = [HomePageData(name: "1",
-                                                       dealDescription: "2",
-                                                       image: UIImage(named: "No_Image")!),
-                                          HomePageData(name: "1",
-                                                       dealDescription: "2",
-                                                       image: UIImage(named: "No_Image")!),
-                                          HomePageData(name: "1",
-                                                       dealDescription: "2",
-                                                       image: UIImage(named: "No_Image")!),
-                                          HomePageData(name: "1",
-                                                       dealDescription: "2",
-                                                       image: UIImage(named: "No_Image")!)]
+    // MARK: - Private properties
+    var deals: [HomePageData] = .init(repeating: commonData, count: 2)
+    var rewards: [HomePageData] = .init(repeating: commonData, count: 3)
+    var points: [HomePageData] = .init(repeating: commonData, count: 4)
+    
+    // MARK: - Private properties
+    private static let commonData = HomePageData(name: "name",
+                                          description: "description",
+                                          imageData: UIImage(named: "No_Image")!)
 }
 
 struct HomePageData {
+    // MARK: - Private properties
     let name: String
-    let dealDescription: String
-    let image: UIImage
+    let description: String
+    let imageData: UIImage
 }
 
 enum HomepageCollectionType: String {

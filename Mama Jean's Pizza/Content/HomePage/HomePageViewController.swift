@@ -5,12 +5,11 @@
 //  Created by Lap on 23.03.2023.
 //
 
-// TODO: Make HomePageModel UI independent
 // TODO: Add new screen on Deal choosing
 // TODO: Add new screen for Introduction
 // TODO: Activate menu uploading
 
-// TODO: Move model to another file
+// TODO: Make HomePageModel UI independent
 
 import UIKit
 
@@ -35,33 +34,6 @@ class HomePageViewController: UIViewController {
     private var homePageView = HomePageView()
     private var homePageModel = HomePageModel()
     private var bonusBalanceLabel = UILabel()
-    private var deals: [HomePageData] = [HomePageData(name: "1",
-                                                      dealDescription: "2",
-                                                      image: UIImage(named: "No_Image")!),
-                                         HomePageData(name: "1",
-                                                      dealDescription: "2",
-                                                      image: UIImage(named: "No_Image")!)]
-    private var rewards: [HomePageData] = [HomePageData(name: "1",
-                                                        dealDescription: "2",
-                                                        image: UIImage(named: "No_Image")!),
-                                           HomePageData(name: "1",
-                                                        dealDescription: "2",
-                                                        image: UIImage(named: "No_Image")!),
-                                           HomePageData(name: "1",
-                                                        dealDescription: "2",
-                                                        image: UIImage(named: "No_Image")!)]
-    private var points: [HomePageData] = [HomePageData(name: "1",
-                                                       dealDescription: "2",
-                                                       image: UIImage(named: "No_Image")!),
-                                          HomePageData(name: "1",
-                                                       dealDescription: "2",
-                                                       image: UIImage(named: "No_Image")!),
-                                          HomePageData(name: "1",
-                                                       dealDescription: "2",
-                                                       image: UIImage(named: "No_Image")!),
-                                          HomePageData(name: "1",
-                                                       dealDescription: "2",
-                                                       image: UIImage(named: "No_Image")!)]
 }
 
 // MARK: Private methods
@@ -138,19 +110,18 @@ private extension HomePageViewController {
                 guard data.count > 0 else { group.leave(); return }
                 switch collectionType {
                 case .deals:
-                    self?.deals = data
+                    self?.homePageModel.deals = data
                 case .rewards:
-                    self?.rewards = data
+                    self?.homePageModel.rewards = data
                 case .points:
-                    self?.points = data
+                    self?.homePageModel.points = data
                 }
                 group.leave()
             }
         }
     }
     
-    func initCollections() {
-        initCollectionsDelegateAndSource()
+    func uploadCollectionsData() {
         let group = DispatchGroup()
         getHomePageData(collectionType: .deals, group: group)
         getHomePageData(collectionType: .rewards, group: group)
@@ -160,6 +131,11 @@ private extension HomePageViewController {
             homePageView.rewardsCollectionView.reloadData()
             homePageView.pointsCollectionView.reloadData()
         }
+    }
+    
+    func initCollections() {
+        initCollectionsDelegateAndSource()
+        uploadCollectionsData()
     }
     
     func initButtonTargets() {
@@ -256,11 +232,11 @@ extension HomePageViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView {
         case homePageView.dealsCollectionView:
-            return deals.count
+            return homePageModel.deals.count
         case homePageView.rewardsCollectionView:
-            return rewards.count
+            return homePageModel.rewards.count
         case homePageView.pointsCollectionView:
-            return points.count
+            return homePageModel.points.count
         default:
             return 0
         }
@@ -271,17 +247,17 @@ extension HomePageViewController: UICollectionViewDataSource {
         case homePageView.dealsCollectionView:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell",
                                                           for: indexPath) as! DealCell
-            cell.configure(image: deals[indexPath.row].image)
+            cell.configure(image: homePageModel.deals[indexPath.row].imageData)
             return cell
         case homePageView.rewardsCollectionView:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell",
                                                           for: indexPath) as! RewardsCell
-            cell.configure(image: rewards[indexPath.row].image)
+            cell.configure(image: homePageModel.rewards[indexPath.row].imageData)
             return cell
         case homePageView.pointsCollectionView:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell",
                                                           for: indexPath) as! PointsCell
-            cell.configure(image: points[indexPath.row].image)
+            cell.configure(image: homePageModel.points[indexPath.row].imageData)
             return cell
         default:
             let cell = UICollectionViewCell()

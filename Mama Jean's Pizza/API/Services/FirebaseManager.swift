@@ -40,8 +40,8 @@ class FirebaseManager {
                 
                     self.getImage(path: collection, picName: docName) { image in
                         let data = HomePageData(name: docName,
-                                                dealDescription: doc.get("description") as? String ?? "",
-                                                image: image)
+                                                description: doc.get("description") as? String ?? "",
+                                                imageData: image)
                         homepageDataArray.append(data)
                         docsGroup.leave()
                     }
