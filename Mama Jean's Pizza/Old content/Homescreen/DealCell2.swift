@@ -7,6 +7,6 @@
 
 import UIKit
 
-class DealCell: UICollectionViewCell {
+class DealCell2: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
 }

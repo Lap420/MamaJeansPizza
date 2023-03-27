@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum HomepageCollectionType: String {
+enum HomepageCollectionType2: String {
     case deals = "Deals"
     case rewards = "Rewards"
     case points = "Points"

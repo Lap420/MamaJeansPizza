@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-struct HomepageData {
+struct HomepageData2 {
     let name: String
     let dealDescription: String
     let image: UIImage

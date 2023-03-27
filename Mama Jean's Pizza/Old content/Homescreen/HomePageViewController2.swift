@@ -260,17 +260,16 @@ extension HomePageViewController2: UICollectionViewDataSource, UICollectionViewD
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         if collectionView == dealsCollectionView {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Deal", for: indexPath)
-                as! DealCell
+            //let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Deal", for: indexPath) as! DealCell
             
-            cell.imageView.image = deals[indexPath.row].image
-            cell.imageView.contentMode = .scaleAspectFit
-            return cell
+            //cell.imageView.image = deals[indexPath.row].image
+            //cell.imageView.contentMode = .scaleAspectFit
+            //return cell
         }
         
         if collectionView == rewardsCollectionView {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Reward", for: indexPath)
-                as! RewardsCell
+                as! RewardsCell2
         
             cell.imageView.image = rewards[indexPath.row].image
             cell.imageView.contentMode = .scaleAspectFit
@@ -278,7 +277,7 @@ extension HomePageViewController2: UICollectionViewDataSource, UICollectionViewD
         }
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Point", for: indexPath)
-            as! PointsCell
+            as! PointsCell2
         
         cell.imageView.image = points[indexPath.row].image
         cell.imageView.contentMode = .scaleAspectFit
@@ -318,7 +317,7 @@ class TopView: UIView {
     }
 }
 
-protocol HomePageDelegate {
+protocol HomePageDelegate2 {
     func updatePointsLabel()
     func goToNewOrder()
 }

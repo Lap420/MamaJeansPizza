@@ -64,6 +64,16 @@
                                             <constraint firstItem="ZKL-XM-GTv" firstAttribute="height" secondItem="Rgf-8t-7UP" secondAttribute="height" id="s0I-YQ-L0m"/>
                                         </constraints>
                                     </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DEALS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bmw-Fd-W9Y">
+                                        <rect key="frame" x="20" y="57.5" width="50" height="21"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="21" id="Trs-5I-rgU"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="x9m-35-LHm"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="m7h-iP-VHo">
                                         <rect key="frame" x="0.0" y="78.5" width="320" height="120"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -101,17 +111,14 @@
                                                     </constraints>
                                                 </collectionViewCellContentView>
                                                 <size key="customSize" width="160" height="100"/>
-                                                <connections>
-                                                    <outlet property="imageView" destination="o7a-7Z-5af" id="r7N-Zw-M0R"/>
-                                                </connections>
                                             </collectionViewCell>
                                         </cells>
                                     </collectionView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="DEALS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bmw-Fd-W9Y">
-                                        <rect key="frame" x="20" y="57.5" width="50" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MAMA REWARDS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jQF-00-ChE">
+                                        <rect key="frame" x="20" y="207.5" width="150" height="21"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="21" id="Trs-5I-rgU"/>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="50" id="x9m-35-LHm"/>
+                                            <constraint firstAttribute="height" constant="21" id="Bvv-KB-7G0"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="TI7-mI-GK2"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
                                         <nil key="textColor"/>
@@ -130,7 +137,7 @@
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Reward" id="SyS-p8-5mh" customClass="RewardsCell" customModule="Mama_Jean_s_Pizza" customModuleProvider="target">
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Reward" id="SyS-p8-5mh" customClass="RewardsCell2" customModule="Mama_Jean_s_Pizza" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="10" width="140" height="117"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ZF1-y5-RtX">
@@ -159,11 +166,11 @@
                                             </collectionViewCell>
                                         </cells>
                                     </collectionView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MAMA REWARDS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jQF-00-ChE">
-                                        <rect key="frame" x="20" y="207.5" width="150" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USE YOUR MAMA POINTS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8DX-lK-muR">
+                                        <rect key="frame" x="20" y="374.5" width="175" height="21"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="21" id="Bvv-KB-7G0"/>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="TI7-mI-GK2"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="175" id="18K-tM-WRG"/>
+                                            <constraint firstAttribute="height" constant="21" id="Q7O-cN-Njb"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
                                         <nil key="textColor"/>
@@ -182,7 +189,7 @@
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
                                         <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Point" id="5th-dI-vM0" customClass="PointsCell" customModule="Mama_Jean_s_Pizza" customModuleProvider="target">
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Point" id="5th-dI-vM0" customClass="PointsCell2" customModule="Mama_Jean_s_Pizza" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="10" width="90" height="90"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="OhR-zV-NY1">
@@ -211,16 +218,6 @@
                                             </collectionViewCell>
                                         </cells>
                                     </collectionView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="USE YOUR MAMA POINTS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8DX-lK-muR">
-                                        <rect key="frame" x="20" y="374.5" width="175" height="21"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="175" id="18K-tM-WRG"/>
-                                            <constraint firstAttribute="height" constant="21" id="Q7O-cN-Njb"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="13"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dya-mG-cuN">
                                         <rect key="frame" x="37.5" y="545.5" width="245" height="45"/>
                                         <color key="backgroundColor" systemColor="systemRedColor"/>

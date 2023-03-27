@@ -35,9 +35,14 @@
 		04B295CD299978600076984A /* IntroductionTipsPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B295CC299978600076984A /* IntroductionTipsPageViewController.swift */; };
 		04B295CF2999789F0076984A /* IntroductionTipsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B295CE2999789F0076984A /* IntroductionTipsViewController.swift */; };
 		04B60D1429CCBD2F005E8B94 /* HomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B60D1329CCBD2F005E8B94 /* HomePageView.swift */; };
-		04B60D1929CCBF3E005E8B94 /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B60D1829CCBF3E005E8B94 /* UIConstants.swift */; };
-		04E08F6429A66F91007E4F09 /* RewardsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E08F6329A66F91007E4F09 /* RewardsCell.swift */; };
-		04E08F6629A67538007E4F09 /* PointsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E08F6529A67538007E4F09 /* PointsCell.swift */; };
+		04B60D1929CCBF3E005E8B94 /* GlobalUIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B60D1829CCBF3E005E8B94 /* GlobalUIConstants.swift */; };
+		04B60D1C29D093D8005E8B94 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B60D1B29D093D8005E8B94 /* AlertManager.swift */; };
+		04B60D1E29D09A78005E8B94 /* HomePageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B60D1D29D09A78005E8B94 /* HomePageModel.swift */; };
+		04B60D2029D0A082005E8B94 /* DealCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B60D1F29D0A082005E8B94 /* DealCell.swift */; };
+		04B60D2229D0B007005E8B94 /* RewardsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B60D2129D0B007005E8B94 /* RewardsCell.swift */; };
+		04B60D2429D0B065005E8B94 /* PointsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B60D2329D0B065005E8B94 /* PointsCell.swift */; };
+		04E08F6429A66F91007E4F09 /* RewardsCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E08F6329A66F91007E4F09 /* RewardsCell2.swift */; };
+		04E08F6629A67538007E4F09 /* PointsCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E08F6529A67538007E4F09 /* PointsCell2.swift */; };
 		04EDA86529A90CFD00A0DA23 /* DealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EDA86429A90CFD00A0DA23 /* DealViewController.swift */; };
 		04F12006299FE63D008DF518 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04F12005299FE63D008DF518 /* GoogleService-Info.plist */; };
 		04F12009299FE8CD008DF518 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 04F12008299FE8CD008DF518 /* FirebaseAnalytics */; };
@@ -47,7 +52,8 @@
 		04F12011299FEBDD008DF518 /* FirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F12010299FEBDD008DF518 /* FirebaseManager.swift */; };
 		04F12014299FED59008DF518 /* HomescreenStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F12013299FED59008DF518 /* HomescreenStructs.swift */; };
 		04F1201729A003F6008DF518 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 04F1201629A003F6008DF518 /* SnapKit */; };
-		04F1201929A00481008DF518 /* DealCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F1201829A00481008DF518 /* DealCell.swift */; };
+		04F1201929A00481008DF518 /* DealCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F1201829A00481008DF518 /* DealCell2.swift */; };
+		04F21E5C29D1FCCD00D62C66 /* BalanceObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F21E5B29D1FCCD00D62C66 /* BalanceObserver.swift */; };
 		04F4429F29ABE7260065D6F4 /* SyrveAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F4429E29ABE7260065D6F4 /* SyrveAPIManager.swift */; };
 		04F442A129ABE8280065D6F4 /* SyrveMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F442A029ABE8280065D6F4 /* SyrveMenu.swift */; };
 		04F442A329ABEAC80065D6F4 /* SyrveToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F442A229ABEAC80065D6F4 /* SyrveToken.swift */; };
@@ -85,14 +91,20 @@
 		04B295CC299978600076984A /* IntroductionTipsPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionTipsPageViewController.swift; sourceTree = "<group>"; };
 		04B295CE2999789F0076984A /* IntroductionTipsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionTipsViewController.swift; sourceTree = "<group>"; };
 		04B60D1329CCBD2F005E8B94 /* HomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageView.swift; sourceTree = "<group>"; };
-		04B60D1829CCBF3E005E8B94 /* UIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
-		04E08F6329A66F91007E4F09 /* RewardsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardsCell.swift; sourceTree = "<group>"; };
-		04E08F6529A67538007E4F09 /* PointsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsCell.swift; sourceTree = "<group>"; };
+		04B60D1829CCBF3E005E8B94 /* GlobalUIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalUIConstants.swift; sourceTree = "<group>"; };
+		04B60D1B29D093D8005E8B94 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
+		04B60D1D29D09A78005E8B94 /* HomePageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageModel.swift; sourceTree = "<group>"; };
+		04B60D1F29D0A082005E8B94 /* DealCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealCell.swift; sourceTree = "<group>"; };
+		04B60D2129D0B007005E8B94 /* RewardsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardsCell.swift; sourceTree = "<group>"; };
+		04B60D2329D0B065005E8B94 /* PointsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsCell.swift; sourceTree = "<group>"; };
+		04E08F6329A66F91007E4F09 /* RewardsCell2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardsCell2.swift; sourceTree = "<group>"; };
+		04E08F6529A67538007E4F09 /* PointsCell2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsCell2.swift; sourceTree = "<group>"; };
 		04EDA86429A90CFD00A0DA23 /* DealViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealViewController.swift; sourceTree = "<group>"; };
 		04F12005299FE63D008DF518 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		04F12010299FEBDD008DF518 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
 		04F12013299FED59008DF518 /* HomescreenStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomescreenStructs.swift; sourceTree = "<group>"; };
-		04F1201829A00481008DF518 /* DealCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealCell.swift; sourceTree = "<group>"; };
+		04F1201829A00481008DF518 /* DealCell2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealCell2.swift; sourceTree = "<group>"; };
+		04F21E5B29D1FCCD00D62C66 /* BalanceObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceObserver.swift; sourceTree = "<group>"; };
 		04F4429E29ABE7260065D6F4 /* SyrveAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyrveAPIManager.swift; sourceTree = "<group>"; };
 		04F442A029ABE8280065D6F4 /* SyrveMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyrveMenu.swift; sourceTree = "<group>"; };
 		04F442A229ABEAC80065D6F4 /* SyrveToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyrveToken.swift; sourceTree = "<group>"; };
@@ -147,6 +159,10 @@
 			children = (
 				0436295B29CCBA49001964E5 /* HomePageViewController.swift */,
 				04B60D1329CCBD2F005E8B94 /* HomePageView.swift */,
+				04B60D1D29D09A78005E8B94 /* HomePageModel.swift */,
+				04B60D1F29D0A082005E8B94 /* DealCell.swift */,
+				04B60D2129D0B007005E8B94 /* RewardsCell.swift */,
+				04B60D2329D0B065005E8B94 /* PointsCell.swift */,
 			);
 			path = HomePage;
 			sourceTree = "<group>";
@@ -182,9 +198,9 @@
 				04B295D029997D0A0076984A /* IntroductionTips */,
 				04B295BC299953820076984A /* HomePageViewController2.swift */,
 				04F12013299FED59008DF518 /* HomescreenStructs.swift */,
-				04F1201829A00481008DF518 /* DealCell.swift */,
-				04E08F6329A66F91007E4F09 /* RewardsCell.swift */,
-				04E08F6529A67538007E4F09 /* PointsCell.swift */,
+				04F1201829A00481008DF518 /* DealCell2.swift */,
+				04E08F6329A66F91007E4F09 /* RewardsCell2.swift */,
+				04E08F6529A67538007E4F09 /* PointsCell2.swift */,
 			);
 			path = Homescreen;
 			sourceTree = "<group>";
@@ -236,6 +252,7 @@
 				04EDA86A29A91B5D00A0DA23 /* Core */,
 				04B295BE299953820076984A /* Main.storyboard */,
 				04EDA86629A91B0C00A0DA23 /* Resources */,
+				04B60D1A29D093A3005E8B94 /* Services */,
 			);
 			path = "Mama Jean's Pizza";
 			sourceTree = "<group>";
@@ -270,6 +287,15 @@
 			path = "Old content";
 			sourceTree = "<group>";
 		};
+		04B60D1A29D093A3005E8B94 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				04B60D1B29D093D8005E8B94 /* AlertManager.swift */,
+				04F21E5B29D1FCCD00D62C66 /* BalanceObserver.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		04EDA86629A91B0C00A0DA23 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -277,7 +303,7 @@
 				04B295C3299953840076984A /* LaunchScreen.storyboard */,
 				04B295C6299953840076984A /* Info.plist */,
 				04F12005299FE63D008DF518 /* GoogleService-Info.plist */,
-				04B60D1829CCBF3E005E8B94 /* UIConstants.swift */,
+				04B60D1829CCBF3E005E8B94 /* GlobalUIConstants.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -426,6 +452,7 @@
 				049A1002299D550800F2BCBF /* MenuCollectionViewController.swift in Sources */,
 				04AD8DB6299AB14300C25FF7 /* ChooseAStoreTableViewController.swift in Sources */,
 				04220BED29B13F74005D53C4 /* PaymentTypesViewController.swift in Sources */,
+				04B60D2229D0B007005E8B94 /* RewardsCell.swift in Sources */,
 				0423BC92299EBC4D00BE8BFC /* ChooseAStoreModel.swift in Sources */,
 				04EDA86529A90CFD00A0DA23 /* DealViewController.swift in Sources */,
 				045ABC0429AE8FF500942686 /* ItemsViewController.swift in Sources */,
@@ -433,17 +460,22 @@
 				04B295BD299953820076984A /* HomePageViewController2.swift in Sources */,
 				04B295B9299953820076984A /* AppDelegate.swift in Sources */,
 				04B295CF2999789F0076984A /* IntroductionTipsViewController.swift in Sources */,
-				04B60D1929CCBF3E005E8B94 /* UIConstants.swift in Sources */,
+				04F21E5C29D1FCCD00D62C66 /* BalanceObserver.swift in Sources */,
+				04B60D1929CCBF3E005E8B94 /* GlobalUIConstants.swift in Sources */,
+				04B60D2029D0A082005E8B94 /* DealCell.swift in Sources */,
+				04B60D1C29D093D8005E8B94 /* AlertManager.swift in Sources */,
 				04141DCC29B538FB00C215DD /* HomepageStructs.swift in Sources */,
 				04220BEA29B0EC89005D53C4 /* BasketCustomerInfoCellInfo.swift in Sources */,
 				04F442A129ABE8280065D6F4 /* SyrveMenu.swift in Sources */,
 				04220BE629B0DF8A005D53C4 /* BasketCellType.swift in Sources */,
 				045ABBFF29AE5D8700942686 /* Basket.swift in Sources */,
-				04F1201929A00481008DF518 /* DealCell.swift in Sources */,
-				04E08F6429A66F91007E4F09 /* RewardsCell.swift in Sources */,
+				04F1201929A00481008DF518 /* DealCell2.swift in Sources */,
+				04E08F6429A66F91007E4F09 /* RewardsCell2.swift in Sources */,
 				04F442A529AD043E0065D6F4 /* SyrveAPIConstants.swift in Sources */,
 				04B60D1429CCBD2F005E8B94 /* HomePageView.swift in Sources */,
 				04F442A329ABEAC80065D6F4 /* SyrveToken.swift in Sources */,
+				04B60D2429D0B065005E8B94 /* PointsCell.swift in Sources */,
+				04B60D1E29D09A78005E8B94 /* HomePageModel.swift in Sources */,
 				0436295C29CCBA49001964E5 /* HomePageViewController.swift in Sources */,
 				049A1005299D59B200F2BCBF /* MenuCell.swift in Sources */,
 				04F4429F29ABE7260065D6F4 /* SyrveAPIManager.swift in Sources */,
@@ -453,7 +485,7 @@
 				045ABC0229AE753100942686 /* SyrveCreateOrder.swift in Sources */,
 				04F12014299FED59008DF518 /* HomescreenStructs.swift in Sources */,
 				04220BE829B0DFB6005D53C4 /* BasketCustomerInfoCell.swift in Sources */,
-				04E08F6629A67538007E4F09 /* PointsCell.swift in Sources */,
+				04E08F6629A67538007E4F09 /* PointsCell2.swift in Sources */,
 				04F12011299FEBDD008DF518 /* FirebaseManager.swift in Sources */,
 				04B295BB299953820076984A /* SceneDelegate.swift in Sources */,
 				04899C1029B289B4000BB5DD /* OrderPlacedViewController.swift in Sources */,
