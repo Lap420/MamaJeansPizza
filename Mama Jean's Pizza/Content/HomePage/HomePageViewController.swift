@@ -9,7 +9,7 @@
 // TODO: Add new screen for Introduction
 // TODO: Activate menu uploading
 
-// TODO: Make HomePageModel UI independent
+// TODO: Create ChooseAStore screen
 
 import UIKit
 
@@ -247,17 +247,29 @@ extension HomePageViewController: UICollectionViewDataSource {
         case homePageView.dealsCollectionView:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell",
                                                           for: indexPath) as! DealCell
-            cell.configure(image: homePageModel.deals[indexPath.row].imageData)
+            var image: UIImage? = nil
+            if let imageData = homePageModel.deals[indexPath.row].imageData {
+                image = UIImage(data: imageData)
+            }
+            cell.configure(image: image)
             return cell
         case homePageView.rewardsCollectionView:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell",
                                                           for: indexPath) as! RewardsCell
-            cell.configure(image: homePageModel.rewards[indexPath.row].imageData)
+            var image: UIImage? = nil
+            if let imageData = homePageModel.rewards[indexPath.row].imageData {
+                image = UIImage(data: imageData)
+            }
+            cell.configure(image: image)
             return cell
         case homePageView.pointsCollectionView:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell",
                                                           for: indexPath) as! PointsCell
-            cell.configure(image: homePageModel.points[indexPath.row].imageData)
+            var image: UIImage? = nil
+            if let imageData = homePageModel.points[indexPath.row].imageData {
+                image = UIImage(data: imageData)
+            }
+            cell.configure(image: image)
             return cell
         default:
             let cell = UICollectionViewCell()

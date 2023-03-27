@@ -17,14 +17,14 @@ struct HomePageModel {
     // MARK: - Private properties
     private static let commonData = HomePageData(name: "name",
                                           description: "description",
-                                          imageData: UIImage(named: "No_Image")!)
+                                                 imageData: nil)
 }
 
 struct HomePageData {
     // MARK: - Private properties
     let name: String
     let description: String
-    let imageData: UIImage
+    let imageData: Data?
 }
 
 enum HomepageCollectionType: String {

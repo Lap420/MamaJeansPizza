@@ -32,40 +32,39 @@ class FirebaseManager {
                 guard let docs = homepageData?.documents else { completion([]); return }
  
                 var homepageDataArray: [HomePageData] = []
-                let docsGroup = DispatchGroup()
+                let docsDispatchGroup = DispatchGroup()
             
                 for doc in docs {
-                    docsGroup.enter()
+                    docsDispatchGroup.enter()
                     guard let docName = doc.get("name") as? String else { continue }
-                
-                    self.getImage(path: collection, picName: docName) { image in
+                    let docDescription = doc.get("description") as? String ?? ""
+                    
+                    self.getImage(path: collection, picName: docName) { imageData in
                         let data = HomePageData(name: docName,
-                                                description: doc.get("description") as? String ?? "",
-                                                imageData: image)
+                                                description: docDescription,
+                                                imageData: imageData)
                         homepageDataArray.append(data)
-                        docsGroup.leave()
+                        docsDispatchGroup.leave()
                     }
                 }
             
-                docsGroup.notify(queue: .global(qos: .userInitiated)) {
+                docsDispatchGroup.notify(queue: .global(qos: .userInitiated)) {
                     completion(homepageDataArray)
                 }
             }
         }
     }
     
-    func getImage(path: String, picName: String, completionImage: @escaping (UIImage) -> Void) {
+    func getImage(path: String, picName: String, completionImage: @escaping (Data?) -> Void) {
         let storage = Storage.storage()
         let reference = storage.reference()
         let pathRef = reference.child(path)
         let fileRef = pathRef.child(picName + ".png")
-        var image = UIImage(named: "No_Image")
         
-        fileRef.getData(maxSize: 1024*1024) { data, error in
+        fileRef.getData(maxSize: 1024*1024) { imageData, error in
             DispatchQueue.global(qos: .userInitiated).async {
-                guard error == nil else { completionImage(image!); return }
-                image = UIImage(data: data!)!
-                completionImage(image!)
+                //guard error == nil else { completionImage(nil); return }
+                completionImage(imageData)
             }
         }
     }

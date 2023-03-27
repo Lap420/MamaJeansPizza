@@ -271,7 +271,7 @@ extension HomePageViewController2: UICollectionViewDataSource, UICollectionViewD
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Reward", for: indexPath)
                 as! RewardsCell2
         
-            cell.imageView.image = rewards[indexPath.row].imageData
+            //cell.imageView.image = rewards[indexPath.row].imageData
             cell.imageView.contentMode = .scaleAspectFit
             return cell
         }
@@ -279,7 +279,7 @@ extension HomePageViewController2: UICollectionViewDataSource, UICollectionViewD
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Point", for: indexPath)
             as! PointsCell2
         
-        cell.imageView.image = points[indexPath.row].imageData
+        //cell.imageView.image = points[indexPath.row].imageData
         cell.imageView.contentMode = .scaleAspectFit
         return cell
     }
@@ -291,7 +291,7 @@ extension HomePageViewController2: UICollectionViewDataSource, UICollectionViewD
                 dealVC.homePageDelegate = self
                 dealVC.dealName = deals[indexPath.row].name
                 dealVC.dealDescription = deals[indexPath.row].description
-                dealVC.image = deals[indexPath.row].imageData
+                //dealVC.image = deals[indexPath.row].imageData
                 present(dealVC, animated: true)
             }
         case rewardsCollectionView:

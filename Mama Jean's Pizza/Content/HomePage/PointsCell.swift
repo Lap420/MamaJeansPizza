@@ -36,6 +36,7 @@ private extension PointsCell {
     func initialize() {
         layer.cornerRadius = 10
         layer.masksToBounds = true
+        layer.backgroundColor = .init(red: 0, green: 0, blue: 0, alpha: 0.1)
         contentView.addSubview(imageView)
         imageView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
