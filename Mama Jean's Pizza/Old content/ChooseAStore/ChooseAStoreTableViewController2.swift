@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ChooseAStoreTableViewController: UITableViewController {
+class ChooseAStoreTableViewController2: UITableViewController {
     
     let cities = ["Dubai", "Abu-Dhabi"]
     let storesDubai = ["Dubai Marina", "Dubai Internet City", "Dubai Investments park", "Jumairah Lake Towers"]

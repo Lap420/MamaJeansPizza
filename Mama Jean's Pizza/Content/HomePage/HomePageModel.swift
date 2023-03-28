@@ -1,15 +1,7 @@
-//
-//  HomePageModel.swift
-//  Mama Jean's Pizza
-//
-//  Created by Lap on 26.03.2023.
-//
-
-//Need to make it UI independent
 import UIKit
 
 struct HomePageModel {
-    // MARK: - Private properties
+    // MARK: - Public properties
     var deals: [HomePageData] = .init(repeating: commonData, count: 2)
     var rewards: [HomePageData] = .init(repeating: commonData, count: 3)
     var points: [HomePageData] = .init(repeating: commonData, count: 4)

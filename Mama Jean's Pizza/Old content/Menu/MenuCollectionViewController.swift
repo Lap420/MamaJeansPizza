@@ -63,10 +63,10 @@ class MenuCollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! MenuCell
     
-        cell.imageView.contentMode = .scaleAspectFit
-        cell.imageView.clipsToBounds = true
-        cell.imageView.image = MenuManager.shared.menuImages[menu[indexPath.item].id]
-        cell.nameLabel.text = menu[indexPath.item].name
+//        cell.imageView.contentMode = .scaleAspectFit
+//        cell.imageView.clipsToBounds = true
+//        cell.imageView.image = MenuManager.shared.menuImages[menu[indexPath.item].id]
+//        cell.nameLabel.text = menu[indexPath.item].name
         
         return cell
     }

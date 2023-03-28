@@ -317,7 +317,8 @@ class TopView: UIView {
     }
 }
 
-protocol HomePageDelegate2 {
+// MARK: - HomePageDelegate protocol
+protocol HomePageDelegate {
     func updatePointsLabel()
     func goToNewOrder()
 }

@@ -1,19 +1,10 @@
-//
-//  HomePageViewController.swift
-//  Mama Jean's Pizza
-//
-//  Created by Lap on 23.03.2023.
-//
-
 // TODO: Add new screen on Deal choosing
 // TODO: Add new screen for Introduction
 // TODO: Activate menu uploading
 
-// TODO: Create ChooseAStore screen
-
 import UIKit
 
-class HomePageViewController: UIViewController {
+class HomePageController: UIViewController {
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +28,7 @@ class HomePageViewController: UIViewController {
 }
 
 // MARK: Private methods
-private extension HomePageViewController {
+private extension HomePageController {
     func initialize() {
         view = homePageView
         homePageView.scrollView.delegate = self
@@ -45,7 +36,7 @@ private extension HomePageViewController {
         initCollections()
         initButtonTargets()
         checkIsFirstLaunch()
-        //DispatchQueue.global(qos: .utility).async { _ = MenuManager.shared  }
+//        DispatchQueue.global(qos: .utility).async { _ = MenuManager.shared  }
     }
     
     func configureNavigationBar() {
@@ -54,6 +45,7 @@ private extension HomePageViewController {
         navigationController?.navigationBar.tintColor = .white
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         
         let settingsButton = UIBarButtonItem(
             image: .init(systemName: "line.horizontal.3"),
@@ -135,7 +127,7 @@ private extension HomePageViewController {
     
     func initCollections() {
         initCollectionsDelegateAndSource()
-        uploadCollectionsData()
+//        uploadCollectionsData()
     }
     
     func initButtonTargets() {
@@ -178,8 +170,8 @@ private extension HomePageViewController {
     }
     
     func createNewOrder() {
-        print("New order creation")
-        
+        let nextVC = ChooseAStoreTableViewController()
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
     
     @objc
@@ -213,7 +205,7 @@ private extension HomePageViewController {
 }
 
 // MARK: - UIScrollViewDelegate
-extension HomePageViewController: UIScrollViewDelegate {
+extension HomePageController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         guard scrollView == homePageView.scrollView else { return }
         guard let titleView = navigationItem.titleView else { return }
@@ -228,7 +220,7 @@ extension HomePageViewController: UIScrollViewDelegate {
 }
 
 // MARK: - UICollectionViewDataSource
-extension HomePageViewController: UICollectionViewDataSource {
+extension HomePageController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch collectionView {
         case homePageView.dealsCollectionView:
@@ -279,17 +271,11 @@ extension HomePageViewController: UICollectionViewDataSource {
 }
 
 // MARK: - UICollectionViewDelegate
-extension HomePageViewController: UICollectionViewDelegate {
+extension HomePageController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         switch collectionView {
         case homePageView.dealsCollectionView:
             print("Some deal has been choosen")
-//            let dealVC = DealViewController()
-//            dealVC.homePageDelegate = self
-//            dealVC.dealName = deals[indexPath.row].name
-//            dealVC.dealDescription = deals[indexPath.row].dealDescription
-//            dealVC.image = deals[indexPath.row].image
-//            present(dealVC, animated: true)
         case homePageView.rewardsCollectionView:
             createNewOrder()
         case homePageView.pointsCollectionView:
@@ -300,8 +286,8 @@ extension HomePageViewController: UICollectionViewDelegate {
     }
 }
 
-// MARK: - UIScrollViewDelegate
-extension HomePageViewController: UICollectionViewDelegateFlowLayout {
+// MARK: - UICollectionViewDelegateFlowLayout
+extension HomePageController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         switch collectionView {
         case homePageView.dealsCollectionView:
@@ -313,12 +299,6 @@ extension HomePageViewController: UICollectionViewDelegateFlowLayout {
         default:
             return CGSize(width: 100, height: 100)
         }
-        
-    }
-}
 
-// MARK: - HomePageDelegate protocol
-protocol HomePageDelegate {
-    func updatePointsLabel()
-    func goToNewOrder()
+    }
 }

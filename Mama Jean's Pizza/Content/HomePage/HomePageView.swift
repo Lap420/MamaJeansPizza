@@ -1,12 +1,4 @@
-//
-//  HomePageView.swift
-//  Mama Jean's Pizza
-//
-//  Created by Lap on 23.03.2023.
-//
-
 import UIKit
-import GameController
 
 class HomePageView: UIView {
     // MARK: - Public methods
@@ -187,12 +179,6 @@ class HomePageView: UIView {
         return button
     }()
     
-    let tempView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .clear
-        return view
-    }()
-    
     // MARK: - View Lifecycle
     init() {
         super.init(frame: .zero)
@@ -223,8 +209,8 @@ class HomePageView: UIView {
     }
 }
 
+// MARK: - Private methods
 private extension HomePageView {
-    // MARK: - Private methods
     func setup() {
         backgroundColor = GlobalUIConstants.mamaGreenColor
 

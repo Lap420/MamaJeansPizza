@@ -351,10 +351,10 @@
             </objects>
             <point key="canvasLocation" x="943.125" y="82.394366197183103"/>
         </scene>
-        <!--ChooseA Store Table View Controller-->
+        <!--ChooseA Store Table View Controller2-->
         <scene sceneID="eoA-Ow-Bjp">
             <objects>
-                <tableViewController id="Jik-pE-daV" customClass="ChooseAStoreTableViewController" customModule="Mama_Jean_s_Pizza" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Jik-pE-daV" customClass="ChooseAStoreTableViewController2" customModule="Mama_Jean_s_Pizza" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="ELr-FA-gMF">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -483,7 +483,7 @@
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="1p6-ov-dHa">
                                             <rect key="frame" x="0.0" y="0.0" width="47" height="21.5"/>
-                                            <color key="backgroundColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="0.59502911094008692" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="backgroundColor" red="0.36862745098039218" green="0.37056469920000001" blue="0.37055957319999999" alpha="0.59502911094008692" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                             <color key="textColor" systemColor="systemGray6Color"/>
                                             <nil key="highlightedColor"/>
