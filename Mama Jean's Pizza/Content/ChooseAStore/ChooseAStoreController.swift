@@ -14,7 +14,14 @@ class ChooseAStoreTableViewController: UIViewController {
     let storesAbuDhabi = ["Abu-Dhabi Airport", "Abu-Dhabi F1 Circuit"]
     let stores = [
         "Dubai": [
-            Store(name: "Dubai Marina", openTime: "10:00 am", closingTime: "10:00 pm")
+            Store(name: "Dubai Marina", openTime: "10:00 am", closingTime: "10:00 pm"),
+            Store(name: "Dubai Internet City", openTime: "10:00 am", closingTime: "10:00 pm"),
+            Store(name: "Dubai Investments park", openTime: "10:00 am", closingTime: "10:00 pm"),
+            Store(name: "Jumairah Lake Towers", openTime: "10:00 am", closingTime: "10:00 pm")
+        ],
+        "Abu-Dhabi": [
+            Store(name: "Abu-Dhabi Airport", openTime: "10:00 am", closingTime: "10:00 pm"),
+            Store(name: "Abu-Dhabi F1 Circuit", openTime: "10:00 am", closingTime: "10:00 pm")
         ]
     ]
     

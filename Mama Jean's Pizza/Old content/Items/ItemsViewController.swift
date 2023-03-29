@@ -62,7 +62,7 @@ class ItemsViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let destinationVC = segue.destination as? ItemDetailsViewController else { return }
-        guard let item = sender as? ItemCell else { return }
+        guard let item = sender as? ItemCell2 else { return }
         destinationVC.image = item.imageView.image
         
         guard let indexPath = collectionView.indexPathsForSelectedItems?.first else { return }
@@ -81,7 +81,7 @@ extension ItemsViewController: UICollectionViewDataSource, UICollectionViewDeleg
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Item", for: indexPath) as! ItemCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Item", for: indexPath) as! ItemCell2
     
         cell.imageView.contentMode = .scaleAspectFit
         cell.imageView.clipsToBounds = true

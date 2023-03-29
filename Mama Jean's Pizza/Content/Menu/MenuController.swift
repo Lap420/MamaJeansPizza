@@ -3,6 +3,7 @@ import UIKit
 // TODO: Move model to model file
 // TODO: Add a header for the collection
 // TODO: Add push to the next page
+// TODO: Remove UIKit from MenuUploader
 
 class MenuController: UIViewController {
     // MARK: Public properties
@@ -23,7 +24,7 @@ class MenuController: UIViewController {
 private extension MenuController {
     func initialize() {
         view = menuView
-        //prepareMenu()
+        prepareMenu()
         initCollectionsDelegateAndSource()
     }
     
@@ -58,7 +59,8 @@ extension MenuController: UICollectionViewDataSource {
 // MARK: - UICollectionViewDelegate
 extension MenuController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-
-        
+        let nextVC = ItemsController()
+        nextVC.choosenMenuGroupId = menu[indexPath.row].id
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
 }
