@@ -1,10 +1,3 @@
-//
-//  UserDefaultsManager.swift
-//  Mama Jean's Pizza
-//
-//  Created by Lap on 27.03.2023.
-//
-
 import Foundation
 
 struct UserDefaultsManager {

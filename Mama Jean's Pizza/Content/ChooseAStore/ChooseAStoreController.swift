@@ -31,6 +31,11 @@ class ChooseAStoreTableViewController: UIViewController {
         initialize()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.prefersLargeTitles = false
+    }
+    
     // MARK: - Private properties
     private var chooseAStoreView = ChooseAStoreView()
 }

@@ -1,32 +1,14 @@
 import UIKit
 
 class HomePageView: UIView {
-    // MARK: - Public methods
-    func updateConstraintsForBigScreens() {
-        layoutIfNeeded()
-        let scrollFrameHeight = scrollView.frame.height
-        let scrollContentHeight = scrollView.contentSize.height
-        if scrollContentHeight < scrollFrameHeight {
-            let newOffset = (scrollFrameHeight - scrollContentHeight - Constants.bigScreenBottomInset) / 2
-            rateButton.snp.removeConstraints()
-            rateButton.snp.makeConstraints { make in
-                make.top.equalTo(pointsCollectionView.snp.bottom).offset(newOffset)
-                make.centerX.equalToSuperview()
-                make.width.equalToSuperview().multipliedBy(Constants.widthMultiplier)
-                make.height.equalTo(rateButton.snp.width).multipliedBy(Constants.rateButtonsRatio)
-            }
-            bottomButtonsStackView.snp.removeConstraints()
-            bottomButtonsStackView.snp.makeConstraints { make in
-                make.top.equalTo(rateButton.snp.bottom).offset(newOffset)
-                make.bottom.equalToSuperview()
-                make.width.equalToSuperview()
-                make.height.equalTo(bottomButtonsStackView.snp.width).multipliedBy(Constants.bottomStackRatio)
-            }
-            layoutIfNeeded()
-        }
+    // MARK: - Public properties
+    enum CollectionSizes {
+        static let cellHeightCoef: CGFloat = 1 + (GlobalUIConstants.screenWidth - 320) / 480
+        static let dealsSize = CGSize(width: 160 * cellHeightCoef, height: 100 * cellHeightCoef)
+        static let rewardsSize = CGSize(width: 140 * cellHeightCoef, height: 117 * cellHeightCoef)
+        static let pointsSize = CGSize(width: 90 * cellHeightCoef, height: 90 * cellHeightCoef)
     }
     
-    // MARK: - Public properties
     let scrollView: UIScrollView = {
         let scroll = UIScrollView()
         scroll.backgroundColor = .white
@@ -47,13 +29,6 @@ class HomePageView: UIView {
         return scroll
     }()
     
-    let orderAndRepeatStack: UIStackView = {
-        let stack = UIStackView()
-        stack.distribution = .fillEqually
-        stack.spacing = Constants.stackSpacing
-        return stack
-    }()
-    
     let orderNowButton: UIButton = {
        let button = UIButton()
         button.layer.cornerRadius = Constants.cornerRadius
@@ -72,13 +47,6 @@ class HomePageView: UIView {
         return button
     }()
     
-    let dealsLabel: UILabel = {
-        let label = UILabel()
-        label.text = "DEALS"
-        label.font = Constants.collectionHeaderFont
-        return label
-    }()
-    
     let dealsCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(
@@ -93,13 +61,6 @@ class HomePageView: UIView {
         return collection
     }()
     
-    let rewardsLabel: UILabel = {
-        let label = UILabel()
-        label.text = "MAMA REWARDS"
-        label.font = Constants.collectionHeaderFont
-        return label
-    }()
-    
     let rewardsCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.sectionInset = UIEdgeInsets(
@@ -112,13 +73,6 @@ class HomePageView: UIView {
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collection.showsHorizontalScrollIndicator = false
         return collection
-    }()
-    
-    let useYourPointsLabel: UILabel = {
-        let label = UILabel()
-        label.text = "USE YOUR MAMA POINTS"
-        label.font = Constants.collectionHeaderFont
-        return label
     }()
     
     let pointsCollectionView: UICollectionView = {
@@ -207,6 +161,34 @@ class HomePageView: UIView {
         static let bottomStackRatio: CGFloat = 1.0 / 7.0
         static let bigScreenBottomInset: CGFloat = 69
     }
+    
+    private let orderAndRepeatStack: UIStackView = {
+        let stack = UIStackView()
+        stack.distribution = .fillEqually
+        stack.spacing = Constants.stackSpacing
+        return stack
+    }()
+    
+    private let dealsLabel: UILabel = {
+        let label = UILabel()
+        label.text = "DEALS"
+        label.font = Constants.collectionHeaderFont
+        return label
+    }()
+    
+    private let rewardsLabel: UILabel = {
+        let label = UILabel()
+        label.text = "MAMA REWARDS"
+        label.font = Constants.collectionHeaderFont
+        return label
+    }()
+    
+    private let useYourPointsLabel: UILabel = {
+        let label = UILabel()
+        label.text = "USE YOUR MAMA POINTS"
+        label.font = Constants.collectionHeaderFont
+        return label
+    }()
 }
 
 // MARK: - Private methods
@@ -242,7 +224,7 @@ private extension HomePageView {
             make.top.equalTo(dealsLabel.snp.bottom).offset(Constants.afterLabelCollectionInset)
             make.centerX.equalToSuperview()
             make.width.equalToSuperview()
-            make.height.equalTo(HomePageCollectionSizes.dealsSize.height + 1)
+            make.height.equalTo(CollectionSizes.dealsSize.height + 1)
         }
         
         scrollView.addSubview(rewardsLabel)
@@ -257,7 +239,7 @@ private extension HomePageView {
             make.top.equalTo(rewardsLabel.snp.bottom).offset(Constants.afterLabelCollectionInset)
             make.centerX.equalToSuperview()
             make.width.equalToSuperview()
-            make.height.equalTo(HomePageCollectionSizes.rewardsSize.height + 1)
+            make.height.equalTo(CollectionSizes.rewardsSize.height + 1)
         }
         
         scrollView.addSubview(useYourPointsLabel)
@@ -272,7 +254,7 @@ private extension HomePageView {
             make.top.equalTo(useYourPointsLabel.snp.bottom).offset(Constants.afterLabelCollectionInset)
             make.centerX.equalToSuperview()
             make.width.equalToSuperview()
-            make.height.equalTo(HomePageCollectionSizes.pointsSize.height + 1)
+            make.height.equalTo(CollectionSizes.pointsSize.height + 1)
         }
         
         scrollView.addSubview(rateButton)
@@ -294,11 +276,4 @@ private extension HomePageView {
             make.height.equalTo(bottomButtonsStackView.snp.width).multipliedBy(Constants.bottomStackRatio)
         }
     }
-}
-
-enum HomePageCollectionSizes {
-    static let cellHeightCoef: CGFloat = 1 + (GlobalUIConstants.screenWidth - 320) / 480
-    static let dealsSize = CGSize(width: 160 * cellHeightCoef, height: 100 * cellHeightCoef)
-    static let rewardsSize = CGSize(width: 140 * cellHeightCoef, height: 117 * cellHeightCoef)
-    static let pointsSize = CGSize(width: 90 * cellHeightCoef, height: 90 * cellHeightCoef)
 }

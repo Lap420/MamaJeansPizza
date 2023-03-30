@@ -10,10 +10,10 @@ import UIKit
 class PaymentTypesViewController: UIViewController {
     // MARK: - Public
     func configure(viewController: UIViewController) {
-        guard let viewController = viewController as? BasketViewController else { return }
-        cashOnDeliveryButton.addTarget(viewController, action: #selector(viewController.paymentTypeDidChoose), for: .touchUpInside)
-        cardOnDeliveryButton.addTarget(viewController, action: #selector(viewController.paymentTypeDidChoose), for: .touchUpInside)
-        cardOnlineButton.addTarget(viewController, action: #selector(viewController.paymentTypeDidChoose), for: .touchUpInside)
+//        guard let viewController = viewController as? BasketController else { return }
+//        cashOnDeliveryButton.addTarget(viewController, action: #selector(viewController.paymentTypeDidChoose), for: .touchUpInside)
+//        cardOnDeliveryButton.addTarget(viewController, action: #selector(viewController.paymentTypeDidChoose), for: .touchUpInside)
+//        cardOnlineButton.addTarget(viewController, action: #selector(viewController.paymentTypeDidChoose), for: .touchUpInside)
     }
     
     override func viewDidLoad() {

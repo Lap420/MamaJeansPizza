@@ -1,10 +1,3 @@
-//
-//  AlertManager.swift
-//  Mama Jean's Pizza
-//
-//  Created by Lap on 26.03.2023.
-//
-
 import UIKit
 
 struct AlertManager {

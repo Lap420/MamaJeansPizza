@@ -20,8 +20,8 @@ class BasketCustomerInfoCell: UITableViewCell {
         addressTextField.text = "JLT, Claster X3, flat 228"
         addressTextField.delegate = viewController as? UITextFieldDelegate
         
-        guard let viewController = viewController as? BasketViewController else { return }
-        paymentTypeButton.addTarget(viewController, action: #selector(viewController.paymentTypeButtonTapped), for: .touchUpInside)
+//        guard let viewController = viewController as? BasketController else { return }
+//        paymentTypeButton.addTarget(viewController, action: #selector(viewController.paymentTypeButtonTapped), for: .touchUpInside)
     }
     
     func updatePaymentType(newPaymentType: String) {

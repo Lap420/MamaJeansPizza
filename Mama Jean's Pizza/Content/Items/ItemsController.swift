@@ -16,6 +16,11 @@ class ItemsController: UIViewController {
         initialize()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.prefersLargeTitles = false
+    }
+    
     // MARK: - Private properties
     private var itemsView = ItemsView()
 }
@@ -24,8 +29,10 @@ class ItemsController: UIViewController {
 private extension ItemsController {
     func initialize() {
         view = itemsView
+        self.title = "Items"
         prepareItems()
         initCollectionsDelegateAndSource()
+        itemsView.basketButton.addTarget(self, action: #selector(basketButtonTapped), for: .touchUpInside)
     }
     
     func prepareItems() {
@@ -46,6 +53,12 @@ private extension ItemsController {
         itemsView.itemsCollectionView.register(ItemCell.self, forCellWithReuseIdentifier: "cell")
         itemsView.itemsCollectionView.delegate = self
         itemsView.itemsCollectionView.dataSource = self
+    }
+    
+    @objc
+    func basketButtonTapped() {
+        let nextVC = BasketController()
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
     
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -29,13 +29,13 @@ class ItemsView: UIView {
     
     let itemsAmountLabel: UILabel = {
         let label = UILabel()
-        
+        label.textColor = .white
         return label
     }()
     
     let totalDueLabel: UILabel = {
         let label = UILabel()
-        
+        label.textColor = .white
         return label
     }()
     
@@ -65,7 +65,26 @@ private extension ItemsView {
         self.addSubview(itemsCollectionView)
         itemsCollectionView.snp.makeConstraints { make in
             make.top.equalTo(safeAreaLayoutGuide)
-            make.leading.trailing.bottom.equalToSuperview()
+            make.leading.trailing.equalToSuperview()
+        }
+        
+        self.addSubview(basketButton)
+        basketButton.snp.makeConstraints { make in
+            make.top.equalTo(itemsCollectionView.snp.bottom)
+            make.bottom.leading.trailing.equalToSuperview()
+            make.height.equalTo(40)
+        }
+        
+        basketButton.addSubview(itemsAmountLabel)
+        itemsAmountLabel.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.leading.equalToSuperview().inset(16)
+        }
+        
+        basketButton.addSubview(totalDueLabel)
+        totalDueLabel.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.trailing.equalToSuperview().inset(16)
         }
     }
 }
