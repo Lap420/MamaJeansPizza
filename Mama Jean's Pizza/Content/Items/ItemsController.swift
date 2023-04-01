@@ -103,3 +103,20 @@ extension ItemsController: UICollectionViewDelegate {
         //self.navigationController?.pushViewController(nextVC, animated: true)
     }
 }
+
+extension ItemsController: ItemsPageDelegate {
+    func updateBasketButton() {
+        var itemsAmount = 0
+        var totalDue = 0.0
+        Basket.shared.items?.forEach({ item in
+            itemsAmount += item.amount
+            totalDue += Double(item.amount) * item.price
+        })
+//        self.itemsAmountLabel.text = "\(itemsAmount)"
+//        self.totalDueLabel.text = "\(String(format: "%.2f", totalDue)) AED"
+    }
+}
+
+protocol ItemsPageDelegate {
+    func updateBasketButton()
+}

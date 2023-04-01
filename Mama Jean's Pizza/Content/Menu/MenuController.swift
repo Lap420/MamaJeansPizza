@@ -1,7 +1,5 @@
 import UIKit
 
-// TODO: Add basket button
-
 class MenuController: UIViewController {
     // MARK: - View Lifecycle
     override func viewDidLoad() {
@@ -12,30 +10,24 @@ class MenuController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.prefersLargeTitles = true
-        showBasketButtonIfNeeded()
+        updateBasketButtonIfNeeded()
+        updateBalanceLabel()
     }
     
     // MARK: - Private properties
     private let menuView = MenuView()
     private let balanceView = BalanceView()
-    private lazy var basketButtonView = BasketButtonView()
     private var menuModel = MenuModel()
 }
 
-// MARK: Private methods
+// MARK: - Private methods
 private extension MenuController {
     func initialize() {
         view = menuView
         self.title = "Menu"
         configureNavigationBar()
         initCollectionsDelegateAndSource()
-        updateBalanceLabel()
-        NotificationCenter.default.addObserver(
-            self,
-            selector: #selector(updateBalanceLabel),
-            name: Notification.Name(rawValue: "BalanceUpdated"),
-            object: nil
-        )
+        initButtonTargets()
     }
     
     func configureNavigationBar() {
@@ -52,13 +44,32 @@ private extension MenuController {
         menuView.menuCollectionView.dataSource = self
     }
     
-    func showBasketButtonIfNeeded() {
-        
+    func initButtonTargets() {
+        menuView.basketButtonView.basketButton.addTarget(
+            self,
+            action: #selector(basketButtonTapped),
+            for: .touchUpInside
+        )
+    }
+    
+    func updateBasketButtonIfNeeded() {
+        let expectedIsHidden = Basket.shared.items?.count ?? 0 <= 0
+        if !expectedIsHidden {
+            let basketTotal = Basket.shared.getItemsAndTotalAmount()
+            menuView.basketButtonView.itemsAmountLabel.text = basketTotal.items
+            menuView.basketButtonView.totalDueLabel.text = basketTotal.amount
+        }
+        menuView.showHideBasketButton(isHidden: expectedIsHidden)
+    }
+    
+    func updateBalanceLabel() {
+        balanceView.bonusBalanceLabel.text = "\(BalanceObserver.shared.balance)"
     }
     
     @objc
-    func updateBalanceLabel() {
-        balanceView.bonusBalanceLabel.text = "\(BalanceObserver.shared.balance)"
+    func basketButtonTapped() {
+        let nextVC = BasketController()
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
 }
 

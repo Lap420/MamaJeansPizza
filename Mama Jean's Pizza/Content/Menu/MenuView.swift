@@ -1,6 +1,24 @@
 import UIKit
 
 class MenuView: UIView {
+    // MARK: - Public methods
+    func showHideBasketButton(isHidden: Bool) {
+        basketButtonView.isHidden = isHidden
+        if basketButtonView.isHidden {
+            menuCollectionView.snp.remakeConstraints { make in
+                make.top.equalTo(safeAreaLayoutGuide)
+                make.leading.trailing.equalToSuperview()
+                make.bottom.equalToSuperview()
+            }
+        } else {
+            menuCollectionView.snp.remakeConstraints { make in
+                make.top.equalTo(safeAreaLayoutGuide)
+                make.leading.trailing.equalToSuperview()
+                make.bottom.equalTo(basketButtonView.snp.top)
+            }
+        }
+    }
+    
     // MARK: - Public properties
     let menuCollectionView: UICollectionView = {
         let spacingTotal = (Constants.itemsPerRow + 1) * Constants.sectionInset
@@ -20,6 +38,8 @@ class MenuView: UIView {
         return collection
     }()
     
+    let basketButtonView = BasketButtonView()
+    
     // MARK: - View Lifecycle
     init() {
         super.init(frame: .zero)
@@ -35,6 +55,7 @@ class MenuView: UIView {
         static let itemsPerRow: CGFloat = 2
         static let sectionInset: CGFloat = GlobalUIConstants.screenWidth * 0.05
         static let availableWidth: CGFloat = GlobalUIConstants.screenWidth
+        static let buttonHeight: CGFloat = 45
     }
 }
 
@@ -42,11 +63,19 @@ class MenuView: UIView {
 private extension MenuView {
     func setup() {
         backgroundColor = GlobalUIConstants.mamaGreenColor
-
+        
         self.addSubview(menuCollectionView)
         menuCollectionView.snp.makeConstraints { make in
             make.top.equalTo(safeAreaLayoutGuide)
+            make.leading.trailing.equalToSuperview()
+            make.bottom.equalToSuperview()
+        }
+
+        self.addSubview(basketButtonView)
+        basketButtonView.snp.makeConstraints { make in
+            make.top.equalTo(safeAreaLayoutGuide.snp.bottom).inset(Constants.buttonHeight)
             make.leading.trailing.bottom.equalToSuperview()
+            make.height.equalTo(Constants.buttonHeight)
         }
     }
 }

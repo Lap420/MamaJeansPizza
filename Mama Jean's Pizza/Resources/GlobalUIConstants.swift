@@ -11,7 +11,7 @@ import UIKit
 enum GlobalUIConstants {
     static let screenWidth = UIScreen.main.bounds.width
     static let screenHeight = UIScreen.main.bounds.height
-    
+
     static let userDefaults = UserDefaults.standard
     
     static let mamaGreenColor = UIColor(red: 14/255, green: 120/255, blue: 83/255, alpha: 1)
