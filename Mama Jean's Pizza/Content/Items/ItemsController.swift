@@ -84,7 +84,8 @@ extension ItemsController: UICollectionViewDataSource {
                                                       for: indexPath) as! ItemCell
         cell.configure(name: items[indexPath.item].name,
                        price: String(format: "%.2f", items[indexPath.row].price) + " AED",
-                       image: MenuManager.shared.menuImages[items[indexPath.item].id])
+                       image: nil)
+   // image: MenuManager.shared.menuImages[items[indexPath.item].id])
         return cell
     }
 }

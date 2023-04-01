@@ -116,13 +116,13 @@ class SyrveApiManager {
         task.resume()
     }
     
-    func getImage(url: String, completion: @escaping (UIImage?) -> Void) {
-        let task = URLSession.shared.dataTask(with: URLRequest(url: URL(string: url)!)) { data, response, error in
-            if let data = data, let image = UIImage(data: data) {
-                completion(image)
-            } else {
-                completion(nil)
-            }
+    func getImage(
+        url: String,
+        completion: @escaping (Data?) -> Void
+    ) {
+        let task = URLSession.shared.dataTask(
+            with: URLRequest(url: URL(string: url)!)) { data, response, error in
+            completion(data)
         }
         task.resume()
     }

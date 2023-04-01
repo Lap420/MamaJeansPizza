@@ -1,6 +1,7 @@
 // TODO: Add new screen on Deal choosing
 // TODO: Add new screen for Introduction
 // TODO: Activate menu uploading
+// TODO: Merge 3 cell classes to one?
 
 import UIKit
 
