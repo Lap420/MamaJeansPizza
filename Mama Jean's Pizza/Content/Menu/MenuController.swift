@@ -18,11 +18,12 @@ class MenuController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        configureNavigationBar()
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     // MARK: - Private properties
     private var menuView = MenuView()
+    private let balanceView = BalanceView()
 }
 
 // MARK: Private methods
@@ -31,14 +32,21 @@ private extension MenuController {
         view = menuView
         self.title = "Menu"
         prepareMenu()
+        configureNavigationBar()
         initCollectionsDelegateAndSource()
+        updateBalanceLabel()
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(updateBalanceLabel),
+            name: Notification.Name(rawValue: "BalanceUpdated"),
+            object: nil
+        )
     }
     
     func configureNavigationBar() {
-        navigationController?.navigationBar.prefersLargeTitles = true
-        navigationController?.navigationBar.largeTitleTextAttributes = [
-            NSAttributedString.Key.foregroundColor: UIColor.white
-        ]
+        // MARK: Right navbar
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: balanceView)
+        
     }
         
     func prepareMenu() {
@@ -54,6 +62,11 @@ private extension MenuController {
         )
         menuView.menuCollectionView.delegate = self
         menuView.menuCollectionView.dataSource = self
+    }
+    
+    @objc
+    func updateBalanceLabel() {
+        balanceView.bonusBalanceLabel.text = "\(BalanceObserver.shared.balance)"
     }
 }
 

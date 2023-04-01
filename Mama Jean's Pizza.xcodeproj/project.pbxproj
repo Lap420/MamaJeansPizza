@@ -133,6 +133,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		040489D829D823B300A183F4 /* Shared Views */ = {
+			isa = PBXGroup;
+			children = (
+				045654B529D612EC009AA225 /* BalanceView.swift */,
+			);
+			path = "Shared Views";
+			sourceTree = "<group>";
+		};
 		0436295D29CCBA91001964E5 /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
@@ -242,6 +250,7 @@
 		04B60D1229CCBB05005E8B94 /* Content */ = {
 			isa = PBXGroup;
 			children = (
+				040489D829D823B300A183F4 /* Shared Views */,
 				0436295D29CCBA91001964E5 /* HomePage */,
 				045654B029D5E451009AA225 /* IntroductionTips */,
 				045654AD29D5E391009AA225 /* DealDescription */,
@@ -311,7 +320,6 @@
 		04EDA86A29A91B5D00A0DA23 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				045654B529D612EC009AA225 /* BalanceView.swift */,
 				045ABBFE29AE5D8700942686 /* Basket.swift */,
 				045ABBFC29AE4C7C00942686 /* ItemData.swift */,
 				04AD8DB3299A873D00C25FF7 /* MenuManager.swift */,

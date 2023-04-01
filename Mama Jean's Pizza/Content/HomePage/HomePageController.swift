@@ -42,6 +42,7 @@ private extension HomePageController {
     }
     
     func configureNavigationBar() {
+        // MARK: Main navbar configuration
         navigationController?.navigationBar.backgroundColor = GlobalUIConstants.mamaGreenColor
         navigationController?.navigationBar.tintColor = .white
         navigationController?.navigationBar.shadowImage = UIImage()
@@ -49,7 +50,11 @@ private extension HomePageController {
         navigationController?.navigationBar.titleTextAttributes = [
             NSAttributedString.Key.foregroundColor: UIColor.white
         ]
+        navigationController?.navigationBar.largeTitleTextAttributes = [
+            NSAttributedString.Key.foregroundColor: UIColor.white
+        ]
         
+        // MARK: Left navbar
         let settingsButton = UIBarButtonItem(
             image: .init(systemName: "line.horizontal.3"),
             style: .plain,
@@ -58,6 +63,7 @@ private extension HomePageController {
         )
         navigationItem.leftBarButtonItem = settingsButton
         
+        // MARK: Title navbar
         let navigationTitleView = UIView()
         let navigationTitleLabel: UILabel = {
             let label = UILabel()
@@ -76,6 +82,8 @@ private extension HomePageController {
             make.edges.equalToSuperview()
         }
         navigationItem.titleView = navigationTitleLabel
+        
+        // MARK: Right navbar
         navigationItem.rightBarButtonItem = UIBarButtonItem(customView: balanceView)
     }
     
