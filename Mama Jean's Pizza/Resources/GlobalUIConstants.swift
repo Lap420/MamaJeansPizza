@@ -19,4 +19,6 @@ enum GlobalUIConstants {
     
     static let fontSizeHeader: CGFloat = 20
     static let fontBold = UIFont.systemFont(ofSize: GlobalUIConstants.fontSizeHeader, weight: .bold)
+    
+    static let basketButtonHeight: CGFloat = 45
 }

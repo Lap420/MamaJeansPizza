@@ -24,7 +24,6 @@ class ItemCell: UICollectionViewCell {
         static let textFont: UIFont = .systemFont(ofSize: 14, weight: .semibold)
     }
     
-    //MARK: - Private properties
     private let imageView: UIImageView = {
         let view = UIImageView()
         view.contentMode = .scaleAspectFill

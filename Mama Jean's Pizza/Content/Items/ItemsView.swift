@@ -1,6 +1,24 @@
 import UIKit
 
 class ItemsView: UIView {
+    // MARK: - Public methods
+    func showHideBasketButton(isHidden: Bool) {
+        basketButtonView.isHidden = isHidden
+        if basketButtonView.isHidden {
+            itemsCollectionView.snp.remakeConstraints { make in
+                make.top.equalTo(safeAreaLayoutGuide)
+                make.leading.trailing.equalToSuperview()
+                make.bottom.equalToSuperview()
+            }
+        } else {
+            itemsCollectionView.snp.remakeConstraints { make in
+                make.top.equalTo(safeAreaLayoutGuide)
+                make.leading.trailing.equalToSuperview()
+                make.bottom.equalTo(basketButtonView.snp.top)
+            }
+        }
+    }
+    
     // MARK: - Public properties
     let itemsCollectionView: UICollectionView = {
         let spacingTotal = (Constants.itemsPerRow + 1) * Constants.sectionInset
@@ -20,24 +38,7 @@ class ItemsView: UIView {
         return collection
     }()
     
-    let basketButton: UIButton = {
-        let button = UIButton()
-        button.layer.cornerRadius = 10
-        button.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-        return button
-    }()
-    
-    let itemsAmountLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .white
-        return label
-    }()
-    
-    let totalDueLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .white
-        return label
-    }()
+    let basketButtonView = BasketButtonView()
     
     // MARK: - View Lifecycle
     init() {
@@ -66,25 +67,13 @@ private extension ItemsView {
         itemsCollectionView.snp.makeConstraints { make in
             make.top.equalTo(safeAreaLayoutGuide)
             make.leading.trailing.equalToSuperview()
+            make.bottom.equalToSuperview()
         }
-        
-        self.addSubview(basketButton)
-        basketButton.snp.makeConstraints { make in
-            make.top.equalTo(itemsCollectionView.snp.bottom)
-            make.bottom.leading.trailing.equalToSuperview()
-            make.height.equalTo(40)
-        }
-        
-        basketButton.addSubview(itemsAmountLabel)
-        itemsAmountLabel.snp.makeConstraints { make in
-            make.centerY.equalToSuperview()
-            make.leading.equalToSuperview().inset(16)
-        }
-        
-        basketButton.addSubview(totalDueLabel)
-        totalDueLabel.snp.makeConstraints { make in
-            make.centerY.equalToSuperview()
-            make.trailing.equalToSuperview().inset(16)
+
+        self.addSubview(basketButtonView)
+        basketButtonView.snp.makeConstraints { make in
+            make.top.equalTo(safeAreaLayoutGuide.snp.bottom).inset(GlobalUIConstants.basketButtonHeight)
+            make.leading.trailing.bottom.equalToSuperview()
         }
     }
 }

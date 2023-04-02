@@ -55,7 +55,6 @@ class MenuView: UIView {
         static let itemsPerRow: CGFloat = 2
         static let sectionInset: CGFloat = GlobalUIConstants.screenWidth * 0.05
         static let availableWidth: CGFloat = GlobalUIConstants.screenWidth
-        static let buttonHeight: CGFloat = 45
     }
 }
 
@@ -73,9 +72,8 @@ private extension MenuView {
 
         self.addSubview(basketButtonView)
         basketButtonView.snp.makeConstraints { make in
-            make.top.equalTo(safeAreaLayoutGuide.snp.bottom).inset(Constants.buttonHeight)
+            make.top.equalTo(safeAreaLayoutGuide.snp.bottom).inset(GlobalUIConstants.basketButtonHeight)
             make.leading.trailing.bottom.equalToSuperview()
-            make.height.equalTo(Constants.buttonHeight)
         }
     }
 }

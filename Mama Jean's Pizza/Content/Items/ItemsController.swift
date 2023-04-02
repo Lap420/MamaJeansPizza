@@ -1,52 +1,42 @@
 import UIKit
 
-// TODO: Move model to model file
-// TODO: Add a header for the collection
-// TODO: Add push to the next page
-// TODO: Remove UIKit from MenuUploader
-
 class ItemsController: UIViewController {
     // MARK: Public properties
-    var items = [ItemData]()
-    var choosenMenuGroupId = String()
+    var choosenMenuGroup = (id: "", name: "")
     
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         initialize()
+        itemsModel = .init(choosenGroupId: choosenMenuGroup.id)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.navigationBar.prefersLargeTitles = false
+        navigationController?.navigationBar.prefersLargeTitles = true
+        updateBasketButtonIfNeeded()
+        updateBalanceLabel()
     }
     
     // MARK: - Private properties
-    private var itemsView = ItemsView()
+    private let itemsView = ItemsView()
+    private let balanceView = BalanceView()
+    private var itemsModel: ItemsModel?
 }
 
-// MARK: Private methods
+// MARK: - Private methods
 private extension ItemsController {
     func initialize() {
         view = itemsView
-        self.title = "Items"
-        prepareItems()
+        self.title = choosenMenuGroup.name
+        configureNavigationBar()
         initCollectionsDelegateAndSource()
-        itemsView.basketButton.addTarget(self, action: #selector(basketButtonTapped), for: .touchUpInside)
+        initButtonTargets()
     }
     
-    func prepareItems() {
-        MenuManager.shared.menu?.forEach { menuGroup in
-            if menuGroup.id == self.choosenMenuGroupId {
-                let currentMenuGroup = menuGroup
-                currentMenuGroup.items?.forEach { item in
-                    items.append(ItemData(id: item.itemId,
-                                          name: item.name,
-                                          description: item.description ?? "",
-                                          price: item.itemSizes.first?.prices.first?.price ?? 0.00))
-                }
-            }
-        }
+    func configureNavigationBar() {
+        // MARK: Right navbar
+        navigationItem.rightBarButtonItem = UIBarButtonItem(customView: balanceView)
     }
     
     func initCollectionsDelegateAndSource() {
@@ -55,68 +45,75 @@ private extension ItemsController {
         itemsView.itemsCollectionView.dataSource = self
     }
     
+    func initButtonTargets() {
+        itemsView.basketButtonView.basketButton.addTarget(
+            self,
+            action: #selector(basketButtonTapped),
+            for: .touchUpInside
+        )
+    }
+    
+    func updateBalanceLabel() {
+        balanceView.bonusBalanceLabel.text = "\(BalanceObserver.shared.balance)"
+    }
+    
     @objc
     func basketButtonTapped() {
         let nextVC = BasketController()
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        guard let destinationVC = segue.destination as? ItemDetailsViewController else { return }
-//        guard let item = sender as? ItemCell else { return }
-//        destinationVC.image = item.imageView.image
-//        
-//        guard let indexPath = collectionView.indexPathsForSelectedItems?.first else { return }
-//        destinationVC.item = items[indexPath.row]
-//        
-//        destinationVC.itemsPageDelegate = self
-//    }
 }
 
 // MARK: - UICollectionViewDataSource
 extension ItemsController: UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return items.count
+    func collectionView(_ collectionView: UICollectionView,
+                        numberOfItemsInSection section: Int) -> Int {
+        return itemsModel?.items.count ?? 0
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell",
-                                                      for: indexPath) as! ItemCell
-        cell.configure(name: items[indexPath.item].name,
-                       price: String(format: "%.2f", items[indexPath.row].price) + " AED",
-                       image: nil)
-   // image: MenuManager.shared.menuImages[items[indexPath.item].id])
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(
+            withReuseIdentifier: "cell",
+            for: indexPath) as! ItemCell
+        let name = itemsModel!.items[indexPath.item].name
+        let price = String(format: "%.2f", itemsModel!.items[indexPath.item].price) + " AED"
+        var image: UIImage? = nil
+        let itemId = itemsModel!.items[indexPath.item].id
+        if let imageData = itemsModel!.itemsImages[itemId] {
+            image = UIImage(data: imageData)
+        }
+        cell.configure(name: name, price: price, image: image)
         return cell
     }
 }
 
 // MARK: - UICollectionViewDelegate
 extension ItemsController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView,
+                        didSelectItemAt indexPath: IndexPath) {
         let nextVC = ItemDetailsController()
-        //nextVC.choosenMenuGroupId = menu[indexPath.row].id
-//        guard let item = sender as? ItemCell2 else { return }
-//        destinationVC.image = item.imageView.image
-        
-        nextVC.item = items[indexPath.row]
+        nextVC.itemControllerDelegate = self
+        nextVC.item = itemsModel!.items[indexPath.item]
+        var image: UIImage? = nil
+        let itemId = itemsModel!.items[indexPath.item].id
+        if let imageData = itemsModel!.itemsImages[itemId] {
+            image = UIImage(data: imageData)
+        }
+        nextVC.image = image
+        nextVC.modalPresentationStyle = .fullScreen
         present(nextVC, animated: true)
-        //self.navigationController?.pushViewController(nextVC, animated: true)
     }
 }
 
-extension ItemsController: ItemsPageDelegate {
-    func updateBasketButton() {
-        var itemsAmount = 0
-        var totalDue = 0.0
-        Basket.shared.items?.forEach({ item in
-            itemsAmount += item.amount
-            totalDue += Double(item.amount) * item.price
-        })
-//        self.itemsAmountLabel.text = "\(itemsAmount)"
-//        self.totalDueLabel.text = "\(String(format: "%.2f", totalDue)) AED"
+extension ItemsController: BasketButtonUpdateDelegate {
+    func updateBasketButtonIfNeeded() {
+        let expectedIsHidden = Basket.shared.items?.count ?? 0 <= 0
+        if !expectedIsHidden {
+            let basketTotal = Basket.shared.getItemsAndTotalAmount()
+            itemsView.basketButtonView.itemsAmountLabel.text = basketTotal.items
+            itemsView.basketButtonView.totalDueLabel.text = basketTotal.amount
+        }
+        itemsView.showHideBasketButton(isHidden: expectedIsHidden)
     }
-}
-
-protocol ItemsPageDelegate {
-    func updateBasketButton()
 }

@@ -12,47 +12,54 @@ class ItemDetailsView: UIView {
         let button = UIButton()
         button.setTitle("Back", for: .normal)
         button.setImage(.init(systemName: "chevron.backward"), for: .normal)
+        button.tintColor = GlobalUIConstants.mamaGreenColor
         return button
     }()
     
     let nameLabel: UILabel = {
         let label = UILabel()
-        label.numberOfLines = 2
-        label.font = .systemFont(ofSize: 17, weight: .bold)
-        label.textColor = .systemGray
+        label.font = Constants.nameLabelFont
+        label.textColor = Constants.mainContentColor
+        label.adjustsFontSizeToFitWidth = true
         return label
     }()
     
     let descriptionLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
-        label.font = .systemFont(ofSize: 15)
-        label.textColor = .systemGray
+        label.font = Constants.descriptionLabelFont
+        label.textColor = Constants.mainContentColor
         return label
-    }()
-    
-    let bottomStack: UIStackView = {
-        let stack = UIStackView()
-        stack.distribution = .fillEqually
-        //stack.spacing = Constants.stackSpacing
-        return stack
     }()
     
     let minusButton: UIButton = {
         let button = UIButton()
-        button.setImage(.init(systemName: "minus.circle"), for: .normal)
+        let image = UIImage(systemName: "minus.circle")?.resizableImage(
+            withCapInsets: .zero,
+            resizingMode: .stretch
+        )
+        button.setImage(image, for: .normal)
+        button.contentMode = .scaleAspectFit
+        button.tintColor = GlobalUIConstants.mamaGreenColor
         return button
     }()
     
     let itemQtyLabel: UILabel = {
         let label = UILabel()
-        
+        label.textAlignment = .center
+        label.setContentHuggingPriority(.init(rawValue: 249), for: .horizontal)
         return label
     }()
     
     let plusButton: UIButton = {
         let button = UIButton()
-        button.setImage(.init(systemName: "plus.circle"), for: .normal)
+        let image = UIImage(systemName: "plus.circle")?.resizableImage(
+            withCapInsets: .zero,
+            resizingMode: .stretch
+        )
+        button.setImage(image, for: .normal)
+        button.contentMode = .scaleAspectFit
+        button.tintColor = GlobalUIConstants.mamaGreenColor
         return button
     }()
     
@@ -60,6 +67,9 @@ class ItemDetailsView: UIView {
         let button = UIButton()
         button.layer.cornerRadius = 10
         button.backgroundColor = GlobalUIConstants.mamaGreenColor
+        button.setContentHuggingPriority(.init(rawValue: 248), for: .horizontal)
+        button.titleLabel?.adjustsFontSizeToFitWidth = true
+        button.titleLabel?.font = Constants.addButtonFont
         return button
     }()
     
@@ -78,7 +88,17 @@ class ItemDetailsView: UIView {
         static let itemsPerRow: CGFloat = 2
         static let sectionInset: CGFloat = GlobalUIConstants.screenWidth * 0.05
         static let availableWidth: CGFloat = GlobalUIConstants.screenWidth
+        static let nameLabelFont: UIFont = .systemFont(ofSize: 23, weight: .bold)
+        static let descriptionLabelFont: UIFont = .systemFont(ofSize: 17)
+        static let addButtonFont: UIFont = .systemFont(ofSize: 15)
+        static let mainContentColor: UIColor = .systemGray
+        static let mainInset: CGFloat = 16
     }
+    
+    private let bottomStack: UIStackView = {
+        let stack = UIStackView()
+        return stack
+    }()
 }
 
 // MARK: - Private methods
@@ -94,29 +114,47 @@ private extension ItemDetailsView {
         
         self.addSubview(backButton)
         backButton.snp.makeConstraints { make in
-            make.top.leading.equalToSuperview().inset(24)
+            make.top.equalTo(safeAreaLayoutGuide.snp.top)
+            make.leading.equalToSuperview().inset(8)
+            make.width.equalTo(40)
+            make.height.equalTo(backButton.snp.width)
         }
         
         self.addSubview(nameLabel)
         nameLabel.snp.makeConstraints { make in
-            make.top.equalTo(imageView.snp.bottom).inset(-16)
-            make.leading.trailing.equalToSuperview()
+            make.top.equalTo(imageView.snp.bottom).offset(Constants.mainInset)
+            make.leading.trailing.equalToSuperview().inset(Constants.mainInset)
         }
         
         self.addSubview(descriptionLabel)
         descriptionLabel.snp.makeConstraints { make in
-            make.top.equalTo(nameLabel.snp.bottom).inset(-32)
-            make.leading.trailing.equalToSuperview()
+            make.top.equalTo(nameLabel.snp.bottom).offset(Constants.mainInset)
+            make.leading.trailing.equalToSuperview().inset(Constants.mainInset)
         }
         
         bottomStack.addArrangedSubview(minusButton)
         bottomStack.addArrangedSubview(itemQtyLabel)
         bottomStack.addArrangedSubview(plusButton)
+        bottomStack.setCustomSpacing(32, after: plusButton)
         bottomStack.addArrangedSubview(addButton)
+        
+        minusButton.snp.makeConstraints { make in
+            make.width.equalTo(52)
+        }
+        
+        itemQtyLabel.snp.makeConstraints { make in
+            make.width.greaterThanOrEqualTo(21)
+        }
+        
+        plusButton.snp.makeConstraints { make in
+            make.width.equalTo(52)
+        }
         
         self.addSubview(bottomStack)
         bottomStack.snp.makeConstraints { make in
-            make.bottom.leading.trailing.equalToSuperview()
+            make.leading.trailing.equalToSuperview().inset(Constants.mainInset)
+            make.bottom.equalTo(safeAreaLayoutGuide.snp.bottom).inset(Constants.mainInset)
+            make.height.equalTo(45)
         }
     }
 }

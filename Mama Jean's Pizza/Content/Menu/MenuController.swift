@@ -52,16 +52,6 @@ private extension MenuController {
         )
     }
     
-    func updateBasketButtonIfNeeded() {
-        let expectedIsHidden = Basket.shared.items?.count ?? 0 <= 0
-        if !expectedIsHidden {
-            let basketTotal = Basket.shared.getItemsAndTotalAmount()
-            menuView.basketButtonView.itemsAmountLabel.text = basketTotal.items
-            menuView.basketButtonView.totalDueLabel.text = basketTotal.amount
-        }
-        menuView.showHideBasketButton(isHidden: expectedIsHidden)
-    }
-    
     func updateBalanceLabel() {
         balanceView.bonusBalanceLabel.text = "\(BalanceObserver.shared.balance)"
     }
@@ -103,7 +93,24 @@ extension MenuController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView,
                         didSelectItemAt indexPath: IndexPath) {
         let nextVC = ItemsController()
-        nextVC.choosenMenuGroupId = menuModel.menu[indexPath.item].id
+        nextVC.choosenMenuGroup = menuModel.menu[indexPath.item]
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
+}
+
+// MARK: - BasketButtonUpdateDelegate protocol
+extension MenuController: BasketButtonUpdateDelegate {
+    func updateBasketButtonIfNeeded() {
+        let expectedIsHidden = Basket.shared.items?.count ?? 0 <= 0
+        if !expectedIsHidden {
+            let basketTotal = Basket.shared.getItemsAndTotalAmount()
+            menuView.basketButtonView.itemsAmountLabel.text = basketTotal.items
+            menuView.basketButtonView.totalDueLabel.text = basketTotal.amount
+        }
+        menuView.showHideBasketButton(isHidden: expectedIsHidden)
+    }
+}
+
+protocol BasketButtonUpdateDelegate {
+    func updateBasketButtonIfNeeded()
 }

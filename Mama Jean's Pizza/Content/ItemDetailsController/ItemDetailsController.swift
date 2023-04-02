@@ -1,18 +1,26 @@
 import UIKit
 
 class ItemDetailsController: UIViewController {
+    // MARK: - Public properties
+    var itemControllerDelegate: BasketButtonUpdateDelegate?
     var image: UIImage?
     var item = ItemData(id: "", name: "", description: "", price: 0)
-    var itemQty = 1
-    var textPrice = ""
     
+    // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         initialize()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        itemControllerDelegate?.updateBasketButtonIfNeeded()
+    }
+    
     // MARK: - Private properties
-    private var itemDetailsView = ItemDetailsView()
+    private let itemDetailsView = ItemDetailsView()
+    private var itemQty = 1
+    private var textPrice = ""
 }
 
 // MARK: Private methods
@@ -20,13 +28,10 @@ private extension ItemDetailsController {
     func initialize() {
         view = itemDetailsView
         initButtonTargets()
-        
+        itemQtyChanged()
         itemDetailsView.imageView.image = image
         itemDetailsView.nameLabel.text = item.name
         itemDetailsView.descriptionLabel.text = item.description
-        textPrice = String(format: "%.2f", item.price)
-        itemDetailsView.addButton.setTitle("Add \(textPrice) AED", for: .normal)
-        
     }
     
     func initButtonTargets() {
@@ -52,20 +57,19 @@ private extension ItemDetailsController {
     func minusButtonTapped() {
         guard itemQty > 1 else { return }
         itemQty -= 1
-        itemQtyLabelAndAddButton()
+        itemQtyChanged()
     }
     
     @objc
     func plusButtonTapped() {
         itemQty += 1
-        itemQtyLabelAndAddButton()
+        itemQtyChanged()
     }
     
     @objc
     func addButtonTapped() {
         let item = BasketItem(productId: item.id, amount: itemQty, price: item.price)
         Basket.shared.addItem(item: item)
-      //  itemsPageDelegate?.updateBasketButton()
         dismiss(animated: true, completion: nil)
     }
     
@@ -74,7 +78,8 @@ private extension ItemDetailsController {
         dismiss(animated: true, completion: nil)
     }
     
-    func itemQtyLabelAndAddButton() {
+    func itemQtyChanged() {
+        itemDetailsView.minusButton.tintColor = itemQty == 1 ? .systemGray : GlobalUIConstants.mamaGreenColor
         itemDetailsView.itemQtyLabel.text = "\(itemQty)"
         textPrice = String(format: "%.2f", item.price * Double(itemQty))
         itemDetailsView.addButton.setTitle("Add \(textPrice) AED", for: .normal)

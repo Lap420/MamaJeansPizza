@@ -77,7 +77,7 @@ struct MenuManager {
                 if let imageUrl = item.itemSizes.first?.buttonImageUrl {
                     group.enter()
                     SyrveApiManager.shared.getImage(url: imageUrl) { data in
-                        images[menuGroup.id] = data
+                        images[item.itemId] = data
                         group.leave()
                     }
                 } else {
