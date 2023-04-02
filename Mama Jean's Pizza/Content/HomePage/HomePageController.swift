@@ -1,7 +1,15 @@
 // TODO: Add new screen on Deal choosing
 // TODO: Add new screen for Introduction
-// TODO: Activate menu uploading
 // TODO: Merge 3 cell classes to one?
+// TODO: Upgrade Choose a store
+// TODO: Save created orders to history
+// TODO: Finish basket page
+// TODO: Finish PaymentTypes page
+// TODO: Finish Order Placed page
+// TODO: Double-check api
+// TODO: Double-check Core
+// TODO: Double-check resources
+// TODO: Double-check services
 
 import UIKit
 
