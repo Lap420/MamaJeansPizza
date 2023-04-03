@@ -53,7 +53,8 @@ private extension MenuController {
     }
     
     func updateBalanceLabel() {
-        balanceView.bonusBalanceLabel.text = "\(BalanceObserver.shared.balance)"
+        let balance = UserDefaultsManager.loadBalance()
+        balanceView.bonusBalanceLabel.text = "\(balance)"
     }
     
     @objc

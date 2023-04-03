@@ -1,6 +1,6 @@
 // TODO: Add new screen on Deal choosing
-// TODO: Add new screen for Introduction
 // TODO: Merge 3 cell classes to one?
+
 // TODO: Upgrade Choose a store
 // TODO: Save created orders to history
 // TODO: Finish basket page
@@ -47,7 +47,7 @@ private extension HomePageController {
             name: Notification.Name(rawValue: "BalanceUpdated"),
             object: nil
         )
-        DispatchQueue.global(qos: .utility).async { _ = MenuManager.shared  }
+//        DispatchQueue.global(qos: .utility).async { _ = MenuManager.shared  }
     }
     
     func configureNavigationBar() {
@@ -191,11 +191,16 @@ private extension HomePageController {
     }
     
     func checkIsFirstLaunch() {
-        let isFirstLaunch = UserDefaultsManager.loadIsFirstLaunch()
-//        isFirstLaunch = true
+//        let isFirstLaunch = UserDefaultsManager.loadIsFirstLaunch()
+        let isFirstLaunch = true
         if isFirstLaunch {
             UserDefaultsManager.saveIsFirstLaunch()
-            print("This is the first launch")
+            let nextVC = IntroPageController(
+                transitionStyle: .scroll,
+                navigationOrientation: .horizontal,
+                options: nil)
+            nextVC.modalPresentationStyle = .fullScreen
+            present(nextVC, animated: true)
         }
     }
     
@@ -230,7 +235,8 @@ private extension HomePageController {
     
     @objc
     func updateBalanceLabel() {
-        balanceView.bonusBalanceLabel.text = "\(BalanceObserver.shared.balance)"
+        let balance = UserDefaultsManager.loadBalance()
+        balanceView.bonusBalanceLabel.text = "\(balance)"
     }
 }
 
