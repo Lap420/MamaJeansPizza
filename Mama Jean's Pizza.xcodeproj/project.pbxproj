@@ -13,6 +13,9 @@
 		04220BED29B13F74005D53C4 /* PaymentTypesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04220BEC29B13F74005D53C4 /* PaymentTypesViewController.swift */; };
 		0423BC92299EBC4D00BE8BFC /* ChooseAStoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0423BC91299EBC4D00BE8BFC /* ChooseAStoreModel.swift */; };
 		0436295C29CCBA49001964E5 /* HomePageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0436295B29CCBA49001964E5 /* HomePageController.swift */; };
+		0437006729DDC9EE00554719 /* DealDescriptionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0437006629DDC9EE00554719 /* DealDescriptionView.swift */; };
+		0437006929DDCA0E00554719 /* ParalaxTableViewHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0437006829DDCA0E00554719 /* ParalaxTableViewHeader.swift */; };
+		0437006B29DDD74D00554719 /* DealDescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0437006A29DDD74D00554719 /* DealDescriptionCell.swift */; };
 		044215EB29D4827200B3109A /* ItemsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044215EA29D4827200B3109A /* ItemsModel.swift */; };
 		044215ED29D4827E00B3109A /* ItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044215EC29D4827E00B3109A /* ItemsView.swift */; };
 		044215EF29D4828C00B3109A /* ItemsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044215EE29D4828C00B3109A /* ItemsController.swift */; };
@@ -42,9 +45,6 @@
 		04B60D1929CCBF3E005E8B94 /* GlobalUIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B60D1829CCBF3E005E8B94 /* GlobalUIConstants.swift */; };
 		04B60D1C29D093D8005E8B94 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B60D1B29D093D8005E8B94 /* AlertManager.swift */; };
 		04B60D1E29D09A78005E8B94 /* HomePageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B60D1D29D09A78005E8B94 /* HomePageModel.swift */; };
-		04B60D2029D0A082005E8B94 /* DealCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B60D1F29D0A082005E8B94 /* DealCell.swift */; };
-		04B60D2229D0B007005E8B94 /* RewardsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B60D2129D0B007005E8B94 /* RewardsCell.swift */; };
-		04B60D2429D0B065005E8B94 /* PointsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B60D2329D0B065005E8B94 /* PointsCell.swift */; };
 		04EA95F929DB4AAE009F7220 /* HomePageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EA95F829DB4AAE009F7220 /* HomePageCell.swift */; };
 		04F12006299FE63D008DF518 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04F12005299FE63D008DF518 /* GoogleService-Info.plist */; };
 		04F12009299FE8CD008DF518 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 04F12008299FE8CD008DF518 /* FirebaseAnalytics */; };
@@ -74,6 +74,9 @@
 		04220BEC29B13F74005D53C4 /* PaymentTypesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentTypesViewController.swift; sourceTree = "<group>"; };
 		0423BC91299EBC4D00BE8BFC /* ChooseAStoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseAStoreModel.swift; sourceTree = "<group>"; };
 		0436295B29CCBA49001964E5 /* HomePageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageController.swift; sourceTree = "<group>"; };
+		0437006629DDC9EE00554719 /* DealDescriptionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealDescriptionView.swift; sourceTree = "<group>"; };
+		0437006829DDCA0E00554719 /* ParalaxTableViewHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParalaxTableViewHeader.swift; sourceTree = "<group>"; };
+		0437006A29DDD74D00554719 /* DealDescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealDescriptionCell.swift; sourceTree = "<group>"; };
 		044215EA29D4827200B3109A /* ItemsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsModel.swift; sourceTree = "<group>"; };
 		044215EC29D4827E00B3109A /* ItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsView.swift; sourceTree = "<group>"; };
 		044215EE29D4828C00B3109A /* ItemsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsController.swift; sourceTree = "<group>"; };
@@ -105,9 +108,6 @@
 		04B60D1829CCBF3E005E8B94 /* GlobalUIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalUIConstants.swift; sourceTree = "<group>"; };
 		04B60D1B29D093D8005E8B94 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
 		04B60D1D29D09A78005E8B94 /* HomePageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageModel.swift; sourceTree = "<group>"; };
-		04B60D1F29D0A082005E8B94 /* DealCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealCell.swift; sourceTree = "<group>"; };
-		04B60D2129D0B007005E8B94 /* RewardsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardsCell.swift; sourceTree = "<group>"; };
-		04B60D2329D0B065005E8B94 /* PointsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PointsCell.swift; sourceTree = "<group>"; };
 		04EA95F829DB4AAE009F7220 /* HomePageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageCell.swift; sourceTree = "<group>"; };
 		04F12005299FE63D008DF518 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		04F12010299FEBDD008DF518 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
@@ -146,6 +146,7 @@
 			children = (
 				045654B529D612EC009AA225 /* BalanceView.swift */,
 				040489DB29D837C600A183F4 /* BasketButtonView.swift */,
+				0437006829DDCA0E00554719 /* ParalaxTableViewHeader.swift */,
 			);
 			path = "Shared Views";
 			sourceTree = "<group>";
@@ -156,9 +157,6 @@
 				04B60D1D29D09A78005E8B94 /* HomePageModel.swift */,
 				04B60D1329CCBD2F005E8B94 /* HomePageView.swift */,
 				0436295B29CCBA49001964E5 /* HomePageController.swift */,
-				04B60D1F29D0A082005E8B94 /* DealCell.swift */,
-				04B60D2129D0B007005E8B94 /* RewardsCell.swift */,
-				04B60D2329D0B065005E8B94 /* PointsCell.swift */,
 				04EA95F829DB4AAE009F7220 /* HomePageCell.swift */,
 			);
 			path = HomePage;
@@ -175,13 +173,13 @@
 			path = Items;
 			sourceTree = "<group>";
 		};
-		044215F429D4B07400B3109A /* ItemDetailsController */ = {
+		044215F429D4B07400B3109A /* ItemDetails */ = {
 			isa = PBXGroup;
 			children = (
 				044215F729D4B0AE00B3109A /* ItemDetailsView.swift */,
 				044215F529D4B09E00B3109A /* ItemDetailsController.swift */,
 			);
-			path = ItemDetailsController;
+			path = ItemDetails;
 			sourceTree = "<group>";
 		};
 		045654A429D5DC4F009AA225 /* Basket */ = {
@@ -214,7 +212,9 @@
 		045654AD29D5E391009AA225 /* DealDescription */ = {
 			isa = PBXGroup;
 			children = (
+				0437006629DDC9EE00554719 /* DealDescriptionView.swift */,
 				045654AE29D5E3AC009AA225 /* DealDescriptionController.swift */,
+				0437006A29DDD74D00554719 /* DealDescriptionCell.swift */,
 			);
 			path = DealDescription;
 			sourceTree = "<group>";
@@ -269,7 +269,7 @@
 				04F19BC829D3327A00180545 /* ChooseAStore */,
 				04F19BCD29D3569600180545 /* Menu */,
 				044215E929D4825100B3109A /* Items */,
-				044215F429D4B07400B3109A /* ItemDetailsController */,
+				044215F429D4B07400B3109A /* ItemDetails */,
 				045654A429D5DC4F009AA225 /* Basket */,
 				045654AB29D5E29C009AA225 /* PaymentTypes */,
 				045654AC29D5E2F2009AA225 /* OrderPlaced */,
@@ -453,15 +453,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				044215F829D4B0AE00B3109A /* ItemDetailsView.swift in Sources */,
+				0437006929DDCA0E00554719 /* ParalaxTableViewHeader.swift in Sources */,
 				04F19BD529D3577200180545 /* MenuCell.swift in Sources */,
 				045654B229D5E481009AA225 /* IntroController.swift in Sources */,
 				04EA95F929DB4AAE009F7220 /* HomePageCell.swift in Sources */,
 				044215EB29D4827200B3109A /* ItemsModel.swift in Sources */,
 				045654A829D5DCC9009AA225 /* BasketView.swift in Sources */,
 				04220BED29B13F74005D53C4 /* PaymentTypesViewController.swift in Sources */,
-				04B60D2229D0B007005E8B94 /* RewardsCell.swift in Sources */,
 				0478039429D9E8EE00D85C12 /* IntroView.swift in Sources */,
 				0423BC92299EBC4D00BE8BFC /* ChooseAStoreModel.swift in Sources */,
+				0437006729DDC9EE00554719 /* DealDescriptionView.swift in Sources */,
 				04F19BCA29D3328E00180545 /* ChooseAStoreController.swift in Sources */,
 				044215F129D4829700B3109A /* ItemsCell.swift in Sources */,
 				04AD8DB4299A873D00C25FF7 /* MenuManager.swift in Sources */,
@@ -471,17 +472,16 @@
 				04F19BCC29D3330300180545 /* ChooseAStoreView.swift in Sources */,
 				04F21E5C29D1FCCD00D62C66 /* BalanceObserver.swift in Sources */,
 				04B60D1929CCBF3E005E8B94 /* GlobalUIConstants.swift in Sources */,
-				04B60D2029D0A082005E8B94 /* DealCell.swift in Sources */,
 				04B60D1C29D093D8005E8B94 /* AlertManager.swift in Sources */,
 				04141DCC29B538FB00C215DD /* HomepageStructs.swift in Sources */,
 				04F442A129ABE8280065D6F4 /* SyrveMenu.swift in Sources */,
 				045654AF29D5E3AC009AA225 /* DealDescriptionController.swift in Sources */,
 				045ABBFF29AE5D8700942686 /* Basket.swift in Sources */,
+				0437006B29DDD74D00554719 /* DealDescriptionCell.swift in Sources */,
 				04F442A529AD043E0065D6F4 /* SyrveAPIConstants.swift in Sources */,
 				04B60D1429CCBD2F005E8B94 /* HomePageView.swift in Sources */,
 				04F21E5E29D212E300D62C66 /* UserDefaultsManager.swift in Sources */,
 				04F442A329ABEAC80065D6F4 /* SyrveToken.swift in Sources */,
-				04B60D2429D0B065005E8B94 /* PointsCell.swift in Sources */,
 				04B60D1E29D09A78005E8B94 /* HomePageModel.swift in Sources */,
 				045654B629D612EC009AA225 /* BalanceView.swift in Sources */,
 				0436295C29CCBA49001964E5 /* HomePageController.swift in Sources */,

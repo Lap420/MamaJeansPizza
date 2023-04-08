@@ -1,6 +1,4 @@
-// TODO: Add new screen on Deal choosing
-// TODO: Merge 3 cell classes to one?
-
+// TODO: Add left main menu
 // TODO: Upgrade Choose a store
 // TODO: Save created orders to history
 // TODO: Finish basket page
@@ -98,23 +96,35 @@ private extension HomePageController {
     
     func initCollectionsDelegateAndSource() {
         homePageView.dealsCollectionView.register(
-            DealCell.self,
+            HomePageCell.self,
             forCellWithReuseIdentifier: "cell"
         )
         homePageView.dealsCollectionView.delegate = self
         homePageView.dealsCollectionView.dataSource = self
         homePageView.rewardsCollectionView.register(
-            RewardsCell.self,
+            HomePageCell.self,
             forCellWithReuseIdentifier: "cell"
         )
         homePageView.rewardsCollectionView.delegate = self
         homePageView.rewardsCollectionView.dataSource = self
         homePageView.pointsCollectionView.register(
-            PointsCell.self,
+            HomePageCell.self,
             forCellWithReuseIdentifier: "cell"
         )
         homePageView.pointsCollectionView.delegate = self
         homePageView.pointsCollectionView.dataSource = self
+    }
+    
+    func disableCollectionsInteraction() {
+        homePageView.dealsCollectionView.isUserInteractionEnabled = false
+        homePageView.rewardsCollectionView.isUserInteractionEnabled = false
+        homePageView.pointsCollectionView.isUserInteractionEnabled = false
+    }
+    
+    func enableCollectionsInteraction() {
+        homePageView.dealsCollectionView.isUserInteractionEnabled = true
+        homePageView.rewardsCollectionView.isUserInteractionEnabled = true
+        homePageView.pointsCollectionView.isUserInteractionEnabled = true
     }
     
     func getHomePageData(
@@ -149,12 +159,14 @@ private extension HomePageController {
             self?.homePageView.dealsCollectionView.reloadData()
             self?.homePageView.rewardsCollectionView.reloadData()
             self?.homePageView.pointsCollectionView.reloadData()
+            self?.enableCollectionsInteraction()
         }
     }
     
     func initCollections() {
         initCollectionsDelegateAndSource()
-//        uploadCollectionsData()
+        disableCollectionsInteraction()
+        uploadCollectionsData()
     }
     
     func initButtonTargets() {
@@ -191,8 +203,8 @@ private extension HomePageController {
     }
     
     func checkIsFirstLaunch() {
-//        let isFirstLaunch = UserDefaultsManager.loadIsFirstLaunch()
-        let isFirstLaunch = true
+        let isFirstLaunch = UserDefaultsManager.loadIsFirstLaunch()
+//        let isFirstLaunch = true
         if isFirstLaunch {
             UserDefaultsManager.saveIsFirstLaunch()
             let nextVC = IntroPageController(
@@ -277,7 +289,7 @@ extension HomePageController: UICollectionViewDataSource {
             let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: "cell",
                 for: indexPath
-            ) as! DealCell
+            ) as! HomePageCell
             var image: UIImage? = nil
             if let imageData = homePageModel.deals[indexPath.row].imageData {
                 image = UIImage(data: imageData)
@@ -288,7 +300,7 @@ extension HomePageController: UICollectionViewDataSource {
             let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: "cell",
                 for: indexPath
-            ) as! RewardsCell
+            ) as! HomePageCell
             var image: UIImage? = nil
             if let imageData = homePageModel.rewards[indexPath.row].imageData {
                 image = UIImage(data: imageData)
@@ -299,7 +311,7 @@ extension HomePageController: UICollectionViewDataSource {
             let cell = collectionView.dequeueReusableCell(
                 withReuseIdentifier: "cell",
                 for: indexPath
-            ) as! PointsCell
+            ) as! HomePageCell
             var image: UIImage? = nil
             if let imageData = homePageModel.points[indexPath.row].imageData {
                 image = UIImage(data: imageData)
@@ -321,7 +333,18 @@ extension HomePageController: UICollectionViewDelegate {
     ) {
         switch collectionView {
         case homePageView.dealsCollectionView:
-            print("Some deal has been choosen")
+            let nextVC = DealDescriptionController()
+            nextVC.didOrderButtonClicked = { [weak self] in
+                self?.createNewOrder()
+            }
+            nextVC.dealName = homePageModel.deals[indexPath.row].name
+            nextVC.dealDescription = homePageModel.deals[indexPath.row].description
+            var image: UIImage? = nil
+            if let imageData = homePageModel.deals[indexPath.row].imageData {
+                image = UIImage(data: imageData)
+            }
+            nextVC.image = image
+            present(nextVC, animated: true)
         case homePageView.rewardsCollectionView:
             createNewOrder()
         case homePageView.pointsCollectionView:
