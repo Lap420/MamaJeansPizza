@@ -21,10 +21,14 @@ class DealDescriptionView: UIView {
     }()
     
     let headerView: UIView = {
-        let view = UIView(frame: CGRect(x: 0,
-                                        y: 0,
-                                        width: 0,
-                                        height: Constants.imageHeight))
+        let view = UIView(
+            frame: CGRect(
+                x: 0,
+                y: 0,
+                width: 0,
+                height: Constants.imageHeight
+            )
+        )
         return view
     }()
     

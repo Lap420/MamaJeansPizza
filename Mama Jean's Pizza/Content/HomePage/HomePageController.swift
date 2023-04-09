@@ -12,6 +12,9 @@
 import UIKit
 
 class HomePageController: UIViewController {
+    // MARK: - Public properties
+    var didMainMenuButtonTapped: (() -> ())?
+    
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,12 +30,14 @@ class HomePageController: UIViewController {
     private let homePageView = HomePageView()
     private var homePageModel = HomePageModel()
     private let balanceView = BalanceView()
+    private var tapGesture: UITapGestureRecognizer?
 }
 
 // MARK: - Private methods
 private extension HomePageController {
     func initialize() {
         view = homePageView
+        tapGesture = UITapGestureRecognizer(target: self, action: #selector(homepageViewTapped))
         homePageView.scrollView.delegate = self
         configureNavigationBar()
         initCollections()
@@ -66,7 +71,7 @@ private extension HomePageController {
             image: .init(systemName: "line.horizontal.3"),
             style: .plain,
             target: self,
-            action: #selector(settingsButtonTapped)
+            action: #selector(mainMenuButtonTapped)
         )
         navigationItem.leftBarButtonItem = settingsButton
         
@@ -165,8 +170,8 @@ private extension HomePageController {
     
     func initCollections() {
         initCollectionsDelegateAndSource()
-        disableCollectionsInteraction()
-        uploadCollectionsData()
+//        disableCollectionsInteraction()
+//        uploadCollectionsData()
     }
     
     func initButtonTargets() {
@@ -222,9 +227,9 @@ private extension HomePageController {
     }
     
     @objc
-    func settingsButtonTapped() {
-        let alert = AlertManager.featureIsNotImplementedAlert(feature: "User settings")
-        present(alert, animated: true)
+    func mainMenuButtonTapped() {
+        didMainMenuButtonTapped?()
+        view.addGestureRecognizer(tapGesture!)
     }
     
     @objc
@@ -249,6 +254,13 @@ private extension HomePageController {
     func updateBalanceLabel() {
         let balance = UserDefaultsManager.loadBalance()
         balanceView.bonusBalanceLabel.text = "\(balance)"
+    }
+    
+    @objc
+    func homepageViewTapped() {
+        print("Tap 1")
+        didMainMenuButtonTapped?()
+        print("Tap 2")
     }
 }
 

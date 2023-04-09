@@ -34,6 +34,8 @@
 		045ABC0229AE753100942686 /* SyrveCreateOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045ABC0129AE753100942686 /* SyrveCreateOrder.swift */; };
 		0478039229D9E5E900D85C12 /* IntroPageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0478039129D9E5E900D85C12 /* IntroPageModel.swift */; };
 		0478039429D9E8EE00D85C12 /* IntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0478039329D9E8EE00D85C12 /* IntroView.swift */; };
+		047FD8F529E1D9CD00E1D975 /* HomePageContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047FD8F429E1D9CD00E1D975 /* HomePageContainerController.swift */; };
+		047FD8F729E1DA4C00E1D975 /* MainMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047FD8F629E1DA4C00E1D975 /* MainMenuController.swift */; };
 		04899C1029B289B4000BB5DD /* OrderPlacedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04899C0F29B289B4000BB5DD /* OrderPlacedViewController.swift */; };
 		04AD8DB4299A873D00C25FF7 /* MenuManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04AD8DB3299A873D00C25FF7 /* MenuManager.swift */; };
 		04B295B9299953820076984A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B295B8299953820076984A /* AppDelegate.swift */; };
@@ -95,6 +97,8 @@
 		045ABC0129AE753100942686 /* SyrveCreateOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyrveCreateOrder.swift; sourceTree = "<group>"; };
 		0478039129D9E5E900D85C12 /* IntroPageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroPageModel.swift; sourceTree = "<group>"; };
 		0478039329D9E8EE00D85C12 /* IntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroView.swift; sourceTree = "<group>"; };
+		047FD8F429E1D9CD00E1D975 /* HomePageContainerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageContainerController.swift; sourceTree = "<group>"; };
+		047FD8F629E1DA4C00E1D975 /* MainMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuController.swift; sourceTree = "<group>"; };
 		04899C0F29B289B4000BB5DD /* OrderPlacedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderPlacedViewController.swift; sourceTree = "<group>"; };
 		04AD8DB3299A873D00C25FF7 /* MenuManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuManager.swift; sourceTree = "<group>"; };
 		04B295B5299953820076984A /* Mama Jean's Pizza.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mama Jean's Pizza.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -154,10 +158,12 @@
 		0436295D29CCBA91001964E5 /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
+				047FD8F429E1D9CD00E1D975 /* HomePageContainerController.swift */,
 				04B60D1D29D09A78005E8B94 /* HomePageModel.swift */,
 				04B60D1329CCBD2F005E8B94 /* HomePageView.swift */,
 				0436295B29CCBA49001964E5 /* HomePageController.swift */,
 				04EA95F829DB4AAE009F7220 /* HomePageCell.swift */,
+				047FD8F629E1DA4C00E1D975 /* MainMenuController.swift */,
 			);
 			path = HomePage;
 			sourceTree = "<group>";
@@ -262,7 +268,6 @@
 		04B60D1229CCBB05005E8B94 /* Content */ = {
 			isa = PBXGroup;
 			children = (
-				040489D829D823B300A183F4 /* Shared Views */,
 				0436295D29CCBA91001964E5 /* HomePage */,
 				045654B029D5E451009AA225 /* IntroductionTips */,
 				045654AD29D5E391009AA225 /* DealDescription */,
@@ -273,6 +278,7 @@
 				045654A429D5DC4F009AA225 /* Basket */,
 				045654AB29D5E29C009AA225 /* PaymentTypes */,
 				045654AC29D5E2F2009AA225 /* OrderPlaced */,
+				040489D829D823B300A183F4 /* Shared Views */,
 			);
 			path = Content;
 			sourceTree = "<group>";
@@ -456,6 +462,7 @@
 				0437006929DDCA0E00554719 /* ParalaxTableViewHeader.swift in Sources */,
 				04F19BD529D3577200180545 /* MenuCell.swift in Sources */,
 				045654B229D5E481009AA225 /* IntroController.swift in Sources */,
+				047FD8F529E1D9CD00E1D975 /* HomePageContainerController.swift in Sources */,
 				04EA95F929DB4AAE009F7220 /* HomePageCell.swift in Sources */,
 				044215EB29D4827200B3109A /* ItemsModel.swift in Sources */,
 				045654A829D5DCC9009AA225 /* BasketView.swift in Sources */,
@@ -472,6 +479,7 @@
 				04F19BCC29D3330300180545 /* ChooseAStoreView.swift in Sources */,
 				04F21E5C29D1FCCD00D62C66 /* BalanceObserver.swift in Sources */,
 				04B60D1929CCBF3E005E8B94 /* GlobalUIConstants.swift in Sources */,
+				047FD8F729E1DA4C00E1D975 /* MainMenuController.swift in Sources */,
 				04B60D1C29D093D8005E8B94 /* AlertManager.swift in Sources */,
 				04141DCC29B538FB00C215DD /* HomepageStructs.swift in Sources */,
 				04F442A129ABE8280065D6F4 /* SyrveMenu.swift in Sources */,
