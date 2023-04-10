@@ -13,9 +13,9 @@ import UIKit
 
 class HomePageController: UIViewController {
     // MARK: - Public properties
-    var didMainMenuButtonTapped: (() -> ())?
+    var didToggleMainMenu: (() -> ())?
     
-    // MARK: - View Lifecycle
+    // MARK: - ViewController Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         initialize()
@@ -38,6 +38,7 @@ private extension HomePageController {
     func initialize() {
         view = homePageView
         tapGesture = UITapGestureRecognizer(target: self, action: #selector(homepageViewTapped))
+        view.addGestureRecognizer(tapGesture!)
         homePageView.scrollView.delegate = self
         configureNavigationBar()
         initCollections()
@@ -54,18 +55,6 @@ private extension HomePageController {
     }
     
     func configureNavigationBar() {
-        // MARK: Main navbar configuration
-        navigationController?.navigationBar.backgroundColor = GlobalUIConstants.mamaGreenColor
-        navigationController?.navigationBar.tintColor = .white
-        navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        navigationController?.navigationBar.titleTextAttributes = [
-            NSAttributedString.Key.foregroundColor: UIColor.white
-        ]
-        navigationController?.navigationBar.largeTitleTextAttributes = [
-            NSAttributedString.Key.foregroundColor: UIColor.white
-        ]
-        
         // MARK: Left navbar
         let settingsButton = UIBarButtonItem(
             image: .init(systemName: "line.horizontal.3"),
@@ -227,9 +216,16 @@ private extension HomePageController {
     }
     
     @objc
+    func homepageViewTapped() {
+        guard homePageView.isMainMenuOpen else { return }
+        didToggleMainMenu?()
+        homePageView.isMainMenuOpen = !homePageView.isMainMenuOpen
+    }
+    
+    @objc
     func mainMenuButtonTapped() {
-        didMainMenuButtonTapped?()
-        view.addGestureRecognizer(tapGesture!)
+        didToggleMainMenu?()
+        homePageView.isMainMenuOpen = !homePageView.isMainMenuOpen
     }
     
     @objc
@@ -254,13 +250,6 @@ private extension HomePageController {
     func updateBalanceLabel() {
         let balance = UserDefaultsManager.loadBalance()
         balanceView.bonusBalanceLabel.text = "\(balance)"
-    }
-    
-    @objc
-    func homepageViewTapped() {
-        print("Tap 1")
-        didMainMenuButtonTapped?()
-        print("Tap 2")
     }
 }
 

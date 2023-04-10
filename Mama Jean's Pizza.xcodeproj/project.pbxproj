@@ -47,6 +47,7 @@
 		04B60D1929CCBF3E005E8B94 /* GlobalUIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B60D1829CCBF3E005E8B94 /* GlobalUIConstants.swift */; };
 		04B60D1C29D093D8005E8B94 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B60D1B29D093D8005E8B94 /* AlertManager.swift */; };
 		04B60D1E29D09A78005E8B94 /* HomePageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B60D1D29D09A78005E8B94 /* HomePageModel.swift */; };
+		04DA268F29E45E8B00B59D15 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DA268E29E45E8B00B59D15 /* MainNavigationController.swift */; };
 		04EA95F929DB4AAE009F7220 /* HomePageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EA95F829DB4AAE009F7220 /* HomePageCell.swift */; };
 		04F12006299FE63D008DF518 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04F12005299FE63D008DF518 /* GoogleService-Info.plist */; };
 		04F12009299FE8CD008DF518 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 04F12008299FE8CD008DF518 /* FirebaseAnalytics */; };
@@ -112,6 +113,7 @@
 		04B60D1829CCBF3E005E8B94 /* GlobalUIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalUIConstants.swift; sourceTree = "<group>"; };
 		04B60D1B29D093D8005E8B94 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
 		04B60D1D29D09A78005E8B94 /* HomePageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageModel.swift; sourceTree = "<group>"; };
+		04DA268E29E45E8B00B59D15 /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		04EA95F829DB4AAE009F7220 /* HomePageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageCell.swift; sourceTree = "<group>"; };
 		04F12005299FE63D008DF518 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		04F12010299FEBDD008DF518 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
@@ -158,12 +160,10 @@
 		0436295D29CCBA91001964E5 /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
-				047FD8F429E1D9CD00E1D975 /* HomePageContainerController.swift */,
 				04B60D1D29D09A78005E8B94 /* HomePageModel.swift */,
 				04B60D1329CCBD2F005E8B94 /* HomePageView.swift */,
 				0436295B29CCBA49001964E5 /* HomePageController.swift */,
 				04EA95F829DB4AAE009F7220 /* HomePageCell.swift */,
-				047FD8F629E1DA4C00E1D975 /* MainMenuController.swift */,
 			);
 			path = HomePage;
 			sourceTree = "<group>";
@@ -268,6 +268,7 @@
 		04B60D1229CCBB05005E8B94 /* Content */ = {
 			isa = PBXGroup;
 			children = (
+				04DA269029E45EA600B59D15 /* HomePageContainer */,
 				0436295D29CCBA91001964E5 /* HomePage */,
 				045654B029D5E451009AA225 /* IntroductionTips */,
 				045654AD29D5E391009AA225 /* DealDescription */,
@@ -292,6 +293,16 @@
 				04F21E5D29D212E300D62C66 /* UserDefaultsManager.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		04DA269029E45EA600B59D15 /* HomePageContainer */ = {
+			isa = PBXGroup;
+			children = (
+				047FD8F429E1D9CD00E1D975 /* HomePageContainerController.swift */,
+				04DA268E29E45E8B00B59D15 /* MainNavigationController.swift */,
+				047FD8F629E1DA4C00E1D975 /* MainMenuController.swift */,
+			);
+			path = HomePageContainer;
 			sourceTree = "<group>";
 		};
 		04EDA86629A91B0C00A0DA23 /* Resources */ = {
@@ -506,6 +517,7 @@
 				0478039229D9E5E900D85C12 /* IntroPageModel.swift in Sources */,
 				044215F629D4B09E00B3109A /* ItemDetailsController.swift in Sources */,
 				04F12011299FEBDD008DF518 /* FirebaseManager.swift in Sources */,
+				04DA268F29E45E8B00B59D15 /* MainNavigationController.swift in Sources */,
 				04B295BB299953820076984A /* SceneDelegate.swift in Sources */,
 				04899C1029B289B4000BB5DD /* OrderPlacedViewController.swift in Sources */,
 				04F19BD129D356D100180545 /* MenuView.swift in Sources */,

@@ -1,7 +1,16 @@
 import UIKit
 
 class HomePageView: UIView {
+    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+        if isMainMenuOpen {
+            return self
+        }
+        return super.hitTest(point, with: event)
+    }
+    
     // MARK: - Public properties
+    var isMainMenuOpen = false
+    
     enum CollectionSizes {
         static let cellHeightCoef: CGFloat = 1 + (GlobalUIConstants.screenWidth - 320) / 480
         static let dealsSize = CGSize(width: 160 * cellHeightCoef, height: 100 * cellHeightCoef)

@@ -8,8 +8,7 @@ class HomePageContainerController: UIViewController {
     }
     
     // MARK: - Private properties
-    private let homepageVC = HomePageController()
-    private lazy var homepageNavigationVC = UINavigationController(rootViewController: homepageVC)
+    private let mainNavigationVC = MainNavigationController()
     private var mainMenuVC: MainMenuController?
     private var willMainMenuAppear = true
 }
@@ -17,26 +16,31 @@ class HomePageContainerController: UIViewController {
 // MARK: - Private methods
 private extension HomePageContainerController {
     func initialize() {
-        homepageVC.didMainMenuButtonTapped = { [weak self] in
-            self?.toggleMainMenu()
+        if let homepageVC = mainNavigationVC.viewControllers.first as? HomePageController {
+            homepageVC.didToggleMainMenu = { [weak self] in
+                self?.toggleMainMenu()
+            }
         }
-        addChild(homepageNavigationVC)
-        view.addSubview(homepageNavigationVC.view)
-//        homepageNavigationVC.view.snp.makeConstraints { make in
-//            make.edges.equalToSuperview()
-//        }
-        homepageNavigationVC.didMove(toParent: self)
-        homepageNavigationVC.view.layer.masksToBounds = false
-        homepageNavigationVC.view.layer.shadowOffset = CGSize(width: -1, height: 1)
-        homepageNavigationVC.view.layer.shadowRadius = 5
+        addChild(mainNavigationVC)
+        view.addSubview(mainNavigationVC.view)
+        mainNavigationVC.didMove(toParent: self)
     }
     
     func toggleMainMenu() {
         if willMainMenuAppear {
             addMainMenuVC()
+            addHomepageViewShadow()
         }
         willMainMenuAppear = !willMainMenuAppear
         showMenuViewController(!willMainMenuAppear)
+    }
+    
+    func addHomepageViewShadow() {
+        mainNavigationVC.view.layer.shadowOpacity = 0.3
+    }
+    
+    func removeHomepageViewShadow() {
+        mainNavigationVC.view.layer.shadowOpacity = 0.0
     }
     
     func addMainMenuVC() {
@@ -45,7 +49,6 @@ private extension HomePageContainerController {
         addChild(mainMenuVC)
         view.insertSubview(mainMenuVC.view, at: 0)
         mainMenuVC.didMove(toParent: self)
-        homepageNavigationVC.view.layer.shadowOpacity = 0.3
     }
     
     func removeMainMenuVC() {
@@ -53,7 +56,6 @@ private extension HomePageContainerController {
         mainMenuVC.willMove(toParent: nil)
         mainMenuVC.view.removeFromSuperview()
         mainMenuVC.removeFromParent()
-        homepageNavigationVC.view.layer.shadowOpacity = 0
     }
     
     func showMenuViewController(_ willMainMenuAppear: Bool) {
@@ -65,13 +67,9 @@ private extension HomePageContainerController {
                 initialSpringVelocity: 0,
                 options: .curveEaseInOut,
                 animations: {
-                    guard let view = self.homepageNavigationVC.view else { return }
+                    guard let view = self.mainNavigationVC.view else { return }
                     view.transform = CGAffineTransform(scaleX: 0.75, y: 0.75)
                     view.frame.origin.x = view.frame.width * 0.85
-                },
-                completion: { _ in
-                    
-                    
                 }
             )
         } else {
@@ -82,12 +80,13 @@ private extension HomePageContainerController {
                 initialSpringVelocity: 0,
                 options: .curveEaseInOut,
                 animations: {
-                    guard let view = self.homepageNavigationVC.view else { return }
+                    guard let view = self.mainNavigationVC.view else { return }
                     view.transform = .identity
                     view.frame.origin.x = 0
                 },
                 completion: { _ in
                     self.removeMainMenuVC()
+                    self.removeHomepageViewShadow()
                 }
             )
         }
