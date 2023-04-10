@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		040489DC29D837C600A183F4 /* BasketButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040489DB29D837C600A183F4 /* BasketButtonView.swift */; };
-		04141DCC29B538FB00C215DD /* HomepageStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04141DCB29B538FB00C215DD /* HomepageStructs.swift */; };
 		04220BE829B0DFB6005D53C4 /* BasketCustomerInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04220BE729B0DFB6005D53C4 /* BasketCustomerInfoCell.swift */; };
 		04220BED29B13F74005D53C4 /* PaymentTypesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04220BEC29B13F74005D53C4 /* PaymentTypesViewController.swift */; };
 		0423BC92299EBC4D00BE8BFC /* ChooseAStoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0423BC91299EBC4D00BE8BFC /* ChooseAStoreModel.swift */; };
@@ -48,6 +47,7 @@
 		04B60D1C29D093D8005E8B94 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B60D1B29D093D8005E8B94 /* AlertManager.swift */; };
 		04B60D1E29D09A78005E8B94 /* HomePageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B60D1D29D09A78005E8B94 /* HomePageModel.swift */; };
 		04DA268F29E45E8B00B59D15 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DA268E29E45E8B00B59D15 /* MainNavigationController.swift */; };
+		04DA269229E4893200B59D15 /* MainMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DA269129E4893200B59D15 /* MainMenuView.swift */; };
 		04EA95F929DB4AAE009F7220 /* HomePageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EA95F829DB4AAE009F7220 /* HomePageCell.swift */; };
 		04F12006299FE63D008DF518 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 04F12005299FE63D008DF518 /* GoogleService-Info.plist */; };
 		04F12009299FE8CD008DF518 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 04F12008299FE8CD008DF518 /* FirebaseAnalytics */; };
@@ -72,7 +72,6 @@
 
 /* Begin PBXFileReference section */
 		040489DB29D837C600A183F4 /* BasketButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketButtonView.swift; sourceTree = "<group>"; };
-		04141DCB29B538FB00C215DD /* HomepageStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomepageStructs.swift; sourceTree = "<group>"; };
 		04220BE729B0DFB6005D53C4 /* BasketCustomerInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketCustomerInfoCell.swift; sourceTree = "<group>"; };
 		04220BEC29B13F74005D53C4 /* PaymentTypesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentTypesViewController.swift; sourceTree = "<group>"; };
 		0423BC91299EBC4D00BE8BFC /* ChooseAStoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseAStoreModel.swift; sourceTree = "<group>"; };
@@ -114,6 +113,7 @@
 		04B60D1B29D093D8005E8B94 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
 		04B60D1D29D09A78005E8B94 /* HomePageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageModel.swift; sourceTree = "<group>"; };
 		04DA268E29E45E8B00B59D15 /* MainNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
+		04DA269129E4893200B59D15 /* MainMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuView.swift; sourceTree = "<group>"; };
 		04EA95F829DB4AAE009F7220 /* HomePageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageCell.swift; sourceTree = "<group>"; };
 		04F12005299FE63D008DF518 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		04F12010299FEBDD008DF518 /* FirebaseManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseManager.swift; sourceTree = "<group>"; };
@@ -300,6 +300,7 @@
 			children = (
 				047FD8F429E1D9CD00E1D975 /* HomePageContainerController.swift */,
 				04DA268E29E45E8B00B59D15 /* MainNavigationController.swift */,
+				04DA269129E4893200B59D15 /* MainMenuView.swift */,
 				047FD8F629E1DA4C00E1D975 /* MainMenuController.swift */,
 			);
 			path = HomePageContainer;
@@ -352,7 +353,6 @@
 				045ABBFE29AE5D8700942686 /* Basket.swift */,
 				045ABBFC29AE4C7C00942686 /* ItemData.swift */,
 				04AD8DB3299A873D00C25FF7 /* MenuManager.swift */,
-				04141DCB29B538FB00C215DD /* HomepageStructs.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -492,7 +492,6 @@
 				04B60D1929CCBF3E005E8B94 /* GlobalUIConstants.swift in Sources */,
 				047FD8F729E1DA4C00E1D975 /* MainMenuController.swift in Sources */,
 				04B60D1C29D093D8005E8B94 /* AlertManager.swift in Sources */,
-				04141DCC29B538FB00C215DD /* HomepageStructs.swift in Sources */,
 				04F442A129ABE8280065D6F4 /* SyrveMenu.swift in Sources */,
 				045654AF29D5E3AC009AA225 /* DealDescriptionController.swift in Sources */,
 				045ABBFF29AE5D8700942686 /* Basket.swift in Sources */,
@@ -519,6 +518,7 @@
 				04F12011299FEBDD008DF518 /* FirebaseManager.swift in Sources */,
 				04DA268F29E45E8B00B59D15 /* MainNavigationController.swift in Sources */,
 				04B295BB299953820076984A /* SceneDelegate.swift in Sources */,
+				04DA269229E4893200B59D15 /* MainMenuView.swift in Sources */,
 				04899C1029B289B4000BB5DD /* OrderPlacedViewController.swift in Sources */,
 				04F19BD129D356D100180545 /* MenuView.swift in Sources */,
 				04B295CD299978600076984A /* IntroPageController.swift in Sources */,

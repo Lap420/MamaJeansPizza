@@ -32,7 +32,7 @@ private extension HomePageContainerController {
             addHomepageViewShadow()
         }
         willMainMenuAppear = !willMainMenuAppear
-        showMenuViewController(!willMainMenuAppear)
+        showMainMenuVC(!willMainMenuAppear)
     }
     
     func addHomepageViewShadow() {
@@ -49,6 +49,7 @@ private extension HomePageContainerController {
         addChild(mainMenuVC)
         view.insertSubview(mainMenuVC.view, at: 0)
         mainMenuVC.didMove(toParent: self)
+        mainMenuVC.view.frame = view.frame
     }
     
     func removeMainMenuVC() {
@@ -58,37 +59,77 @@ private extension HomePageContainerController {
         mainMenuVC.removeFromParent()
     }
     
-    func showMenuViewController(_ willMainMenuAppear: Bool) {
+    func moveMainNavigationControllerRight() {
+        UIView.animate(
+            withDuration: 0.35,
+            delay: 0,
+            usingSpringWithDamping: 0.9,
+            initialSpringVelocity: 0,
+            options: .curveEaseInOut,
+            animations: {
+                guard let view = self.mainNavigationVC.view else { return }
+                view.transform = CGAffineTransform(scaleX: 0.75, y: 0.75)
+                view.frame.origin.x = view.frame.width * 0.85
+            }
+        )
+    }
+    
+    func moveMainNavigationControllerBack() {
+        UIView.animate(
+            withDuration: 0.35,
+            delay: 0,
+            usingSpringWithDamping: 0.9,
+            initialSpringVelocity: 0,
+            options: .curveEaseInOut,
+            animations: {
+                guard let view = self.mainNavigationVC.view else { return }
+                view.transform = .identity
+                view.frame.origin.x = 0
+            },
+            completion: { _ in
+                self.removeMainMenuVC()
+                self.removeHomepageViewShadow()
+            }
+        )
+    }
+    
+    func decreaseMainMenuVC() {
+        guard let mainMenuVC = mainMenuVC else { return }
+        mainMenuVC.view.transform = CGAffineTransform(scaleX: 1.75, y: 1.75)
+        UIView.animate(
+            withDuration: 0.35,
+            delay: 0,
+            usingSpringWithDamping: 0.9,
+            initialSpringVelocity: 0,
+            options: .curveEaseInOut,
+            animations: {
+                guard let mainMenuVC = self.mainMenuVC else { return }
+                mainMenuVC.view.transform = .identity
+            }
+        )
+    }
+    
+    func increaseMainMenuVC() {
+        UIView.animate(
+            withDuration: 0.35,
+            delay: 0,
+            usingSpringWithDamping: 0.9,
+            initialSpringVelocity: 0,
+            options: .curveEaseInOut,
+            animations: {
+                guard let mainMenuVC = self.mainMenuVC else { return }
+                mainMenuVC.view.transform = CGAffineTransform(scaleX: 1.75, y: 1.75)
+            }
+        )
+    }
+    
+    func showMainMenuVC(_ willMainMenuAppear: Bool) {
         if willMainMenuAppear {
-            UIView.animate(
-                withDuration: 0.35,
-                delay: 0,
-                usingSpringWithDamping: 0.9,
-                initialSpringVelocity: 0,
-                options: .curveEaseInOut,
-                animations: {
-                    guard let view = self.mainNavigationVC.view else { return }
-                    view.transform = CGAffineTransform(scaleX: 0.75, y: 0.75)
-                    view.frame.origin.x = view.frame.width * 0.85
-                }
-            )
+            moveMainNavigationControllerRight()
+            decreaseMainMenuVC()
         } else {
-            UIView.animate(
-                withDuration: 0.35,
-                delay: 0,
-                usingSpringWithDamping: 0.9,
-                initialSpringVelocity: 0,
-                options: .curveEaseInOut,
-                animations: {
-                    guard let view = self.mainNavigationVC.view else { return }
-                    view.transform = .identity
-                    view.frame.origin.x = 0
-                },
-                completion: { _ in
-                    self.removeMainMenuVC()
-                    self.removeHomepageViewShadow()
-                }
-            )
+            moveMainNavigationControllerBack()
+            increaseMainMenuVC()
         }
     }
 }

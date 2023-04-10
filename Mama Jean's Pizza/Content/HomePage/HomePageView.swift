@@ -1,6 +1,7 @@
 import UIKit
 
 class HomePageView: UIView {
+    // MARK: - Public Methods
     override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
         if isMainMenuOpen {
             return self
