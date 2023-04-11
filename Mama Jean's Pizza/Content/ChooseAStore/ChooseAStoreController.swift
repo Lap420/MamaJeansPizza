@@ -25,7 +25,7 @@ class ChooseAStoreTableViewController: UIViewController {
         ]
     ]
     
-    // MARK: - View Lifecycle
+    // MARK: - ViewController Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         initialize()

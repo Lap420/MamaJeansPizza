@@ -1,4 +1,3 @@
-// TODO: Add left main menu
 // TODO: Upgrade Choose a store
 // TODO: Save created orders to history
 // TODO: Finish basket page
@@ -242,7 +241,7 @@ private extension HomePageController {
     @objc
     func openLapTelegram() {
         if let url = URL(string: "https://t.me/lap42") {
-        UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
     }
     

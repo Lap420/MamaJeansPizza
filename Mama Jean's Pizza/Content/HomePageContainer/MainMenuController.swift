@@ -1,7 +1,7 @@
 import UIKit
 
 class MainMenuController: UIViewController {
-    // MARK: - View Lifecycle
+    // MARK: - ViewController Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         initialize()
@@ -44,7 +44,13 @@ extension MainMenuController: UITableViewDataSource {
 extension MainMenuController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-//        let nextVC = MenuController()
-//        self.navigationController?.pushViewController(nextVC, animated: true)
+        if indexPath.row == 1 {
+            let alert = AlertManager.featureIsNotImplementedAlert(feature: "Order history")
+            present(alert, animated: true)
+        } else {
+            if let url = URL(string: "https://t.me/lap42") {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+        }
     }
 }

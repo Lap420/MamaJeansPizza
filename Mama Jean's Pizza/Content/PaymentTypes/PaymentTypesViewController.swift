@@ -16,6 +16,7 @@ class PaymentTypesViewController: UIViewController {
 //        cardOnlineButton.addTarget(viewController, action: #selector(viewController.paymentTypeDidChoose), for: .touchUpInside)
     }
     
+    // MARK: - ViewController Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 

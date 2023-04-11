@@ -9,7 +9,7 @@ class DealDescriptionController: UIViewController {
     var dealDescription = ""
     var didOrderButtonClicked: (() -> ())?
     
-    // MARK: - View Lifecycle
+    // MARK: - ViewController Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         initialize()

@@ -1,7 +1,7 @@
 import UIKit
 
 class IntroPageController: UIPageViewController {
-    // MARK: - View Lifecycle
+    // MARK: - ViewController Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         dataSource = self

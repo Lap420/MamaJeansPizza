@@ -2,7 +2,7 @@ import UIKit
 
 class MainMenuView: UIView {
     // MARK: - Public properties
-    let mainMenuButtons = ["ABOUT US", "ORDER HISTORY", "SETTINGS"]
+    let mainMenuButtons = ["ABOUT US", "ORDER HISTORY", "RATE OUR APP"]
     
     let tableView: UITableView = {
         let view = UITableView()
@@ -25,24 +25,11 @@ class MainMenuView: UIView {
     
     // MARK: - Private properties
     private enum Constants {
-//        static let stackSpacing: CGFloat = GlobalUIConstants.screenWidth * 0.05
-//        static let cornerRadius: CGFloat = 10
         static let bottomFont: UIFont = .systemFont(ofSize: 12, weight: .medium)
         static let bottomColor: UIColor = .systemGray3
-//        static let sectionInset: CGFloat = GlobalUIConstants.screenWidth * 0.05
-//        static let minimumInteritemSpacing: CGFloat = GlobalUIConstants.screenWidth * 0.025
-//        static let afterLabelCollectionInset: CGFloat = 8
-//        static let rateButtonCornerRadius: CGFloat = 20
-//        static let bottomButtonsFont: UIFont = .systemFont(ofSize: 15, weight: .regular)
-//        static let topScrollInset: CGFloat = 32
         static let mainInset: CGFloat = 16
         static let bottomViewInset: CGFloat = 44
         static let bottomViewHeight: CGFloat = 1
-//        static let widthMultiplier: CGFloat = 0.9
-//        static let topButtonsRatio: CGFloat = 9.0 / 21.0
-//        static let rateButtonsRatio: CGFloat = 9.0 / 49.0
-//        static let bottomStackRatio: CGFloat = 1.0 / 7.0
-//        static let bigScreenBottomInset: CGFloat = 69
     }
     
     private let bottomLineView: UIView = {

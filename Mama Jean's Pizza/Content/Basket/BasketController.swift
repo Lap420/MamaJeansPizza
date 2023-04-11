@@ -6,7 +6,7 @@ class BasketController: UIViewController {
         .customerData(BasketCustomerInfoCellInfo())
     ]
     
-    // MARK: - View Lifecycle
+    // MARK: - ViewController Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         initialize()

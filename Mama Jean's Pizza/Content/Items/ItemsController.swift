@@ -4,7 +4,7 @@ class ItemsController: UIViewController {
     // MARK: Public properties
     var choosenMenuGroup = (id: "", name: "")
     
-    // MARK: - View Lifecycle
+    // MARK: - ViewController Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         initialize()

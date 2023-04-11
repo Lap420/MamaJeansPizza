@@ -1,7 +1,7 @@
 import UIKit
 
 class MenuController: UIViewController {
-    // MARK: - View Lifecycle
+    // MARK: - ViewController Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         initialize()

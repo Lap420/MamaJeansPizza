@@ -6,7 +6,7 @@ class ItemDetailsController: UIViewController {
     var image: UIImage?
     var item = ItemData(id: "", name: "", description: "", price: 0)
     
-    // MARK: - View Lifecycle
+    // MARK: - ViewController Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         initialize()

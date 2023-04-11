@@ -1,14 +1,7 @@
-//
-//  OrderPlacedViewController.swift
-//  Mama Jean's Pizza
-//
-//  Created by Lap on 04.03.2023.
-//
-
 import UIKit
 
 class OrderPlacedViewController: UIViewController {
-
+    // MARK: - ViewController Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
