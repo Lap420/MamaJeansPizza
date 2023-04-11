@@ -22,7 +22,7 @@ class BasketController: UIViewController {
 private extension BasketController {
     func initialize() {
         view = basketView
-        let orderButtonTitle = "Order " + Basket.shared.getTotalAmountString()
+        let orderButtonTitle = "Order " + Basket.shared.getItemsAndTotalAmount().amount
         basketView.orderButton.setTitle(orderButtonTitle, for: .normal)
         
         basketView.tableView.register(BasketCustomerInfoCell.self, forCellReuseIdentifier: String(describing: BasketCustomerInfoCell.self))

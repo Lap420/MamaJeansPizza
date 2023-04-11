@@ -1,12 +1,10 @@
-// TODO: Upgrade Choose a store
-// TODO: Save created orders to history
+// TODO: Fix homepage tap to collections cells
 // TODO: Finish basket page
 // TODO: Finish PaymentTypes page
 // TODO: Finish Order Placed page
-// TODO: Double-check api
-// TODO: Double-check Core
-// TODO: Double-check resources
-// TODO: Double-check services
+// TODO: Send orders to Syrve
+// TODO: Save created orders to history
+// TODO: Implement Repeat order feature
 
 import UIKit
 
@@ -36,6 +34,7 @@ class HomePageController: UIViewController {
 private extension HomePageController {
     func initialize() {
         view = homePageView
+        self.title = "Homepage"
         tapGesture = UITapGestureRecognizer(target: self, action: #selector(homepageViewTapped))
         view.addGestureRecognizer(tapGesture!)
         homePageView.scrollView.delegate = self
@@ -210,7 +209,7 @@ private extension HomePageController {
     }
     
     func createNewOrder() {
-        let nextVC = ChooseAStoreTableViewController()
+        let nextVC = ChooseAStoreController()
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
     

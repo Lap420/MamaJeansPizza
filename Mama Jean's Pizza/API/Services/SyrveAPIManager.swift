@@ -1,12 +1,4 @@
-//
-//  SyrveAPI.swift
-//  Mama Jean's Pizza
-//
-//  Created by Lap on 26.02.2023.
-//
-
 import Foundation
-import UIKit
 
 fileprivate enum SyrveApiType {
     case getToken

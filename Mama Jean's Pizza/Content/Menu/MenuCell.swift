@@ -7,9 +7,6 @@ class MenuCell: UICollectionViewCell {
         nameLabel.text = name
     }
     
-    // MARK: - Public properties:
-    static let idetifier = "MenuCell"
-    
     //MARK: - Init
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -27,7 +24,6 @@ class MenuCell: UICollectionViewCell {
         static let labelTextFont: UIFont = .systemFont(ofSize: 18, weight: .bold)
     }
     
-    //MARK: - Private properties
     private let imageView: UIImageView = {
         let view = UIImageView()
         view.contentMode = .scaleAspectFill

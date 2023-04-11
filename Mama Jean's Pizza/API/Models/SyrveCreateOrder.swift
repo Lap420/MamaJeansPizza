@@ -1,12 +1,3 @@
-//
-//  SyrveCreateOrder.swift
-//  Mama Jean's Pizza
-//
-//  Created by Lap on 28.02.2023.
-//
-
-import Foundation
-
 // MARK: - CreateOrder Request
 struct CreateOrder: Codable {
     var organizationId: String = SyrveAPIConstants.organizationId

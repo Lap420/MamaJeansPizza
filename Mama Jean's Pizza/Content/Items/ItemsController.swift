@@ -107,6 +107,7 @@ extension ItemsController: UICollectionViewDelegate {
     }
 }
 
+// MARK: - BasketButtonUpdateDelegate protocol
 extension ItemsController: BasketButtonUpdateDelegate {
     func updateBasketButtonIfNeeded() {
         let expectedIsHidden = Basket.shared.items?.count ?? 0 <= 0

@@ -1,12 +1,3 @@
-//
-//  SyrveMenu.swift
-//  Mama Jean's Pizza
-//
-//  Created by Lap on 26.02.2023.
-//
-
-import Foundation
-
 // MARK: - MenuRequestBody
 struct MenuRequestBody: Codable {
     let externalMenuId: String
@@ -47,5 +38,3 @@ struct Price: Codable {
     let organizationId: String
     let price: Double
 }
-
-//typealias Menu = [ItemCategory]?

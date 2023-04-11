@@ -1,9 +1,11 @@
 import Foundation
 
 struct MenuModel {
+    // MARK: - Public properties
     let menu: [(id: String, name: String)]
     let menuImages: [String: Data]
     
+    // MARK: - Init
     init() {
         var menu = [(id: String, name: String)]()
         var menuImages = [String: Data]()

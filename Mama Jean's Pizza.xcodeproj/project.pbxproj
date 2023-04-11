@@ -19,7 +19,6 @@
 		044215ED29D4827E00B3109A /* ItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044215EC29D4827E00B3109A /* ItemsView.swift */; };
 		044215EF29D4828C00B3109A /* ItemsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044215EE29D4828C00B3109A /* ItemsController.swift */; };
 		044215F129D4829700B3109A /* ItemsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044215F029D4829700B3109A /* ItemsCell.swift */; };
-		044215F329D4850000B3109A /* BasketObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044215F229D4850000B3109A /* BasketObserver.swift */; };
 		044215F629D4B09E00B3109A /* ItemDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044215F529D4B09E00B3109A /* ItemDetailsController.swift */; };
 		044215F829D4B0AE00B3109A /* ItemDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044215F729D4B0AE00B3109A /* ItemDetailsView.swift */; };
 		045654A629D5DCA8009AA225 /* BasketModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045654A529D5DCA8009AA225 /* BasketModel.swift */; };
@@ -83,7 +82,6 @@
 		044215EC29D4827E00B3109A /* ItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsView.swift; sourceTree = "<group>"; };
 		044215EE29D4828C00B3109A /* ItemsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsController.swift; sourceTree = "<group>"; };
 		044215F029D4829700B3109A /* ItemsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemsCell.swift; sourceTree = "<group>"; };
-		044215F229D4850000B3109A /* BasketObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketObserver.swift; sourceTree = "<group>"; };
 		044215F529D4B09E00B3109A /* ItemDetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsController.swift; sourceTree = "<group>"; };
 		044215F729D4B0AE00B3109A /* ItemDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsView.swift; sourceTree = "<group>"; };
 		045654A529D5DCA8009AA225 /* BasketModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketModel.swift; sourceTree = "<group>"; };
@@ -289,7 +287,6 @@
 			children = (
 				04B60D1B29D093D8005E8B94 /* AlertManager.swift */,
 				04F21E5B29D1FCCD00D62C66 /* BalanceObserver.swift */,
-				044215F229D4850000B3109A /* BasketObserver.swift */,
 				04F21E5D29D212E300D62C66 /* UserDefaultsManager.swift */,
 			);
 			path = Services;
@@ -512,7 +509,6 @@
 				045ABC0229AE753100942686 /* SyrveCreateOrder.swift in Sources */,
 				04F19BD329D356DF00180545 /* MenuController.swift in Sources */,
 				04220BE829B0DFB6005D53C4 /* BasketCustomerInfoCell.swift in Sources */,
-				044215F329D4850000B3109A /* BasketObserver.swift in Sources */,
 				0478039229D9E5E900D85C12 /* IntroPageModel.swift in Sources */,
 				044215F629D4B09E00B3109A /* ItemDetailsController.swift in Sources */,
 				04F12011299FEBDD008DF518 /* FirebaseManager.swift in Sources */,

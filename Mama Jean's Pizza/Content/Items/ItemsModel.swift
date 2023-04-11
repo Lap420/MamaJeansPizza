@@ -1,9 +1,11 @@
 import Foundation
 
 struct ItemsModel {
+    // MARK: - Public properties
     let items: [ItemData]
     let itemsImages: [String: Data]
     
+    // MARK: - Init
     init(choosenGroupId: String) {
         var items = [ItemData]()
         var itemsImages = [String: Data]()

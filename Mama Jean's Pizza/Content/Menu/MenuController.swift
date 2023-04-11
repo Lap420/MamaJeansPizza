@@ -38,7 +38,7 @@ private extension MenuController {
     func initCollectionsDelegateAndSource() {
         menuView.menuCollectionView.register(
             MenuCell.self,
-            forCellWithReuseIdentifier: MenuCell.idetifier
+            forCellWithReuseIdentifier: "cell"
         )
         menuView.menuCollectionView.delegate = self
         menuView.menuCollectionView.dataSource = self
@@ -74,7 +74,7 @@ extension MenuController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(
-            withReuseIdentifier: MenuCell.idetifier,
+            withReuseIdentifier: "cell",
             for: indexPath) as! MenuCell
         var image: UIImage? = nil
         let menuGroupId = menuModel.menu[indexPath.item].id

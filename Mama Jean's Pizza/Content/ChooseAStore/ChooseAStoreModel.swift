@@ -1,30 +1,24 @@
 import Foundation
 
-//struct ChooseAStoreModel {
-//    let stores: [String: [Store2]] = [
-//        "Dubai": [
-//            Store2(name: "Dubai Marina", openTime: .time, closingTime: "10:00 pm"),
-//            Store2(name: "Dubai Internet City", openTime: "10:00 am", closingTime: "10:00 pm"),
-//            Store2(name: "Dubai Investments park", openTime: "10:00 am", closingTime: "10:00 pm"),
-//            Store2(name: "Jumairah Lake Towers", openTime: "10:00 am", closingTime: "10:00 pm")
-//        ],
-//        "Abu-Dhabi": [
-//            Store2(name: "Abu-Dhabi Airport", openTime: "10:00 am", closingTime: "10:00 pm"),
-//            Store2(name: "Abu-Dhabi F1 Circuit", openTime: "10:00 am", closingTime: "10:00 pm")
-//        ]
-//    ]
-//}
-// Прикинуть, в каких состояниях может находиться юзер: стор откроется через эн часов, открыт, открыт но закроется через эн часов и эн минут
+struct ChooseAStoreModel {
+    // MARK: - Public properties
+    let cities = ["Dubai", "Abu-Dhabi"]
+    let stores = [
+        "Dubai": [
+            Store(name: "Dubai Marina", openTime: "12:00 am", closeTime: "6:00 am"),
+            Store(name: "Dubai Internet City", openTime: "6:00 am", closeTime: "12:00 pm"),
+            Store(name: "Dubai Investments park", openTime: "12:00 pm", closeTime: "6:00 pm"),
+            Store(name: "Jumairah Lake Towers", openTime: "6:00 pm", closeTime: "11:59 pm")
+        ],
+        "Abu-Dhabi": [
+            Store(name: "Abu-Dhabi Airport", openTime: "10:00 am", closeTime: "10:00 pm"),
+            Store(name: "Abu-Dhabi F1 Circuit", openTime: "10:00 am", closeTime: "10:00 pm")
+        ]
+    ]
+}
 struct Store {
     // MARK: - Public properties
     let name: String
     let openTime: String
-    let closingTime: String
-}
-
-struct Store2 {
-    // MARK: - Public properties
-    let name: String
-    let openTime: Date
-    let closingTime: Date
+    let closeTime: String
 }

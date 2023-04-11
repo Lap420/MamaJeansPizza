@@ -1,12 +1,3 @@
-//
-//  SyrveAPIConstants.swift
-//  Mama Jean's Pizza
-//
-//  Created by Lap on 27.02.2023.
-//
-
-import Foundation
-
 struct SyrveAPIConstants {
     static let apiLogin = "980a7cd5-7a3"
     static let externalMenuId = "9292"

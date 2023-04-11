@@ -1,30 +1,6 @@
-// TODO: If a store is closed, make a store name red color
-// TODO: Add favourite stores
-// TODO: Add map
-
-// TODO: Change open-close time to dateTime
-// TODO: Move model to model file
-
 import UIKit
 
-class ChooseAStoreTableViewController: UIViewController {
-    
-    let cities = ["Dubai", "Abu-Dhabi"]
-    let storesDubai = ["Dubai Marina", "Dubai Internet City", "Dubai Investments park", "Jumairah Lake Towers"]
-    let storesAbuDhabi = ["Abu-Dhabi Airport", "Abu-Dhabi F1 Circuit"]
-    let stores = [
-        "Dubai": [
-            Store(name: "Dubai Marina", openTime: "10:00 am", closingTime: "10:00 pm"),
-            Store(name: "Dubai Internet City", openTime: "10:00 am", closingTime: "10:00 pm"),
-            Store(name: "Dubai Investments park", openTime: "10:00 am", closingTime: "10:00 pm"),
-            Store(name: "Jumairah Lake Towers", openTime: "10:00 am", closingTime: "10:00 pm")
-        ],
-        "Abu-Dhabi": [
-            Store(name: "Abu-Dhabi Airport", openTime: "10:00 am", closingTime: "10:00 pm"),
-            Store(name: "Abu-Dhabi F1 Circuit", openTime: "10:00 am", closingTime: "10:00 pm")
-        ]
-    ]
-    
+class ChooseAStoreController: UIViewController {
     // MARK: - ViewController Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,64 +9,99 @@ class ChooseAStoreTableViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.navigationBar.prefersLargeTitles = false
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     // MARK: - Private properties
     private var chooseAStoreView = ChooseAStoreView()
+    private let chooseAStoreModel = ChooseAStoreModel()
 }
 
 // MARK: Private methods
-private extension ChooseAStoreTableViewController {
+private extension ChooseAStoreController {
     func initialize() {
         view = chooseAStoreView
         self.title = "Choose a store"
-        chooseAStoreView.storesTableView.register(UITableViewCell.self, forCellReuseIdentifier: "Store")
+        chooseAStoreView.storesTableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         chooseAStoreView.storesTableView.delegate = self
         chooseAStoreView.storesTableView.dataSource = self
+    }
+    
+    func CheckStoreIsOpen(_ store: Store) -> (isOpen: Bool, storeTimeComment: String) {
+        var isOpen = false
+        var storeTimeComment = ""
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "h:mm a"
+        guard let openTime = dateFormatter.date(from: store.openTime) else { return (false, "") }
+        guard let closeTime = dateFormatter.date(from: store.closeTime) else { return (false, "") }
+        var dateComponents = Calendar.current.dateComponents([.hour, .minute], from: Date())
+        dateComponents.year = 2000
+        dateComponents.month = 1
+        dateComponents.day = 1
+        guard let currentTime = Calendar.current.date(from: dateComponents) else { return (false, "") }
+        if currentTime >= openTime && currentTime <= closeTime {
+            let timeDifference = closeTime.timeIntervalSince(currentTime)
+            let hours = timeDifference / 60 / 60
+            if hours < 1 {
+                storeTimeComment = " (closes soon)"
+            }
+            isOpen = true
+        } else {
+            var timeDifference: TimeInterval = 0
+            if currentTime < openTime {
+                timeDifference = openTime.timeIntervalSince(currentTime)
+                print(timeDifference)
+            } else {
+                guard let tomorrow = Calendar.current.date(byAdding: .day, value: 1, to: openTime) else { return (false, "") }
+                timeDifference = tomorrow.timeIntervalSince(currentTime)
+            }
+            let hours = Int(timeDifference / 60 / 60)
+            if hours < 1 {
+                let minutes = Int(timeDifference / 60)
+                storeTimeComment = " (opens in \(minutes) minutes)"
+            } else {
+                storeTimeComment = " (opens in \(hours) hours)"
+            }
+        }
+        
+        return (isOpen, storeTimeComment)
     }
 }
 
 // MARK: - Table view data source
-extension ChooseAStoreTableViewController: UITableViewDataSource {
+extension ChooseAStoreController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return cities.count
+        return chooseAStoreModel.cities.count
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch section {
-        case 0:
-            return storesDubai.count
-        case 1:
-            return storesAbuDhabi.count
-        default:
-            return 0
-        }
+        let city = chooseAStoreModel.cities[section]
+        return chooseAStoreModel.stores[city]?.count ?? 0
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return cities[section]
+        return chooseAStoreModel.cities[section]
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Store", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let city = chooseAStoreModel.cities[indexPath.section]
+        guard let store = chooseAStoreModel.stores[city]?[indexPath.row] else { return cell }
         var content = cell.defaultContentConfiguration()
-        switch indexPath.section {
-        case 0:
-            content.text = storesDubai[indexPath.row]
-        case 1:
-            content.text = storesAbuDhabi[indexPath.row]
-        default:
-            break
+        content.text = store.name
+        let checkStoreIsOpen = CheckStoreIsOpen(store)
+        content.secondaryText = store.openTime + " - " + store.closeTime + checkStoreIsOpen.storeTimeComment
+        if !checkStoreIsOpen.isOpen {
+            content.secondaryTextProperties.color = .red
+            cell.isUserInteractionEnabled = false
         }
-        content.secondaryText = "10:00 am - 10:00 pm"
         cell.contentConfiguration = content
         return cell
     }
 }
 
 // MARK: - Table view delegate
-extension ChooseAStoreTableViewController: UITableViewDelegate {
+extension ChooseAStoreController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let nextVC = MenuController()

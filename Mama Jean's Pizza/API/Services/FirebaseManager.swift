@@ -1,15 +1,5 @@
-//
-//  FirebaseManager.swift
-//  Mama Jean's Pizza
-//
-//  Created by Lap on 17.02.2023.
-//
-
-import Foundation
-import UIKit
 import Firebase
 import FirebaseStorage
-import CoreMedia
 
 class FirebaseManager {
     static let shared = FirebaseManager()
@@ -19,7 +9,6 @@ class FirebaseManager {
         let settings = FirestoreSettings()
         Firestore.firestore().settings = settings
         db = Firestore.firestore()
-        
         return db
     }
     
@@ -63,7 +52,6 @@ class FirebaseManager {
         
         fileRef.getData(maxSize: 1024*1024) { imageData, error in
             DispatchQueue.global(qos: .userInitiated).async {
-                //guard error == nil else { completionImage(nil); return }
                 completionImage(imageData)
             }
         }
