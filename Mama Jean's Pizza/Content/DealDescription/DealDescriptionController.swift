@@ -50,14 +50,14 @@ private extension DealDescriptionController {
     }
     
     @objc
-    func orderButtonTapped(_ sender: UIButton) {
+    func orderButtonTapped() {
         dismiss(animated: true) {
             self.didOrderButtonClicked?()
         }
     }
     
     @objc
-    func backButtonTapped(_ sender: UIButton) {
+    func backButtonTapped() {
         dismiss(animated: true)
     }
 }

@@ -26,8 +26,8 @@ class HomePageView: UIView {
         scroll.showsVerticalScrollIndicator = false
         
         let path = UIBezierPath()
-        path.move(to: CGPoint(x: 0, y: 0))
-        path.addLine(to: CGPoint(x: GlobalUIConstants.screenWidth, y: 0))
+        path.move(to: CGPoint(x: 0, y: -1))
+        path.addLine(to: CGPoint(x: GlobalUIConstants.screenWidth, y: -1))
         path.addLine(to: CGPoint(x: GlobalUIConstants.screenWidth, y: 40))
         path.addLine(to: CGPoint(x: 0, y: 80))
         path.close()

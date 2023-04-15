@@ -29,9 +29,7 @@ private extension ItemDetailsController {
         view = itemDetailsView
         initButtonTargets()
         itemQtyChanged()
-        itemDetailsView.imageView.image = image
-        itemDetailsView.nameLabel.text = item.name
-        itemDetailsView.descriptionLabel.text = item.description
+        initTableView()
     }
     
     func initButtonTargets() {
@@ -51,6 +49,16 @@ private extension ItemDetailsController {
             self,
             action: #selector(backButtonTapped),
             for: .touchUpInside)
+    }
+    
+    func initTableView() {
+        itemDetailsView.headerImageView.image = image
+        itemDetailsView.tableView.register(
+            ItemDetailsCell.self,
+            forCellReuseIdentifier: "cell"
+        )
+        itemDetailsView.tableView.dataSource = self
+        
     }
     
     @objc
@@ -83,5 +91,18 @@ private extension ItemDetailsController {
         itemDetailsView.itemQtyLabel.text = "\(itemQty)"
         textPrice = String(format: "%.2f", item.price * Double(itemQty))
         itemDetailsView.addButton.setTitle("Add \(textPrice) AED", for: .normal)
+    }
+}
+
+// MARK: - Table view data source
+extension ItemDetailsController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ItemDetailsCell
+        cell.configure(name: item.name, description: item.description)
+        return cell
     }
 }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		040489DC29D837C600A183F4 /* BasketButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040489DB29D837C600A183F4 /* BasketButtonView.swift */; };
+		0407451329E742B200A3AB89 /* ItemDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0407451229E742B200A3AB89 /* ItemDetailsCell.swift */; };
 		04220BE829B0DFB6005D53C4 /* BasketCustomerInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04220BE729B0DFB6005D53C4 /* BasketCustomerInfoCell.swift */; };
 		04220BED29B13F74005D53C4 /* PaymentTypesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04220BEC29B13F74005D53C4 /* PaymentTypesViewController.swift */; };
 		0423BC92299EBC4D00BE8BFC /* ChooseAStoreModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0423BC91299EBC4D00BE8BFC /* ChooseAStoreModel.swift */; };
@@ -71,6 +72,7 @@
 
 /* Begin PBXFileReference section */
 		040489DB29D837C600A183F4 /* BasketButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketButtonView.swift; sourceTree = "<group>"; };
+		0407451229E742B200A3AB89 /* ItemDetailsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemDetailsCell.swift; sourceTree = "<group>"; };
 		04220BE729B0DFB6005D53C4 /* BasketCustomerInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketCustomerInfoCell.swift; sourceTree = "<group>"; };
 		04220BEC29B13F74005D53C4 /* PaymentTypesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentTypesViewController.swift; sourceTree = "<group>"; };
 		0423BC91299EBC4D00BE8BFC /* ChooseAStoreModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseAStoreModel.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 			children = (
 				044215F729D4B0AE00B3109A /* ItemDetailsView.swift */,
 				044215F529D4B09E00B3109A /* ItemDetailsController.swift */,
+				0407451229E742B200A3AB89 /* ItemDetailsCell.swift */,
 			);
 			path = ItemDetails;
 			sourceTree = "<group>";
@@ -497,6 +500,7 @@
 				04B60D1429CCBD2F005E8B94 /* HomePageView.swift in Sources */,
 				04F21E5E29D212E300D62C66 /* UserDefaultsManager.swift in Sources */,
 				04F442A329ABEAC80065D6F4 /* SyrveToken.swift in Sources */,
+				0407451329E742B200A3AB89 /* ItemDetailsCell.swift in Sources */,
 				04B60D1E29D09A78005E8B94 /* HomePageModel.swift in Sources */,
 				045654B629D612EC009AA225 /* BalanceView.swift in Sources */,
 				0436295C29CCBA49001964E5 /* HomePageController.swift in Sources */,

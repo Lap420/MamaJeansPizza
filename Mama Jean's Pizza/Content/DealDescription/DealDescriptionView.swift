@@ -36,21 +36,25 @@ class DealDescriptionView: UIView {
         let view = UIImageView()
         view.contentMode = .scaleAspectFill
         view.backgroundColor = .yellow
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = [
-            UIColor.black.withAlphaComponent(0.4).cgColor,
-            UIColor.black.withAlphaComponent(0).cgColor
-        ]
-        gradientLayer.startPoint = CGPoint(x: 0, y: 1)
-        gradientLayer.endPoint = CGPoint(x: 0, y: 0.3)
-        gradientLayer.frame = CGRect(
-            x: 0,
-            y: 0,
-            width: GlobalUIConstants.screenWidth,
-            height: Constants.imageHeight
-        )
-        view.layer.addSublayer(gradientLayer)
         return view
+    }()
+    
+    let headerImageBottomRoundedView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        view.layer.shadowOpacity = 0.42
+        view.layer.cornerRadius = 10
+        view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        return view
+    }()
+    
+    let orderButton: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = GlobalUIConstants.mamaGreenColor
+        button.layer.cornerRadius = Constants.cornerRadius
+        button.setTitleColor(.white, for: .normal)
+        button.setTitle("Order now", for: .normal)
+        return button
     }()
     
     // MARK: - View lifecycle
@@ -74,19 +78,17 @@ class DealDescriptionView: UIView {
         static let backButtonWidth: CGFloat = 40
     }
     
-    let bottomView: UIView = {
+    private let sliderView: UIView = {
         let view = UIView()
-        view.backgroundColor = .white
+        view.backgroundColor = .lightGray
+        view.layer.cornerRadius = 2
         return view
     }()
     
-    let orderButton: UIButton = {
-        let button = UIButton()
-        button.backgroundColor = GlobalUIConstants.mamaGreenColor
-        button.layer.cornerRadius = Constants.cornerRadius
-        button.setTitleColor(.white, for: .normal)
-        button.setTitle("Order now", for: .normal)
-        return button
+    private let bottomView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        return view
     }()
 }
 
@@ -105,7 +107,22 @@ private extension DealDescriptionView {
         headerImageView.snp.makeConstraints { make in
             make.height.equalTo(Constants.imageHeight)
             make.leading.trailing.equalToSuperview()
-            make.bottom.equalToSuperview().offset(Constants.imageBottomInset)
+            make.bottom.equalToSuperview()
+        }
+        
+        headerImageView.addSubview(headerImageBottomRoundedView)
+        headerImageBottomRoundedView.snp.makeConstraints { make in
+            make.height.equalTo(20)
+            make.leading.trailing.equalToSuperview()
+            make.bottom.equalTo(headerView.snp.bottom)
+        }
+        
+        headerImageBottomRoundedView.addSubview(sliderView)
+        sliderView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalToSuperview().inset(4)
+            make.width.equalTo(40)
+            make.height.equalTo(4)
         }
         
         self.addSubview(backButton)

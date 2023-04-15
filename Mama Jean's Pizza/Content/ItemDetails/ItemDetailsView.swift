@@ -2,34 +2,49 @@ import UIKit
 
 class ItemDetailsView: UIView {
     // MARK: - Public properties
-    let imageView: UIImageView = {
-        let view = UIImageView()
-        view.contentMode = .scaleAspectFill
-        return view
-    }()
-    
     let backButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Back", for: .normal)
         button.setImage(.init(systemName: "chevron.backward"), for: .normal)
         button.tintColor = GlobalUIConstants.mamaGreenColor
+        button.backgroundColor = .white
+        button.layer.cornerRadius = Constants.backButtonWidth / 2
         return button
     }()
     
-    let nameLabel: UILabel = {
-        let label = UILabel()
-        label.font = Constants.nameLabelFont
-        label.textColor = Constants.mainContentColor
-        label.adjustsFontSizeToFitWidth = true
-        return label
+    let tableView: ParalaxTableView = {
+        let view = ParalaxTableView()
+        view.separatorStyle = .none
+        view.showsVerticalScrollIndicator = false
+        view.showsHorizontalScrollIndicator = false
+        return view
     }()
     
-    let descriptionLabel: UILabel = {
-        let label = UILabel()
-        label.numberOfLines = 0
-        label.font = Constants.descriptionLabelFont
-        label.textColor = Constants.mainContentColor
-        return label
+    let headerView: UIView = {
+        let view = UIView(
+            frame: CGRect(
+                x: 0,
+                y: 0,
+                width: GlobalUIConstants.screenWidth,
+                height: Constants.imageHeight
+            )
+        )
+        return view
+    }()
+    
+    let headerImageView: UIImageView = {
+        let view = UIImageView()
+        view.contentMode = .scaleAspectFill
+        view.backgroundColor = .yellow
+        return view
+    }()
+    
+    let headerImageBottomRoundedView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        view.layer.shadowOpacity = Constants.shadowOpacity
+        view.layer.cornerRadius = Constants.mainCornerRadius
+        view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        return view
     }()
     
     let minusButton: UIButton = {
@@ -65,7 +80,7 @@ class ItemDetailsView: UIView {
     
     let addButton: UIButton = {
         let button = UIButton()
-        button.layer.cornerRadius = 10
+        button.layer.cornerRadius = Constants.mainCornerRadius
         button.backgroundColor = GlobalUIConstants.mamaGreenColor
         button.setContentHuggingPriority(.init(rawValue: 248), for: .horizontal)
         button.titleLabel?.adjustsFontSizeToFitWidth = true
@@ -85,6 +100,8 @@ class ItemDetailsView: UIView {
     
     // MARK: - Private properties
     private enum Constants {
+        static let shadowOpacity: Float = 0.42
+        static let mainCornerRadius: CGFloat = 10
         static let itemsPerRow: CGFloat = 2
         static let sectionInset: CGFloat = GlobalUIConstants.screenWidth * 0.05
         static let availableWidth: CGFloat = GlobalUIConstants.screenWidth
@@ -93,7 +110,16 @@ class ItemDetailsView: UIView {
         static let addButtonFont: UIFont = .systemFont(ofSize: 15)
         static let mainContentColor: UIColor = .systemGray
         static let mainInset: CGFloat = 16
+        static let backButtonWidth: CGFloat = 40
+        static let imageHeight: CGFloat = GlobalUIConstants.screenWidth * 0.75
     }
+    
+    private let sliderView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .lightGray
+        view.layer.cornerRadius = 2
+        return view
+    }()
     
     private let bottomStack: UIStackView = {
         let stack = UIStackView()
@@ -106,30 +132,38 @@ private extension ItemDetailsView {
     func setup() {
         backgroundColor = .white
 
-        self.addSubview(imageView)
-        imageView.snp.makeConstraints { make in
-            make.top.leading.trailing.equalToSuperview()
-            make.height.equalTo(imageView.snp.width)
+        self.addSubview(tableView)
+        tableView.snp.makeConstraints { make in
+            make.top.leading.trailing.equalTo(safeAreaLayoutGuide)
+        }
+
+        tableView.tableHeaderView = headerView
+        headerView.addSubview(headerImageView)
+        headerImageView.snp.makeConstraints { make in
+            make.height.equalTo(Constants.imageHeight)
+            make.leading.trailing.equalToSuperview()
+            make.bottom.equalToSuperview()
+        }
+        
+        headerImageView.addSubview(headerImageBottomRoundedView)
+        headerImageBottomRoundedView.snp.makeConstraints { make in
+            make.height.equalTo(20)
+            make.leading.trailing.equalToSuperview()
+            make.bottom.equalTo(headerView.snp.bottom)
+        }
+        
+        headerImageBottomRoundedView.addSubview(sliderView)
+        sliderView.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalToSuperview().inset(4)
+            make.width.equalTo(40)
+            make.height.equalTo(4)
         }
         
         self.addSubview(backButton)
         backButton.snp.makeConstraints { make in
-            make.top.equalTo(safeAreaLayoutGuide.snp.top)
-            make.leading.equalToSuperview().inset(8)
-            make.width.equalTo(40)
-            make.height.equalTo(backButton.snp.width)
-        }
-        
-        self.addSubview(nameLabel)
-        nameLabel.snp.makeConstraints { make in
-            make.top.equalTo(imageView.snp.bottom).offset(Constants.mainInset)
-            make.leading.trailing.equalToSuperview().inset(Constants.mainInset)
-        }
-        
-        self.addSubview(descriptionLabel)
-        descriptionLabel.snp.makeConstraints { make in
-            make.top.equalTo(nameLabel.snp.bottom).offset(Constants.mainInset)
-            make.leading.trailing.equalToSuperview().inset(Constants.mainInset)
+            make.top.leading.equalTo(safeAreaLayoutGuide).inset(Constants.mainInset)
+            make.height.width.equalTo(Constants.backButtonWidth)
         }
         
         bottomStack.addArrangedSubview(minusButton)
@@ -152,6 +186,7 @@ private extension ItemDetailsView {
         
         self.addSubview(bottomStack)
         bottomStack.snp.makeConstraints { make in
+            make.top.equalTo(tableView.snp.bottom)
             make.leading.trailing.equalToSuperview().inset(Constants.mainInset)
             make.bottom.equalTo(safeAreaLayoutGuide.snp.bottom).inset(Constants.mainInset)
             make.height.equalTo(45)

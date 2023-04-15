@@ -1,7 +1,7 @@
 import SnapKit
 import UIKit
 
-class DealDescriptionCell: UITableViewCell {
+class ItemDetailsCell: UITableViewCell {
     //MARK: - Public methods
     func configure(name: String, description: String) {
         nameLabel.text = name
@@ -44,7 +44,7 @@ class DealDescriptionCell: UITableViewCell {
 }
 
 //MARK: - Private methods
-private extension DealDescriptionCell {
+private extension ItemDetailsCell {
     func initialize() {
         selectionStyle = .none
 

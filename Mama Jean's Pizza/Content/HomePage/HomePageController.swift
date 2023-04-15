@@ -1,4 +1,3 @@
-// TODO: Fix homepage tap to collections cells
 // TODO: Finish basket page
 // TODO: Finish PaymentTypes page
 // TODO: Finish Order Placed page
@@ -36,6 +35,7 @@ private extension HomePageController {
         view = homePageView
         self.title = "Homepage"
         tapGesture = UITapGestureRecognizer(target: self, action: #selector(homepageViewTapped))
+        tapGesture!.cancelsTouchesInView = false
         view.addGestureRecognizer(tapGesture!)
         homePageView.scrollView.delegate = self
         configureNavigationBar()
