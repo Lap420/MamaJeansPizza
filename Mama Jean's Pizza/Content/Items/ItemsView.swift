@@ -66,8 +66,7 @@ private extension ItemsView {
         self.addSubview(itemsCollectionView)
         itemsCollectionView.snp.makeConstraints { make in
             make.top.equalTo(safeAreaLayoutGuide)
-            make.leading.trailing.equalToSuperview()
-            make.bottom.equalToSuperview()
+            make.leading.trailing.bottom.equalToSuperview()
         }
 
         self.addSubview(basketButtonView)

@@ -1,3 +1,7 @@
+// TODO: Finish basket page move order button text
+// TODO: Finish basket page payment feature
+// TODO: Finish basket page items feature
+// TODO: Finish basket page add items count check if basket is empty
 // TODO: Finish basket page
 // TODO: Finish PaymentTypes page
 // TODO: Finish Order Placed page

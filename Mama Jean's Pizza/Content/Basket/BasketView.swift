@@ -7,10 +7,21 @@ class BasketView: UIView {
         view.backgroundColor = .lightGray
         return view
     }()
+    
+    let bottomView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .white
+        return view
+    }()
+    
     let orderButton: UIButton = {
         let button = UIButton()
-        button.layer.cornerRadius = 10
-        button.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        var conf = UIButton.Configuration.filled()
+        conf.title = "Check out"
+        conf.titleAlignment = .center
+        conf.baseBackgroundColor = GlobalUIConstants.mamaGreenColor
+        conf.buttonSize = .medium
+        button.configuration = conf
         return button
     }()
     
@@ -23,13 +34,6 @@ class BasketView: UIView {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    // MARK: - Private properties
-    private enum Constants {
-//        static let itemsPerRow: CGFloat = 2
-//        static let sectionInset: CGFloat = GlobalUIConstants.screenWidth * 0.05
-//        static let availableWidth: CGFloat = GlobalUIConstants.screenWidth
-    }
 }
 
 // MARK: - Private methods
@@ -39,16 +43,19 @@ private extension BasketView {
         
         self.addSubview(tableView)
         tableView.snp.makeConstraints { make in
-            make.top.equalToSuperview()
-            make.leading.equalToSuperview()
-            make.trailing.equalToSuperview()
+            make.top.equalTo(safeAreaLayoutGuide)
+            make.leading.trailing.bottom.equalToSuperview()
         }
         
-        self.addSubview(orderButton)
-        orderButton.snp.makeConstraints { make in
+        self.addSubview(bottomView)
+        bottomView.snp.makeConstraints { make in
             make.bottom.leading.trailing.equalToSuperview()
-            make.top.equalTo(tableView.snp.top)
-            make.height.equalTo(40)
+        }
+        
+        bottomView.addSubview(orderButton)
+        orderButton.snp.makeConstraints { make in
+            make.top.equalTo(bottomView.snp.top).inset(16)
+            make.bottom.leading.trailing.equalTo(safeAreaLayoutGuide).inset(16)
         }
     }
 }

@@ -1,32 +1,101 @@
-//
-//  BasketCustomerInfoSetCell.swift
-//  Mama Jean's Pizza
-//
-//  Created by Lap on 02.03.2023.
-//
-
 import SnapKit
 import UIKit
 
 class BasketCustomerInfoCell: UITableViewCell {
-    // MARK: - Public
+    // MARK: - Public methods
     func configure(with info: BasketCustomerInfoCellInfo, viewController: UIViewController) {
         nameTextField.text = info.name
+        phoneTextField.text = info.phone
         nameTextField.delegate = viewController as? UITextFieldDelegate
-        
-        phoneTextField.text = "+971123456789"
         phoneTextField.delegate = viewController as? UITextFieldDelegate
-        
-        addressTextField.text = "JLT, Claster X3, flat 228"
         addressTextField.delegate = viewController as? UITextFieldDelegate
         
 //        guard let viewController = viewController as? BasketController else { return }
 //        paymentTypeButton.addTarget(viewController, action: #selector(viewController.paymentTypeButtonTapped), for: .touchUpInside)
     }
     
+    func findEmptyTextField(_ textField: UITextField) -> UITextField? {
+        if nameTextField.text == "" && nameTextField != textField {
+            return nameTextField
+        } else if phoneTextField.text == "" && phoneTextField != textField{
+            return phoneTextField
+        } else if addressTextField.text == "" && addressTextField != textField{
+            return addressTextField
+        }
+        return nil
+    }
+    
+    func addNextButtonOnKeyboard(viewController: UIViewController) {
+        let doneToolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: frame.width, height: 50))
+        doneToolbar.barStyle = .default
+        
+        var title: String
+        if findEmptyTextField(phoneTextField) != nil {
+            title = "Next"
+        } else {
+            title = "Done"
+        }
+        
+        guard let viewController = viewController as? BasketController else { return }
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let nextButton = UIBarButtonItem(title: title, style: .done, target: viewController, action: #selector(viewController.returnForPhoneKeyboard))
+        
+        let items = [flexSpace, nextButton]
+        doneToolbar.items = items
+        doneToolbar.sizeToFit()
+        
+        phoneTextField.inputAccessoryView = doneToolbar
+    }
+    
     func updatePaymentType(newPaymentType: String) {
         paymentTypeButton.setTitle(newPaymentType, for: .normal)
     }
+    
+    // MARK: - Public properties
+    let nameTextField: UITextField = {
+        let textField = UITextField()
+        textField.tag = 1
+        textField.placeholder = "Enter your name"
+        textField.borderStyle = .roundedRect
+        textField.textContentType = .name
+        textField.autocorrectionType = .no
+        textField.spellCheckingType = .no
+        textField.clearButtonMode = .whileEditing
+        return textField
+    }()
+    
+    let invalidPhoneLabel: UILabel = {
+        let label = UILabel()
+        label.text = "The entered phone number is invalid"
+        label.textColor = .red
+        label.font = .systemFont(ofSize: 12)
+        label.isHidden = true
+        return label
+    }()
+    
+    let phoneTextField: UITextField = {
+        let textField = UITextField()
+        textField.tag = 2
+        textField.placeholder = "Enter your phone"
+        textField.borderStyle = .roundedRect
+        textField.text = "+971"
+        textField.textContentType = .telephoneNumber
+        textField.keyboardType = .phonePad
+        textField.clearButtonMode = .whileEditing
+        return textField
+    }()
+    
+    let addressTextField: UITextField = {
+        let textField = UITextField()
+        textField.tag = 3
+        textField.placeholder = "Enter your address"
+        textField.borderStyle = .roundedRect
+        textField.textContentType = .fullStreetAddress
+        textField.autocorrectionType = .no
+        textField.spellCheckingType = .no
+        textField.clearButtonMode = .whileEditing
+        return textField
+    }()
     
     // MARK: - Init
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -47,52 +116,39 @@ class BasketCustomerInfoCell: UITableViewCell {
     // MARK: - Private properties
     private let nameLabel: UILabel = {
         let label = UILabel()
-        label.text = "Name"
+        label.text = "Name *"
         label.font = .systemFont(ofSize: 15, weight: .bold)
         return label
-    }()
-    
-    private let nameTextField: UITextField = {
-        let textField = UITextField()
-        textField.placeholder = "Enter your name"
-        textField.borderStyle = .roundedRect
-        textField.textContentType = .name
-        textField.autocorrectionType = .no
-        textField.spellCheckingType = .no
-        return textField
     }()
     
     private let phoneLabel: UILabel = {
         let label = UILabel()
-        label.text = "Phone"
+        label.text = "Phone *"
         label.font = .systemFont(ofSize: 15, weight: .bold)
         return label
-    }()
-    
-    private let phoneTextField: UITextField = {
-        let textField = UITextField()
-        textField.placeholder = "Enter your phone"
-        textField.borderStyle = .roundedRect
-        textField.text = "+971"
-        textField.textContentType = .telephoneNumber
-        textField.keyboardType = .phonePad
-        return textField
     }()
     
     private let addressLabel: UILabel = {
         let label = UILabel()
-        label.text = "Address"
+        label.text = "Address *"
         label.font = .systemFont(ofSize: 15, weight: .bold)
         return label
     }()
     
-    private let addressTextField: UITextField = {
+    private let commentLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Delivery comment"
+        label.font = .systemFont(ofSize: 15, weight: .bold)
+        return label
+    }()
+    
+    private let commentTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "Enter your address"
+        textField.placeholder = "Your comment (optional)"
         textField.borderStyle = .roundedRect
-        textField.textContentType = .fullStreetAddress
         textField.autocorrectionType = .no
         textField.spellCheckingType = .no
+        textField.clearButtonMode = .whileEditing
         return textField
     }()
     
@@ -117,49 +173,57 @@ class BasketCustomerInfoCell: UITableViewCell {
         selectionStyle = .none
         contentView.addSubview(nameLabel)
         nameLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(UIConstants.contentInset)
-            make.leading.equalToSuperview().inset(UIConstants.contentInset)
-            make.height.greaterThanOrEqualTo(10)
+            make.top.leading.equalToSuperview().inset(UIConstants.contentInset)
         }
         contentView.addSubview(nameTextField)
         nameTextField.snp.makeConstraints { make in
-            make.top.equalTo(nameLabel.snp.bottom).inset(-UIConstants.beforeTextFieldInset)
-            make.leading.equalToSuperview().inset(UIConstants.contentInset)
-            make.trailing.equalToSuperview().inset(UIConstants.contentInset)
+            make.top.equalTo(nameLabel.snp.bottom).offset(UIConstants.beforeTextFieldInset)
+            make.leading.trailing.equalToSuperview().inset(UIConstants.contentInset)
         }
         contentView.addSubview(phoneLabel)
         phoneLabel.snp.makeConstraints { make in
-            make.top.equalTo(nameTextField.snp.bottom).inset(-UIConstants.contentInset)
+            make.top.equalTo(nameTextField.snp.bottom).offset(UIConstants.contentInset)
             make.leading.equalToSuperview().inset(UIConstants.contentInset)
         }
         contentView.addSubview(phoneTextField)
         phoneTextField.snp.makeConstraints { make in
-            make.top.equalTo(phoneLabel.snp.bottom).inset(-UIConstants.beforeTextFieldInset)
+            make.top.equalTo(phoneLabel.snp.bottom).offset(UIConstants.beforeTextFieldInset)
+            make.leading.trailing.equalToSuperview().inset(UIConstants.contentInset)
+        }
+        contentView.addSubview(invalidPhoneLabel)
+        invalidPhoneLabel.snp.makeConstraints { make in
+            make.top.equalTo(phoneTextField.snp.bottom)
             make.leading.equalToSuperview().inset(UIConstants.contentInset)
-            make.trailing.equalToSuperview().inset(UIConstants.contentInset)
         }
         contentView.addSubview(addressLabel)
         addressLabel.snp.makeConstraints { make in
-            make.top.equalTo(phoneTextField.snp.bottom).inset(-UIConstants.contentInset)
+            make.top.equalTo(phoneTextField.snp.bottom).offset(UIConstants.contentInset)
             make.leading.equalToSuperview().inset(UIConstants.contentInset)
         }
         contentView.addSubview(addressTextField)
         addressTextField.snp.makeConstraints { make in
-            make.top.equalTo(addressLabel.snp.bottom).inset(-UIConstants.beforeTextFieldInset)
+            make.top.equalTo(addressLabel.snp.bottom).offset(UIConstants.beforeTextFieldInset)
+            make.leading.trailing.equalToSuperview().inset(UIConstants.contentInset)
+        }
+        contentView.addSubview(commentLabel)
+        commentLabel.snp.makeConstraints { make in
+            make.top.equalTo((addressTextField).snp.bottom).offset(UIConstants.contentInset)
             make.leading.equalToSuperview().inset(UIConstants.contentInset)
-            make.trailing.equalToSuperview().inset(UIConstants.contentInset)
+        }
+        contentView.addSubview(commentTextField)
+        commentTextField.snp.makeConstraints { make in
+            make.top.equalTo(commentLabel.snp.bottom).offset(UIConstants.beforeTextFieldInset)
+            make.leading.trailing.equalToSuperview().inset(UIConstants.contentInset)
         }
         contentView.addSubview(paymentTypeLabel)
         paymentTypeLabel.snp.makeConstraints { make in
-            make.top.equalTo(addressTextField.snp.bottom).inset(-UIConstants.contentInset)
+            make.top.equalTo(commentTextField.snp.bottom).offset(UIConstants.contentInset)
             make.leading.equalToSuperview().inset(UIConstants.contentInset)
         }
         contentView.addSubview(paymentTypeButton)
         paymentTypeButton.snp.makeConstraints { make in
-            make.top.equalTo(paymentTypeLabel.snp.bottom).inset(-UIConstants.beforeTextFieldInset)
-            make.leading.equalToSuperview().inset(UIConstants.contentInset)
-            make.trailing.equalToSuperview().inset(UIConstants.contentInset)
-            make.bottom.equalToSuperview().inset(UIConstants.contentInset)
+            make.top.equalTo(paymentTypeLabel.snp.bottom).offset(UIConstants.beforeTextFieldInset)
+            make.leading.trailing.bottom.equalToSuperview().inset(UIConstants.contentInset)
         }
     }
 }

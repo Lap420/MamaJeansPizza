@@ -1,7 +1,6 @@
 enum BasketCellType {
     case customerData(BasketCustomerInfoCellInfo)
-//    case basketItems
-//    case commentAndTotal
+//    case basketItem
 }
 
 struct BasketCustomerInfoCellInfo {
