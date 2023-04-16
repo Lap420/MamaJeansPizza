@@ -32,6 +32,8 @@ class BasketController: UIViewController {
             basketCustomerInfoCell?.invalidPhoneLabel.isHidden = isValidPhoneNumber
         }
     }
+    private var choosenPaymentType = PaymentType.card
+    private let phoneRegex = #"^\+?\d{10,13}$"#
 }
 
 // MARK: Private methods
@@ -41,14 +43,16 @@ private extension BasketController {
         self.title = "Basket"
         let tap = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tap)
-        setBasketTitleName()
+        setBasketSubtitle()
         initTableView()
         initButtonTargets()
     }
     
-    func setBasketTitleName() {
-        let orderButtonTitle = "Order " + Basket.shared.getItemsAndTotalAmount().amount
-        basketView.orderButton.setTitle(orderButtonTitle, for: .normal)
+    func setBasketSubtitle() {
+        let orderButtonSubtitle = Basket.shared.getItemsAndTotalAmount().amount
+        guard var conf = basketView.orderButton.configuration else { return }
+        conf.subtitle = orderButtonSubtitle
+        basketView.orderButton.configuration = conf
     }
     
     func initTableView() {
@@ -64,24 +68,14 @@ private extension BasketController {
         )
     }
     
+    func checkPhoneIsValid(_ textField: UITextField) {
+        let isValidPhoneNumber = textField.text?.range(of: phoneRegex, options: .regularExpression) != nil
+        self.isValidPhoneNumber = isValidPhoneNumber
+    }
+    
     @objc
     func dismissKeyboard() {
         view.endEditing(true)
-    }
-    
-    @objc
-    func paymentTypeButtonTapped() {
-//        let vc = storyboard?.instantiateViewController(withIdentifier: "PaymentTypesViewController") as! PaymentTypesViewController
-//        vc.configure(viewController: self)
-//        present(vc, animated: true)
-    }
-    
-    @objc
-    func paymentTypeDidChoose(sender: UIButton) {
-        if let cell = basketView.tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? BasketCustomerInfoCell {
-            cell.updatePaymentType(newPaymentType: sender.title(for: .normal) ?? "Click here")
-        }
-        dismiss(animated: true)
     }
     
     @objc
@@ -123,7 +117,22 @@ extension BasketController: UITableViewDataSource {
         case .customerData(let info):
             let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: BasketCustomerInfoCell.self), for: indexPath) as! BasketCustomerInfoCell
             basketCustomerInfoCell = cell
-            cell.configure(with: info, viewController: self)
+            cell.configure(with: info, viewController: self, defaultPaymentType: choosenPaymentType) { [weak self] action in
+                let choosenPaymentType: PaymentType
+                switch action.title {
+                case PaymentType.cash.rawValue:
+                    choosenPaymentType = PaymentType.cash
+                case PaymentType.card.rawValue:
+                    choosenPaymentType = PaymentType.card
+                case PaymentType.online.rawValue:
+                    choosenPaymentType = PaymentType.online
+                default:
+                    choosenPaymentType = PaymentType.cash
+                }
+                self?.choosenPaymentType = choosenPaymentType
+                
+            }
+            checkPhoneIsValid(cell.phoneTextField)
             return cell
         }
     }
@@ -147,8 +156,7 @@ extension BasketController: UITextFieldDelegate {
         guard textField.tag == 2 else { return true }
         let currentText = textField.text ?? ""
         let updatedText = (currentText as NSString).replacingCharacters(in: range, with: string)
-        let regex = #"^\+?\d{10,13}$"#
-        let isValidPhoneNumber = updatedText.range(of: regex, options: .regularExpression) != nil
+        let isValidPhoneNumber = updatedText.range(of: phoneRegex, options: .regularExpression) != nil
         self.isValidPhoneNumber = isValidPhoneNumber
         return true
     }
@@ -162,6 +170,4 @@ extension BasketController: UITextFieldDelegate {
         }
         return true
     }
-    
-    
 }

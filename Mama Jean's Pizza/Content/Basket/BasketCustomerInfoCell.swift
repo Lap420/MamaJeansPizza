@@ -3,15 +3,20 @@ import UIKit
 
 class BasketCustomerInfoCell: UITableViewCell {
     // MARK: - Public methods
-    func configure(with info: BasketCustomerInfoCellInfo, viewController: UIViewController) {
-        nameTextField.text = info.name
-        phoneTextField.text = info.phone
+    func configure(with info: BasketCustomerInfoCellInfo, viewController: UIViewController, defaultPaymentType: PaymentType, handler: @escaping (UIAction) -> Void) {
         nameTextField.delegate = viewController as? UITextFieldDelegate
         phoneTextField.delegate = viewController as? UITextFieldDelegate
         addressTextField.delegate = viewController as? UITextFieldDelegate
-        
-//        guard let viewController = viewController as? BasketController else { return }
-//        paymentTypeButton.addTarget(viewController, action: #selector(viewController.paymentTypeButtonTapped), for: .touchUpInside)
+        paymentTypeButton.menu = UIMenu(children: [
+            UIAction(title: PaymentType.online.rawValue, handler: handler),
+            UIAction(title: PaymentType.card.rawValue, handler: handler),
+            UIAction(title: PaymentType.cash.rawValue, state: .on, handler: handler)
+        ])
+        _ = paymentTypeButton.menu?.children.map { menuElement in
+            guard let action = menuElement as? UIAction else { return }
+            guard action.title == defaultPaymentType.rawValue else { return }
+            action.state = .on
+        }
     }
     
     func findEmptyTextField(_ textField: UITextField) -> UITextField? {
@@ -45,10 +50,6 @@ class BasketCustomerInfoCell: UITableViewCell {
         doneToolbar.sizeToFit()
         
         phoneTextField.inputAccessoryView = doneToolbar
-    }
-    
-    func updatePaymentType(newPaymentType: String) {
-        paymentTypeButton.setTitle(newPaymentType, for: .normal)
     }
     
     // MARK: - Public properties
@@ -161,10 +162,11 @@ class BasketCustomerInfoCell: UITableViewCell {
     
     private let paymentTypeButton: UIButton = {
         let button = UIButton(type: .system)
-        button.setTitle("Cash on Delivery", for: .normal)
         button.setTitleColor(.black, for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 20)
         button.contentHorizontalAlignment = .left
+        button.showsMenuAsPrimaryAction = true
+        button.changesSelectionAsPrimaryAction = true
         return button
     }()
     
