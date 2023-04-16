@@ -1,12 +1,13 @@
 enum BasketCellType {
-    case customerData(BasketCustomerInfoCellInfo)
-//    case basketItem
+//    case customerData(BasketCustomerInfoCellInfo)
+    case customerData
+    case basketItem
 }
 
-struct BasketCustomerInfoCellInfo {
-    let name = "Sergei"
-    let phone = "+971123456789"
-}
+//struct BasketCustomerInfoCellInfo {
+//    let name = "Sergei"
+//    let phone = "+971123456789"
+//}
 
 enum PaymentType: String {
     case cash = "Cash on Delivery"

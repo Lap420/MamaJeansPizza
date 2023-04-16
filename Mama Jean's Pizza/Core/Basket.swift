@@ -7,7 +7,7 @@ struct Basket {
     mutating func addItem(item: BasketItem) {
         if let items = items {
             if let index = items.firstIndex(of: item) {
-                self.items![index] = BasketItem(productId: item.productId, amount: item.amount + items[index].amount, price: item.price)
+                self.items![index] = BasketItem(productId: item.productId, name: item.name, amount: item.amount + items[index].amount, price: item.price)
             } else {
                 self.items!.append(item)
             }
@@ -36,6 +36,7 @@ struct Basket {
 
 struct BasketItem: Equatable {
     let productId: String
+    let name: String
     let amount: Int
     let price: Double
     

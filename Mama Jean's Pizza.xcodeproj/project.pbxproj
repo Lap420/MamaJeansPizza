@@ -27,9 +27,9 @@
 		045654AF29D5E3AC009AA225 /* DealDescriptionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045654AE29D5E3AC009AA225 /* DealDescriptionController.swift */; };
 		045654B229D5E481009AA225 /* IntroController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045654B129D5E481009AA225 /* IntroController.swift */; };
 		045654B629D612EC009AA225 /* BalanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045654B529D612EC009AA225 /* BalanceView.swift */; };
-		045ABBFD29AE4C7C00942686 /* ItemData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045ABBFC29AE4C7C00942686 /* ItemData.swift */; };
 		045ABBFF29AE5D8700942686 /* Basket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045ABBFE29AE5D8700942686 /* Basket.swift */; };
 		045ABC0229AE753100942686 /* SyrveCreateOrder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045ABC0129AE753100942686 /* SyrveCreateOrder.swift */; };
+		046F2C9529EC4AEE00CF84E0 /* BasketItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046F2C9429EC4AEE00CF84E0 /* BasketItemCell.swift */; };
 		0478039229D9E5E900D85C12 /* IntroPageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0478039129D9E5E900D85C12 /* IntroPageModel.swift */; };
 		0478039429D9E8EE00D85C12 /* IntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0478039329D9E8EE00D85C12 /* IntroView.swift */; };
 		047FD8F529E1D9CD00E1D975 /* HomePageContainerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047FD8F429E1D9CD00E1D975 /* HomePageContainerController.swift */; };
@@ -90,9 +90,9 @@
 		045654AE29D5E3AC009AA225 /* DealDescriptionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DealDescriptionController.swift; sourceTree = "<group>"; };
 		045654B129D5E481009AA225 /* IntroController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroController.swift; sourceTree = "<group>"; };
 		045654B529D612EC009AA225 /* BalanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceView.swift; sourceTree = "<group>"; };
-		045ABBFC29AE4C7C00942686 /* ItemData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemData.swift; sourceTree = "<group>"; };
 		045ABBFE29AE5D8700942686 /* Basket.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Basket.swift; sourceTree = "<group>"; };
 		045ABC0129AE753100942686 /* SyrveCreateOrder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyrveCreateOrder.swift; sourceTree = "<group>"; };
+		046F2C9429EC4AEE00CF84E0 /* BasketItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketItemCell.swift; sourceTree = "<group>"; };
 		0478039129D9E5E900D85C12 /* IntroPageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroPageModel.swift; sourceTree = "<group>"; };
 		0478039329D9E8EE00D85C12 /* IntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroView.swift; sourceTree = "<group>"; };
 		047FD8F429E1D9CD00E1D975 /* HomePageContainerController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageContainerController.swift; sourceTree = "<group>"; };
@@ -194,6 +194,7 @@
 				045654A729D5DCC9009AA225 /* BasketView.swift */,
 				045654A929D5DCD3009AA225 /* BasketController.swift */,
 				04220BE729B0DFB6005D53C4 /* BasketCustomerInfoCell.swift */,
+				046F2C9429EC4AEE00CF84E0 /* BasketItemCell.swift */,
 			);
 			path = Basket;
 			sourceTree = "<group>";
@@ -340,7 +341,6 @@
 			isa = PBXGroup;
 			children = (
 				045ABBFE29AE5D8700942686 /* Basket.swift */,
-				045ABBFC29AE4C7C00942686 /* ItemData.swift */,
 				04AD8DB3299A873D00C25FF7 /* MenuManager.swift */,
 			);
 			path = Core;
@@ -497,7 +497,6 @@
 				040489DC29D837C600A183F4 /* BasketButtonView.swift in Sources */,
 				04F19BCF29D356BD00180545 /* MenuModel.swift in Sources */,
 				04F4429F29ABE7260065D6F4 /* SyrveAPIManager.swift in Sources */,
-				045ABBFD29AE4C7C00942686 /* ItemData.swift in Sources */,
 				045ABC0229AE753100942686 /* SyrveCreateOrder.swift in Sources */,
 				04F19BD329D356DF00180545 /* MenuController.swift in Sources */,
 				04220BE829B0DFB6005D53C4 /* BasketCustomerInfoCell.swift in Sources */,
@@ -510,6 +509,7 @@
 				04899C1029B289B4000BB5DD /* OrderPlacedViewController.swift in Sources */,
 				04F19BD129D356D100180545 /* MenuView.swift in Sources */,
 				04B295CD299978600076984A /* IntroPageController.swift in Sources */,
+				046F2C9529EC4AEE00CF84E0 /* BasketItemCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

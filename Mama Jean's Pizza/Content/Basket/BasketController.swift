@@ -9,8 +9,9 @@ class BasketController: UIViewController {
     }
     
     // MARK: Public properties
-    let items: [BasketCellType] = [
-        .customerData(BasketCustomerInfoCellInfo())
+    private var items: [BasketCellType] = [
+//        .customerData(BasketCustomerInfoCellInfo())
+        .customerData
     ]
     
     // MARK: - ViewController Lifecycle
@@ -32,7 +33,7 @@ class BasketController: UIViewController {
             basketCustomerInfoCell?.invalidPhoneLabel.isHidden = isValidPhoneNumber
         }
     }
-    private var choosenPaymentType = PaymentType.card
+    private var choosenPaymentType = PaymentType.cash
     private let phoneRegex = #"^\+?\d{10,13}$"#
 }
 
@@ -46,6 +47,7 @@ private extension BasketController {
         setBasketSubtitle()
         initTableView()
         initButtonTargets()
+        addBasketItemsToDataSource()
     }
     
     func setBasketSubtitle() {
@@ -57,6 +59,7 @@ private extension BasketController {
     
     func initTableView() {
         basketView.tableView.register(BasketCustomerInfoCell.self, forCellReuseIdentifier: String(describing: BasketCustomerInfoCell.self))
+        basketView.tableView.register(BasketItemCell.self, forCellReuseIdentifier: String(describing: BasketItemCell.self))
         basketView.tableView.dataSource = self
     }
     
@@ -66,6 +69,12 @@ private extension BasketController {
             action: #selector(orderButtonTapped),
             for: .touchUpInside
         )
+    }
+    
+    func addBasketItemsToDataSource() {
+        Basket.shared.items?.forEach({ item in
+            items.append(.basketItem)
+        })
     }
     
     func checkPhoneIsValid(_ textField: UITextField) {
@@ -114,10 +123,12 @@ extension BasketController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let item = items[indexPath.row]
         switch item {
-        case .customerData(let info):
+//        case .customerData(let info):
+        case .customerData:
             let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: BasketCustomerInfoCell.self), for: indexPath) as! BasketCustomerInfoCell
             basketCustomerInfoCell = cell
-            cell.configure(with: info, viewController: self, defaultPaymentType: choosenPaymentType) { [weak self] action in
+//            cell.configure(with: info, viewController: self, defaultPaymentType: choosenPaymentType) { [weak self] action in
+            cell.configure(viewController: self, defaultPaymentType: choosenPaymentType) { [weak self] action in
                 let choosenPaymentType: PaymentType
                 switch action.title {
                 case PaymentType.cash.rawValue:
@@ -130,9 +141,17 @@ extension BasketController: UITableViewDataSource {
                     choosenPaymentType = PaymentType.cash
                 }
                 self?.choosenPaymentType = choosenPaymentType
-                
             }
             checkPhoneIsValid(cell.phoneTextField)
+            return cell
+        case .basketItem:
+            let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: BasketItemCell.self), for: indexPath) as! BasketItemCell
+            guard let item = Basket.shared.items?[indexPath.row - 1] else { return cell }
+            var image: UIImage?
+            if let imadeData = MenuManager.shared.menuImages[item.productId] {
+                image = UIImage(data: imadeData)
+            }
+            cell.configure(viewController: self, item: item, image: image)
             return cell
         }
     }

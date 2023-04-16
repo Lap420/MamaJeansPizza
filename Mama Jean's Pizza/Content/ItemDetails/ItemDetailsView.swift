@@ -80,11 +80,13 @@ class ItemDetailsView: UIView {
     
     let addButton: UIButton = {
         let button = UIButton()
-        button.layer.cornerRadius = Constants.mainCornerRadius
-        button.backgroundColor = GlobalUIConstants.mamaGreenColor
         button.setContentHuggingPriority(.init(rawValue: 248), for: .horizontal)
-        button.titleLabel?.adjustsFontSizeToFitWidth = true
-        button.titleLabel?.font = Constants.addButtonFont
+        var conf = UIButton.Configuration.filled()
+        conf.title = "Add to cart"
+        conf.titleAlignment = .center
+        conf.baseBackgroundColor = GlobalUIConstants.mamaGreenColor
+        conf.buttonSize = .medium
+        button.configuration = conf
         return button
     }()
     

@@ -76,7 +76,7 @@ private extension ItemDetailsController {
     
     @objc
     func addButtonTapped() {
-        let item = BasketItem(productId: item.id, amount: itemQty, price: item.price)
+        let item = BasketItem(productId: item.id, name: item.name, amount: itemQty, price: item.price)
         Basket.shared.addItem(item: item)
         dismiss(animated: true, completion: nil)
     }
@@ -90,7 +90,9 @@ private extension ItemDetailsController {
         itemDetailsView.minusButton.tintColor = itemQty == 1 ? .systemGray : GlobalUIConstants.mamaGreenColor
         itemDetailsView.itemQtyLabel.text = "\(itemQty)"
         textPrice = String(format: "%.2f", item.price * Double(itemQty))
-        itemDetailsView.addButton.setTitle("Add \(textPrice) AED", for: .normal)
+        var conf = itemDetailsView.addButton.configuration
+        conf?.subtitle = "\(textPrice) AED"
+        itemDetailsView.addButton.configuration = conf
     }
 }
 

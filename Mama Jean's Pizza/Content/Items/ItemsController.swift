@@ -79,7 +79,7 @@ extension ItemsController: UICollectionViewDataSource {
             for: indexPath) as! ItemCell
         let name = itemsModel!.items[indexPath.item].name
         let price = String(format: "%.2f", itemsModel!.items[indexPath.item].price) + " AED"
-        var image: UIImage? = nil
+        var image: UIImage?
         let itemId = itemsModel!.items[indexPath.item].id
         if let imageData = itemsModel!.itemsImages[itemId] {
             image = UIImage(data: imageData)

@@ -26,6 +26,7 @@ class ItemDetailsCell: UITableViewCell {
         static let mainInset: CGFloat = 16
         static let afterNameInset: CGFloat = 24
     }
+    
     private let nameLabel: UILabel = {
         let label = UILabel()
         label.font = Constants.nameLabelFont

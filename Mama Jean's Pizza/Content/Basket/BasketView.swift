@@ -4,7 +4,7 @@ class BasketView: UIView {
     // MARK: - Public properties
     let tableView: UITableView = {
         let view = UITableView()
-        view.backgroundColor = .lightGray
+        view.backgroundColor = .white
         return view
     }()
     
@@ -41,12 +41,6 @@ private extension BasketView {
     func setup() {
         backgroundColor = GlobalUIConstants.mamaGreenColor
         
-        self.addSubview(tableView)
-        tableView.snp.makeConstraints { make in
-            make.top.equalTo(safeAreaLayoutGuide)
-            make.leading.trailing.bottom.equalToSuperview()
-        }
-        
         self.addSubview(bottomView)
         bottomView.snp.makeConstraints { make in
             make.bottom.leading.trailing.equalToSuperview()
@@ -56,6 +50,13 @@ private extension BasketView {
         orderButton.snp.makeConstraints { make in
             make.top.equalTo(bottomView.snp.top).inset(16)
             make.bottom.leading.trailing.equalTo(safeAreaLayoutGuide).inset(16)
+        }
+        
+        self.addSubview(tableView)
+        tableView.snp.makeConstraints { make in
+            make.top.equalTo(safeAreaLayoutGuide)
+            make.bottom.equalTo(bottomView.snp.top)
+            make.leading.trailing.equalToSuperview()
         }
     }
 }

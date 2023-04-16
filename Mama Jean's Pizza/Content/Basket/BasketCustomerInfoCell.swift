@@ -3,14 +3,15 @@ import UIKit
 
 class BasketCustomerInfoCell: UITableViewCell {
     // MARK: - Public methods
-    func configure(with info: BasketCustomerInfoCellInfo, viewController: UIViewController, defaultPaymentType: PaymentType, handler: @escaping (UIAction) -> Void) {
+//    func configure(with info: BasketCustomerInfoCellInfo, viewController: UIViewController, defaultPaymentType: PaymentType, handler: @escaping (UIAction) -> Void) {
+    func configure(viewController: UIViewController, defaultPaymentType: PaymentType, handler: @escaping (UIAction) -> Void) {
         nameTextField.delegate = viewController as? UITextFieldDelegate
         phoneTextField.delegate = viewController as? UITextFieldDelegate
         addressTextField.delegate = viewController as? UITextFieldDelegate
         paymentTypeButton.menu = UIMenu(children: [
-            UIAction(title: PaymentType.online.rawValue, handler: handler),
+            UIAction(title: PaymentType.cash.rawValue, state: .on, handler: handler),
             UIAction(title: PaymentType.card.rawValue, handler: handler),
-            UIAction(title: PaymentType.cash.rawValue, state: .on, handler: handler)
+            UIAction(title: PaymentType.online.rawValue, handler: handler)
         ])
         _ = paymentTypeButton.menu?.children.map { menuElement in
             guard let action = menuElement as? UIAction else { return }
@@ -169,8 +170,10 @@ class BasketCustomerInfoCell: UITableViewCell {
         button.changesSelectionAsPrimaryAction = true
         return button
     }()
-    
-    // MARK: - Private methods
+}
+
+// MARK: - Private methods
+extension BasketCustomerInfoCell {
     private func initialize() {
         selectionStyle = .none
         contentView.addSubview(nameLabel)
