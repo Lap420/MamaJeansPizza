@@ -8,12 +8,6 @@ class BasketController: UIViewController {
         _ = textFieldShouldReturn(phoneTextField)
     }
     
-    // MARK: Public properties
-    private var items: [BasketCellType] = [
-//        .customerData(BasketCustomerInfoCellInfo())
-        .customerData
-    ]
-    
     // MARK: - ViewController Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +22,9 @@ class BasketController: UIViewController {
     // MARK: - Private properties
     private let basketView = BasketView()
     private var basketCustomerInfoCell: BasketCustomerInfoCell?
+    private var items: [BasketCellType] = [
+        .customerData
+    ]
     private var isValidPhoneNumber = true {
         didSet {
             basketCustomerInfoCell?.invalidPhoneLabel.isHidden = isValidPhoneNumber
@@ -52,6 +49,13 @@ private extension BasketController {
     
     func setBasketSubtitle() {
         let orderButtonSubtitle = Basket.shared.getItemsAndTotalAmount().amount
+        guard Basket.shared.items?.count != 0 else {
+            let alert = AlertManager.emptyBasketAlert() {_ in
+                self.navigationController?.popViewController(animated: true)
+            }
+            present(alert, animated: true)
+            return
+        }
         guard var conf = basketView.orderButton.configuration else { return }
         conf.subtitle = orderButtonSubtitle
         basketView.orderButton.configuration = conf
@@ -123,11 +127,9 @@ extension BasketController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let item = items[indexPath.row]
         switch item {
-//        case .customerData(let info):
         case .customerData:
             let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: BasketCustomerInfoCell.self), for: indexPath) as! BasketCustomerInfoCell
             basketCustomerInfoCell = cell
-//            cell.configure(with: info, viewController: self, defaultPaymentType: choosenPaymentType) { [weak self] action in
             cell.configure(viewController: self, defaultPaymentType: choosenPaymentType) { [weak self] action in
                 let choosenPaymentType: PaymentType
                 switch action.title {
@@ -152,6 +154,7 @@ extension BasketController: UITableViewDataSource {
                 image = UIImage(data: imadeData)
             }
             cell.configure(viewController: self, item: item, image: image)
+            cell.delegate = self
             return cell
         }
     }
@@ -188,5 +191,38 @@ extension BasketController: UITextFieldDelegate {
             textField.resignFirstResponder()
         }
         return true
+    }
+}
+
+extension BasketController: BasketItemCellDelegate {
+    func basketItemCellDidDecreaseQuantity(_ cell: BasketItemCell) {
+        guard let item = cell.item else { return }
+        guard let index = Basket.shared.getItemIndex(item) else { return }
+        guard Basket.shared.items![index].amount > 1 else { return }
+        Basket.shared.updateItemAmount(item)
+        setBasketSubtitle()
+        cell.itemQtyChanged()
+    }
+    
+    func basketItemCellDidIncreaseQuantity(_ cell: BasketItemCell) {
+        guard let item = cell.item else { return }
+        Basket.shared.updateItemAmount(item)
+        setBasketSubtitle()
+        cell.itemQtyChanged()
+    }
+    
+    func basketItemCellDidDelete(_ cell: BasketItemCell) {
+        guard let item = cell.item else { return }
+        let message = "Are you sure you want to delete \"\(item.name)\" from the order?"
+        let alert = AlertManager.itemDeletionAlert(message: message) { [self] _ in
+            Basket.shared.deleteItem(item)
+            items.removeLast()
+            guard let indexPath = basketView.tableView.indexPath(for: cell) else { return }
+            basketView.tableView.beginUpdates()
+            basketView.tableView.deleteRows(at: [indexPath], with: .automatic)
+            basketView.tableView.endUpdates()
+            setBasketSubtitle()
+        }
+        present(alert, animated: true)
     }
 }

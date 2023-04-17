@@ -61,6 +61,15 @@ private extension ItemDetailsController {
         
     }
     
+    func itemQtyChanged() {
+        itemDetailsView.minusButton.tintColor = itemQty == 1 ? .systemGray : GlobalUIConstants.mamaGreenColor
+        itemDetailsView.itemQtyLabel.text = "\(itemQty)"
+        textPrice = String(format: "%.2f", item.price * Double(itemQty))
+        var conf = itemDetailsView.addButton.configuration
+        conf?.subtitle = "\(textPrice) AED"
+        itemDetailsView.addButton.configuration = conf
+    }
+    
     @objc
     func minusButtonTapped() {
         guard itemQty > 1 else { return }
@@ -77,22 +86,13 @@ private extension ItemDetailsController {
     @objc
     func addButtonTapped() {
         let item = BasketItem(productId: item.id, name: item.name, amount: itemQty, price: item.price)
-        Basket.shared.addItem(item: item)
+        Basket.shared.addItem(item)
         dismiss(animated: true, completion: nil)
     }
     
     @objc
     func backButtonTapped() {
         dismiss(animated: true, completion: nil)
-    }
-    
-    func itemQtyChanged() {
-        itemDetailsView.minusButton.tintColor = itemQty == 1 ? .systemGray : GlobalUIConstants.mamaGreenColor
-        itemDetailsView.itemQtyLabel.text = "\(itemQty)"
-        textPrice = String(format: "%.2f", item.price * Double(itemQty))
-        var conf = itemDetailsView.addButton.configuration
-        conf?.subtitle = "\(textPrice) AED"
-        itemDetailsView.addButton.configuration = conf
     }
 }
 

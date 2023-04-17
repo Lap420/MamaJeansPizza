@@ -4,7 +4,7 @@ struct Basket {
     
     private(set) var items: [BasketItem]?
     
-    mutating func addItem(item: BasketItem) {
+    mutating func addItem(_ item: BasketItem) {
         if let items = items {
             if let index = items.firstIndex(of: item) {
                 self.items![index] = BasketItem(productId: item.productId, name: item.name, amount: item.amount + items[index].amount, price: item.price)
@@ -16,8 +16,26 @@ struct Basket {
         }
     }
     
+    mutating func updateItemAmount(_ item: BasketItem) {
+        guard let items = items else { return }
+        guard let index = items.firstIndex(of: item) else { return }
+        self.items![index].amount = item.amount
+    }
+    
+    mutating func deleteItem(_ item: BasketItem) {
+        guard let items = items else { return }
+        guard let index = items.firstIndex(of: item) else { return }
+        self.items!.remove(at: index)
+    }
+    
     mutating func clear() {
         items = nil
+    }
+    
+    func getItemIndex(_ item: BasketItem) -> Int? {
+        guard let items = items else { return nil }
+        guard let index = items.firstIndex(of: item) else { return nil }
+        return index
     }
     
     func getItemsAndTotalAmount() -> (items: String, amount: String) {
@@ -37,7 +55,7 @@ struct Basket {
 struct BasketItem: Equatable {
     let productId: String
     let name: String
-    let amount: Int
+    var amount: Int
     let price: Double
     
     static func == (lhs: BasketItem, rhs: BasketItem) -> Bool {

@@ -1,5 +1,5 @@
-// TODO: Finish basket page items feature
-// TODO: Finish basket page add items count check if basket is empty
+// TODO: Finish basket page Send order to api when check out button clicked
+// TODO: Finish basket page Add activity indicator to check out while order is sending to api
 // TODO: Finish basket page
 // TODO: Finish Order Placed page
 // TODO: Send orders to Syrve
