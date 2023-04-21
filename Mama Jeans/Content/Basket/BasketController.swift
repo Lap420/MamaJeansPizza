@@ -20,6 +20,7 @@ class BasketController: UIViewController {
     }
     
     // MARK: - Private properties
+    private var basketModel = BasketModel()
     private let basketView = BasketView()
     private var basketCustomerInfoCell: BasketCustomerInfoCell?
     private var items: [BasketCellType] = [
@@ -31,7 +32,7 @@ class BasketController: UIViewController {
         }
     }
     private var choosenPaymentType = PaymentType.cash
-    private let phoneRegex = #"^\+?\d{10,13}$"#
+    private let phoneRegex = #"^\+?\d{11,13}$"#
 }
 
 // MARK: Private methods
@@ -116,6 +117,26 @@ private extension BasketController {
             present(alert, animated: true)
             return
         }
+        var conf = basketView.orderButton.configuration
+        conf?.title = "Checking out..."
+        conf?.showsActivityIndicator = true
+        basketView.orderButton.configuration = conf
+        basketView.orderButton.isEnabled = false
+        let order = SyrveApiManager.shared.prepareOrder(basketModel)
+        SyrveApiManager.shared.createOrder(order: order) { [weak self] orderId, errorMessage in
+            DispatchQueue.main.async {
+                var conf = self?.basketView.orderButton.configuration
+                conf?.showsActivityIndicator = false
+                self?.basketView.orderButton.configuration = conf
+                let nextVC = OrderPlacedController()
+                nextVC.isSuccess = orderId != nil
+                nextVC.navController = self?.navigationController
+                nextVC.modalPresentationStyle = .overCurrentContext
+                nextVC.modalTransitionStyle = .crossDissolve
+                self?.present(nextVC, animated: true)
+            }
+            Basket.shared.clear()
+        }
     }
 }
 
@@ -175,9 +196,21 @@ extension BasketController: UITextFieldDelegate {
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        guard textField.tag == 2 else { return true }
         let currentText = textField.text ?? ""
         let updatedText = (currentText as NSString).replacingCharacters(in: range, with: string)
+        switch textField.tag {
+        case 1:
+            basketModel.name = updatedText
+        case 2:
+            basketModel.phone = updatedText
+        case 3:
+            basketModel.address = updatedText
+        case 4:
+            basketModel.comment = updatedText
+        default:
+            break
+        }
+        guard textField.tag == 2 else { return true }
         let isValidPhoneNumber = updatedText.range(of: phoneRegex, options: .regularExpression) != nil
         self.isValidPhoneNumber = isValidPhoneNumber
         return true

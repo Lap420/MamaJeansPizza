@@ -1,5 +1,5 @@
 // MARK: - CreateOrder Request
-struct CreateOrder: Codable {
+struct CreateOrderRequestBody: Codable {
     var organizationId: String = SyrveAPIConstants.organizationId
     let order: Order
 }
@@ -10,13 +10,19 @@ struct Order: Codable {
     var orderTypeId: String = SyrveAPIConstants.orderTypeId
     let deliveryPoint: DeliveryPoint
     let comment: String
+    let customer: Customer
     let items: [OrderItem]
     let payments: [Payment]
-    let sourceKey: String
+    var sourceKey: String = SyrveAPIConstants.sourceKey
 }
 
 struct DeliveryPoint: Codable {
     let address: Address
+}
+
+struct Customer: Codable {
+    let name: String
+    var type: String = SyrveAPIConstants.customerType
 }
 
 struct Address: Codable {
@@ -35,12 +41,21 @@ struct OrderItem: Codable {
     let productId: String
     let amount: Int
     let price: Double
-    var comment: String = ""
 }
 
 struct Payment: Codable {
     var paymentTypeKind: String = SyrveAPIConstants.paymentTypeKind
-    let sum: Int
+    let sum: Double
     var paymentTypeId: String = SyrveAPIConstants.paymentTypeId
     var isProcessedExternally: Bool = false
+}
+
+// MARK: - CreateOrder Response
+struct CreateOrderResponse: Codable {
+    let correlationId: String
+    let orderInfo: OrderInfo
+}
+
+struct OrderInfo: Codable {
+    let id: String
 }

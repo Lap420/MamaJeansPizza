@@ -21,6 +21,7 @@ class BasketView: UIView {
         conf.titleAlignment = .center
         conf.baseBackgroundColor = GlobalUIConstants.mamaGreenColor
         conf.buttonSize = .medium
+        conf.imagePadding = 8
         button.configuration = conf
         return button
     }()

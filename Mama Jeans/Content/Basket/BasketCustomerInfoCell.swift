@@ -147,6 +147,7 @@ class BasketCustomerInfoCell: UITableViewCell {
     private let commentTextField: UITextField = {
         let textField = UITextField()
         textField.placeholder = "Your comment (optional)"
+        textField.tag = 4
         textField.borderStyle = .roundedRect
         textField.autocorrectionType = .no
         textField.spellCheckingType = .no
