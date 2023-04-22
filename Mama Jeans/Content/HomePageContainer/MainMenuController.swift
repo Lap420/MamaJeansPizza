@@ -1,6 +1,9 @@
 import UIKit
 
 class MainMenuController: UIViewController {
+    // MARK: - Public properties
+    var orderHistoryButtonTapped: (() -> ())?
+    
     // MARK: - ViewController Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,8 +48,7 @@ extension MainMenuController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         if indexPath.row == 1 {
-            let alert = AlertManager.featureIsNotImplementedAlert(feature: "Order history")
-            present(alert, animated: true)
+            orderHistoryButtonTapped?()
         } else {
             if let url = URL(string: "https://t.me/lap42") {
                 UIApplication.shared.open(url, options: [:], completionHandler: nil)

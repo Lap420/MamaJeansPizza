@@ -1,8 +1,4 @@
-// TODO: Finish basket page Send order to api when check out button clicked
-// TODO: Finish basket page Add activity indicator to check out while order is sending to api
-// TODO: Finish basket page
-// TODO: Finish Order Placed page
-// TODO: Send orders to Syrve
+// TODO: Implement Alamofire
 // TODO: Save created orders to history
 // TODO: Implement Repeat order feature
 
@@ -234,8 +230,8 @@ private extension HomePageController {
     
     @objc
     func repeatOrderButtonTapped() {
-        let alert = AlertManager.featureIsNotImplementedAlert(feature: "Repeat order")
-        present(alert, animated: true)
+        let nextVC = OrderHistoryController()
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
     
     @objc

@@ -46,6 +46,11 @@ private extension HomePageContainerController {
     func addMainMenuVC() {
         mainMenuVC = MainMenuController()
         guard let mainMenuVC = mainMenuVC else { return }
+        mainMenuVC.orderHistoryButtonTapped = { [weak self] in
+            self?.toggleMainMenu()
+            let nextVC = OrderHistoryController()
+            self?.mainNavigationVC.pushViewController(nextVC, animated: true)
+        }
         addChild(mainMenuVC)
         view.insertSubview(mainMenuVC.view, at: 0)
         mainMenuVC.didMove(toParent: self)

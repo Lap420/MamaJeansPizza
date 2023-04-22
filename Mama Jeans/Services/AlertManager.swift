@@ -47,4 +47,15 @@ struct AlertManager {
         alert.addAction(okAction)
         return alert
     }
+    
+    static func emptyOrderHistoryAlert(handler: @escaping (UIAlertAction) -> Void) -> UIAlertController {
+        let alert = UIAlertController(title: "Oops!",
+                                      message: "You don't have any order yet. You will be redirected back to the menu",
+                                      preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "Okay",
+                                     style: .default,
+                                     handler: handler)
+        alert.addAction(okAction)
+        return alert
+    }
 }

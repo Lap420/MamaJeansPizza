@@ -87,6 +87,17 @@ private extension BasketController {
         self.isValidPhoneNumber = isValidPhoneNumber
     }
     
+    func saveOrderToHistory() {
+        let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let order = PreviousOrder(context: context)
+        order.date = Date()
+        do {
+            try context.save()
+        } catch let error as NSError {
+            print(error.localizedDescription)
+        }
+    }
+    
     @objc
     func dismissKeyboard() {
         view.endEditing(true)
@@ -110,6 +121,7 @@ private extension BasketController {
             present(alert, animated: true)
             return
         }
+        
         if !isValidPhoneNumber {
             let message = "The entered phone number is invalid"
             guard let textField = basketCustomerInfoCell?.phoneTextField else { return }
@@ -117,6 +129,9 @@ private extension BasketController {
             present(alert, animated: true)
             return
         }
+        
+        saveOrderToHistory()
+        
         var conf = basketView.orderButton.configuration
         conf?.title = "Checking out..."
         conf?.showsActivityIndicator = true
