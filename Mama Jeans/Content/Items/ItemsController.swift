@@ -19,8 +19,8 @@ class ItemsController: UIViewController {
     }
     
     // MARK: - Private properties
-    private let itemsView = ItemsView()
-    private let balanceView = BalanceView()
+    private lazy var itemsView = ItemsView()
+    private lazy var balanceView = BalanceView()
     private var itemsModel: ItemsModel?
 }
 

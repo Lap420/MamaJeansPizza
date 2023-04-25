@@ -16,7 +16,7 @@ class DealDescriptionController: UIViewController {
     }
     
     // MARK: - Private properties
-    private let dealDescriptionView = DealDescriptionView()
+    private lazy var dealDescriptionView = DealDescriptionView()
 }
 
 // MARK: - Private methods

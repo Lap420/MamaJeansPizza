@@ -11,7 +11,7 @@ class IntroPageController: UIPageViewController {
     }
     
     // MARK: - Private properties
-    private let introPageModel = IntroPageModel()
+    private lazy var introPageModel = IntroPageModel()
 }
 
 // MARK: - Private methods

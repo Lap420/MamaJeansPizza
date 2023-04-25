@@ -11,7 +11,7 @@ class MainMenuController: UIViewController {
     }
     
     // MARK: - Private properties
-    private let mainMenuView = MainMenuView()
+    private lazy var mainMenuView = MainMenuView()
 }
 
 // MARK: - Private methods

@@ -13,7 +13,7 @@ class OrderHistoryController: UIViewController {
     }
     
     // MARK: - Private properties
-    private let orderHistoryView = OrderHistoryView()
+    private lazy var orderHistoryView = OrderHistoryView()
     private lazy var orderHistoryModel = OrderHistoryModel(context)
     private lazy var context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 }
@@ -51,15 +51,11 @@ extension OrderHistoryController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         var content = cell.defaultContentConfiguration()
-        guard let date = orderHistoryModel.orders[indexPath.row].date else { return cell }
-        let dateFormatter: DateFormatter = {
-            let formatter = DateFormatter()
-            formatter.dateStyle = .medium
-            formatter.timeStyle = .short
-            return formatter
-        }()
-        content.text = dateFormatter.string(from: date)
-        content.secondaryText = "2"
+        let text = orderHistoryModel.getOrderDate(index: indexPath.row)
+        content.text = text
+        let secondaryText = orderHistoryModel.getOrderItemsString(index: indexPath.row)
+        content.secondaryText = secondaryText
+        content.secondaryTextProperties.font = .systemFont(ofSize: 15)
         cell.contentConfiguration = content
         return cell
     }
@@ -68,7 +64,8 @@ extension OrderHistoryController: UITableViewDataSource {
 extension OrderHistoryController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-//        let nextVC = MenuController()
-//        self.navigationController?.pushViewController(nextVC, animated: true)
+        orderHistoryModel.addItemsToBasket(index: indexPath.row)
+        let nextVC = ChooseAStoreController()
+        self.navigationController?.pushViewController(nextVC, animated: true)
     }
 }

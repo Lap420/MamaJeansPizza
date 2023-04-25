@@ -1,4 +1,6 @@
-struct Basket {
+import Foundation
+
+struct Basket: Codable {
     static var shared = Basket()
     private init() {}
     
@@ -52,7 +54,7 @@ struct Basket {
     }
 }
 
-struct BasketItem: Equatable {
+struct BasketItem: Equatable, Codable {
     let productId: String
     let name: String
     var amount: Int

@@ -18,7 +18,7 @@ class ItemDetailsController: UIViewController {
     }
     
     // MARK: - Private properties
-    private let itemDetailsView = ItemDetailsView()
+    private lazy var itemDetailsView = ItemDetailsView()
     private var itemQty = 1
     private var textPrice = ""
 }

@@ -15,9 +15,9 @@ class MenuController: UIViewController {
     }
     
     // MARK: - Private properties
-    private let menuView = MenuView()
-    private let balanceView = BalanceView()
-    private var menuModel = MenuModel()
+    private lazy var menuView = MenuView()
+    private lazy var balanceView = BalanceView()
+    private lazy var menuModel = MenuModel()
 }
 
 // MARK: - Private methods

@@ -1,7 +1,3 @@
-// TODO: Implement Alamofire
-// TODO: Save created orders to history
-// TODO: Implement Repeat order feature
-
 import UIKit
 
 class HomePageController: UIViewController {
@@ -20,9 +16,9 @@ class HomePageController: UIViewController {
     }
     
     // MARK: - Private properties
-    private let homePageView = HomePageView()
-    private var homePageModel = HomePageModel()
-    private let balanceView = BalanceView()
+    private lazy var homePageView = HomePageView()
+    private lazy var homePageModel = HomePageModel()
+    private lazy var balanceView = BalanceView()
     private var tapGesture: UITapGestureRecognizer?
 }
 
@@ -46,7 +42,7 @@ private extension HomePageController {
             name: Notification.Name(rawValue: "BalanceUpdated"),
             object: nil
         )
-//        DispatchQueue.global(qos: .utility).async { _ = MenuManager.shared  }
+        DispatchQueue.global(qos: .utility).async { _ = MenuManager.shared  }
     }
     
     func configureNavigationBar() {
@@ -154,8 +150,8 @@ private extension HomePageController {
     
     func initCollections() {
         initCollectionsDelegateAndSource()
-//        disableCollectionsInteraction()
-//        uploadCollectionsData()
+        disableCollectionsInteraction()
+        uploadCollectionsData()
     }
     
     func initButtonTargets() {

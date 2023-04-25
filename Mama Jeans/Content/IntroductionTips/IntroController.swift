@@ -22,7 +22,7 @@ class IntroController: UIViewController {
     }
     
     // MARK: - Private properties
-    private let introView = IntroView()
+    private lazy var introView = IntroView()
 }
 
 // MARK: - Private methods

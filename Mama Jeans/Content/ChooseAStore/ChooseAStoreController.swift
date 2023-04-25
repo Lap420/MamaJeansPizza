@@ -13,8 +13,8 @@ class ChooseAStoreController: UIViewController {
     }
     
     // MARK: - Private properties
-    private var chooseAStoreView = ChooseAStoreView()
-    private let chooseAStoreModel = ChooseAStoreModel()
+    private lazy var chooseAStoreView = ChooseAStoreView()
+    private lazy var chooseAStoreModel = ChooseAStoreModel()
 }
 
 // MARK: Private methods

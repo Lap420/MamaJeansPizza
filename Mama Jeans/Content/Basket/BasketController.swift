@@ -20,8 +20,8 @@ class BasketController: UIViewController {
     }
     
     // MARK: - Private properties
-    private var basketModel = BasketModel()
-    private let basketView = BasketView()
+    private lazy var basketModel = BasketModel()
+    private lazy var basketView = BasketView()
     private var basketCustomerInfoCell: BasketCustomerInfoCell?
     private var items: [BasketCellType] = [
         .customerData
@@ -91,6 +91,7 @@ private extension BasketController {
         let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         let order = PreviousOrder(context: context)
         order.date = Date()
+        order.items = try? JSONEncoder().encode(Basket.shared)
         do {
             try context.save()
         } catch let error as NSError {
