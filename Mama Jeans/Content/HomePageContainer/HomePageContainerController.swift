@@ -33,6 +33,9 @@ private extension HomePageContainerController {
         }
         willMainMenuAppear = !willMainMenuAppear
         showMainMenuVC(!willMainMenuAppear)
+        if let homepageVC = mainNavigationVC.viewControllers.first as? HomePageController {
+            homepageVC.toggleHitTest()
+        }
     }
     
     func addHomepageViewShadow() {

@@ -1,6 +1,11 @@
 import UIKit
 
 class HomePageController: UIViewController {
+    // MARK: - Public methods
+    func toggleHitTest() {
+        homePageView.isMainMenuOpen = !homePageView.isMainMenuOpen
+    }
+    
     // MARK: - Public properties
     var didToggleMainMenu: (() -> ())?
     
@@ -210,13 +215,11 @@ private extension HomePageController {
     func homepageViewTapped() {
         guard homePageView.isMainMenuOpen else { return }
         didToggleMainMenu?()
-        homePageView.isMainMenuOpen = !homePageView.isMainMenuOpen
     }
     
     @objc
     func mainMenuButtonTapped() {
         didToggleMainMenu?()
-        homePageView.isMainMenuOpen = !homePageView.isMainMenuOpen
     }
     
     @objc
